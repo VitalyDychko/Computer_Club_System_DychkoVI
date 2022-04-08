@@ -42,13 +42,10 @@ namespace Dyczko_ComputerClub_System
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
             this.btnDczk = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-=======
->>>>>>> parent of efeb75f (123)
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
@@ -57,7 +54,6 @@ namespace Dyczko_ComputerClub_System
             // 
             // panel1
             // 
-<<<<<<< HEAD
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panel1.Controls.Add(this.BtnAuth);
             this.panel1.Controls.Add(this.BtnLicenses);
@@ -65,12 +61,6 @@ namespace Dyczko_ComputerClub_System
             this.panel1.Controls.Add(this.BtnComp);
             this.panel1.Controls.Add(this.BtnClients);
             this.panel1.Controls.Add(this.BtnSotr);
-=======
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.btnComp);
-            this.panel1.Controls.Add(this.btnClients);
-            this.panel1.Controls.Add(this.btnSotr);
->>>>>>> parent of efeb75f (123)
             this.panel1.Controls.Add(this.panelLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -78,7 +68,6 @@ namespace Dyczko_ComputerClub_System
             this.panel1.Size = new System.Drawing.Size(190, 553);
             this.panel1.TabIndex = 0;
             // 
-<<<<<<< HEAD
             // BtnAuth
             // 
             this.BtnAuth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
@@ -202,70 +191,6 @@ namespace Dyczko_ComputerClub_System
             this.BtnSotr.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSotr.UseVisualStyleBackColor = false;
             this.BtnSotr.Click += new System.EventHandler(this.BtnSotr_Click);
-=======
-            // btnComp
-            // 
-            this.btnComp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.btnComp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnComp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnComp.FlatAppearance.BorderSize = 0;
-            this.btnComp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComp.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.btnComp.ForeColor = System.Drawing.Color.White;
-            this.btnComp.Image = global::Dyczko_InterfaceTraining.Properties.Resources.Comp;
-            this.btnComp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnComp.Location = new System.Drawing.Point(0, 198);
-            this.btnComp.Name = "btnComp";
-            this.btnComp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnComp.Size = new System.Drawing.Size(196, 60);
-            this.btnComp.TabIndex = 3;
-            this.btnComp.Text = "Компьютеры";
-            this.btnComp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnComp.UseVisualStyleBackColor = false;
-            this.btnComp.Click += new System.EventHandler(this.btnComp_Click);
-            // 
-            // btnClients
-            // 
-            this.btnClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.btnClients.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClients.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClients.FlatAppearance.BorderSize = 0;
-            this.btnClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClients.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.btnClients.ForeColor = System.Drawing.Color.White;
-            this.btnClients.Image = global::Dyczko_InterfaceTraining.Properties.Resources.Man;
-            this.btnClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClients.Location = new System.Drawing.Point(0, 138);
-            this.btnClients.Name = "btnClients";
-            this.btnClients.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnClients.Size = new System.Drawing.Size(196, 60);
-            this.btnClients.TabIndex = 2;
-            this.btnClients.Text = "Клиенты";
-            this.btnClients.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClients.UseVisualStyleBackColor = false;
-            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
-            // 
-            // btnSotr
-            // 
-            this.btnSotr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.btnSotr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSotr.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSotr.FlatAppearance.BorderSize = 0;
-            this.btnSotr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSotr.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.btnSotr.ForeColor = System.Drawing.Color.White;
-            this.btnSotr.Image = global::Dyczko_InterfaceTraining.Properties.Resources.HandImage;
-            this.btnSotr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSotr.Location = new System.Drawing.Point(0, 78);
-            this.btnSotr.Name = "btnSotr";
-            this.btnSotr.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnSotr.Size = new System.Drawing.Size(196, 60);
-            this.btnSotr.TabIndex = 1;
-            this.btnSotr.Text = "Сотрудники";
-            this.btnSotr.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSotr.UseVisualStyleBackColor = false;
-            this.btnSotr.Click += new System.EventHandler(this.btnSotr_Click);
->>>>>>> parent of efeb75f (123)
             // 
             // panelLogo
             // 
@@ -286,11 +211,7 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.ForeColor = System.Drawing.Color.White;
             this.panelTitleBar.Location = new System.Drawing.Point(190, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-<<<<<<< HEAD
             this.panelTitleBar.Size = new System.Drawing.Size(869, 60);
-=======
-            this.panelTitleBar.Size = new System.Drawing.Size(703, 78);
->>>>>>> parent of efeb75f (123)
             this.panelTitleBar.TabIndex = 1;
             // 
             // btnCloseChildForm
@@ -313,16 +234,10 @@ namespace Dyczko_ComputerClub_System
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Right;
-<<<<<<< HEAD
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(538, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(331, 32);
-=======
-            this.lblTitle.Location = new System.Drawing.Point(634, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(69, 23);
->>>>>>> parent of efeb75f (123)
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
             // 
@@ -335,7 +250,6 @@ namespace Dyczko_ComputerClub_System
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktopPane.Location = new System.Drawing.Point(190, 60);
             this.panelDesktopPane.Name = "panelDesktopPane";
-<<<<<<< HEAD
             this.panelDesktopPane.Size = new System.Drawing.Size(869, 493);
             this.panelDesktopPane.TabIndex = 2;
             // 
@@ -385,21 +299,12 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-=======
-            this.panelDesktopPane.Size = new System.Drawing.Size(703, 372);
-            this.panelDesktopPane.TabIndex = 2;
-            // 
->>>>>>> parent of efeb75f (123)
             // ClubMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1059, 553);
-=======
-            this.ClientSize = new System.Drawing.Size(899, 450);
->>>>>>> parent of efeb75f (123)
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panel1);
@@ -427,7 +332,6 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelDesktopPane;
         private System.Windows.Forms.Button btnCloseChildForm;
-<<<<<<< HEAD
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
@@ -435,8 +339,6 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Button BtnSetup;
         private System.Windows.Forms.Button BtnLicenses;
         private System.Windows.Forms.Button BtnAuth;
-=======
->>>>>>> parent of efeb75f (123)
     }
 }
 

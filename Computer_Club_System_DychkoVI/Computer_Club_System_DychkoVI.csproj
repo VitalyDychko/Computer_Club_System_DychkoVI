@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{796DE573-CD71-4041-8D69-413893508234}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Computer_Club_System_DychkoVI</RootNamespace>
+    <RootNamespace>Dyczko_ComputerClub_System</RootNamespace>
     <AssemblyName>Computer_Club_System_DychkoVI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,12 +33,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLLs\Connector\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,35 +71,233 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientAdd.Designer.cs">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClubMenu.Designer.cs">
+      <DependentUpon>ClubMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompAdd.Designer.cs">
+      <DependentUpon>CompAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comps.Designer.cs">
+      <DependentUpon>Comps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hiring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hiring.designer.cs">
+      <DependentUpon>Hiring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seans.Designer.cs">
+      <DependentUpon>Seans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seans_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seans_Add.Designer.cs">
+      <DependentUpon>Seans_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeColor.cs" />
+    <Compile Include="UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList.Designer.cs">
+      <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientAdd.resx">
+      <DependentUpon>ClientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubMenu.resx">
+      <DependentUpon>ClubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompAdd.resx">
+      <DependentUpon>CompAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comps.resx">
+      <DependentUpon>Comps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hiring.resx">
+      <DependentUpon>Hiring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seans.resx">
+      <DependentUpon>Seans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seans_Add.resx">
+      <DependentUpon>Seans_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList.resx">
+      <DependentUpon>UserList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\g_earth-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\HandImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\handshake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\reload %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\trash-can.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\VTsFFSC3NDQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Иконушка святая.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-database-4531114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-hacker-4529975.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-hologram-4531106.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-implant-4529992.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-videogame-4529987.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\free-icon-woman-4531110.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-card-4531350.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-cyborg-4531223.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-encripted-4531326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-file-4531378.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-glasses-4531364.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-hacker-4531307.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-headphones-4531283 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-light-saber-922809.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-man-4531273 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-noodles-4531232.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-robot-4531215.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-security-4531293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\premium-icon-security-camera-4531279.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Password\close-eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Password\open-eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Wallpapers\the-mandalorian.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

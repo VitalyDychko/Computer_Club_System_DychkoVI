@@ -95,19 +95,7 @@ namespace Dyczko_ComputerClub_System
                 conn.Close();
             }
         }
-<<<<<<< HEAD
         private void CreateColumns()
-=======
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            //Метод обновления dataGridView, так как он полностью обновляется, покраски строк не будет. 
-            reload_list();
-            //Красим опять грид
-            ChangeColorDGV();
-        }
-        //Метод обновления DataGreed
-        public void reload_list()
->>>>>>> parent of efeb75f (123)
         {
             dataGridView1.Columns.Add("s_ID", "Код");
             dataGridView1.Columns.Add("s_Fam", "Фамилия");
@@ -205,10 +193,8 @@ namespace Dyczko_ComputerClub_System
             UpdateT();
             ChangeColorDGV();
         }
-<<<<<<< HEAD
         #endregion
 
-=======
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             ChangeState("1");
@@ -218,20 +204,7 @@ namespace Dyczko_ComputerClub_System
         {
             ChangeState("2");
         }
-        //Метод получения ID выделенной строки, для последующего вызова его в нужных методах
-        public void GetSelectedIDString()
-        {
-            //Переменная для индекс выбранной строки в гриде
-            string index_selected_rows;
-            //Индекс выбранной строки
-            index_selected_rows = dataGridView1.SelectedCells[0].RowIndex.ToString();
-            //ID конкретной записи в Базе данных, на основании индекса строки
-            id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
-            //Указываем ID выделенной строки в метке
-            toolStripLabel4.Text = id_selected_rows;
-        }
-        //Метод изменения цвета строк, в зависимости от значения поля записи в таблице
->>>>>>> parent of efeb75f (123)
+
         private void ChangeColorDGV()
         {
             //Отражаем количество записей в ДатаГриде
@@ -261,41 +234,11 @@ namespace Dyczko_ComputerClub_System
                 }
             }
         }
-<<<<<<< HEAD
         #region ТулСтрип
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            ChangeState("1");
-        }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            ChangeState("2");
-=======
-        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (!e.RowIndex.Equals(-1) && !e.ColumnIndex.Equals(-1) && e.Button.Equals(MouseButtons.Right))
-            {
-                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                //dataGridView1.CurrentRow.Selected = true;
-                dataGridView1.CurrentCell.Selected = true;
-                //Метод получения ID выделенной строки в глобальную переменную
-                GetSelectedIDString();
-            }
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //Магические строки
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
-            //Метод получения ID выделенной строки в глобальную переменную
-            GetSelectedIDString();
-        }
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             DeleteUser();
->>>>>>> parent of efeb75f (123)
         }
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -392,7 +335,6 @@ namespace Dyczko_ComputerClub_System
             #endregion
             ChangeColorDGV();
         }
-<<<<<<< HEAD
         #region Управление
         private void button4_Click(object sender, EventArgs e)
         {
@@ -435,7 +377,5 @@ namespace Dyczko_ComputerClub_System
                 textBox9.Text = row.Cells[8].Value.ToString();
             }
         }
-=======
->>>>>>> parent of efeb75f (123)
     }
 }

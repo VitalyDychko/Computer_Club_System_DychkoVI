@@ -59,17 +59,17 @@ namespace Dyczko_ComputerClub_System
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-<<<<<<< HEAD
                     previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-=======
-                    previousBtn.BackColor = Color.FromArgb(115, 194, 255);
->>>>>>> parent of efeb75f (123)
                     previousBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
+            pictureBox1.Visible = false;
+            btnDczk.Visible = false;
+            label1.Visible = false;
+            monthCalendar1.Visible = false;
             if (activeForm != null)
                 activeForm.Close();
             ActivateButton(btnSender);
@@ -82,7 +82,6 @@ namespace Dyczko_ComputerClub_System
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
-            pictureBox1.Visible = false;
         }
         private void BtnSotr_Click(object sender, EventArgs e)
         {
@@ -112,6 +111,9 @@ namespace Dyczko_ComputerClub_System
             panelTitleBar.BackColor = Color.FromArgb(16, 16, 24);
             panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             pictureBox1.Visible = true;
+            btnDczk.Visible = true;
+            label1.Visible = true;
+            monthCalendar1.Visible = true;
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }

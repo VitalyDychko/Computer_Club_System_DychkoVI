@@ -190,7 +190,7 @@ namespace Dyczko_ComputerClub_System
         private void UserList_Load(object sender, EventArgs e)
         {
             CreateColumns();
-            RefreshDataGrid(dataGridView1);
+            //RefreshDataGrid(dataGridView1);
             #region Стиль
             //Видимость полей в гриде
             dataGridView1.Columns[0].Visible = true;
