@@ -76,11 +76,11 @@ namespace Dyczko_ComputerClub_System
             this.Vhod.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Vhod.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Vhod.ForeColor = System.Drawing.Color.Gold;
-            this.Vhod.Location = new System.Drawing.Point(200, 303);
+            this.Vhod.Location = new System.Drawing.Point(223, 303);
             this.Vhod.Name = "Vhod";
-            this.Vhod.Size = new System.Drawing.Size(113, 13);
+            this.Vhod.Size = new System.Drawing.Size(90, 13);
             this.Vhod.TabIndex = 31;
-            this.Vhod.Text = "Зарегистрироваться";
+            this.Vhod.Text = "Авторизоваться";
             this.Vhod.Click += new System.EventHandler(this.Vhod_Click);
             // 
             // label3
@@ -90,9 +90,9 @@ namespace Dyczko_ComputerClub_System
             this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(22, 303);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 13);
+            this.label3.Size = new System.Drawing.Size(153, 13);
             this.label3.TabIndex = 30;
-            this.label3.Text = "У вас ещё нет аккаунта?";
+            this.label3.Text = "У вас уже имеется аккаунт?";
             // 
             // pictureBox12
             // 

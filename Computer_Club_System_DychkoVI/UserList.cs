@@ -13,6 +13,12 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class UserList : Form
     {
+        Database DB = new Database();
+        private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
+        private BindingSource SourceBind = new BindingSource();
+        private DataTable datatable = new DataTable();
+        private DataSet ds = new DataSet();
+        int selected_Row;
         public UserList()
         {
             InitializeComponent();
@@ -25,19 +31,12 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
-        private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
-        private BindingSource SourceBind = new BindingSource();
-        private DataTable datatable = new DataTable();
-        private DataSet ds = new DataSet();
-        int selected_Row;
         #region Основные методы
         public void UpdateT()
         {
             try
             {
-                conn.Open();
-
+                DB.openConnection();
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
                     var rowState = (RowState)dataGridView1.Rows[index].Cells[2].Value;
@@ -48,9 +47,9 @@ namespace Dyczko_ComputerClub_System
                     if (rowState == RowState.Deleted)
                     {
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
-                        var deleteQuery = $"delete from K_Users where id_user = {id}";
+                        var deleteQuery = $"delete from Users where id_user = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, conn);
+                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
 
@@ -60,9 +59,9 @@ namespace Dyczko_ComputerClub_System
                         var log = dataGridView1.Rows[index].Cells[1].Value.ToString();
                         var pass = dataGridView1.Rows[index].Cells[2].Value.ToString();
 
-                        var changeQuery = $"update K_Users set login_user = '{log}', password_user = '{pass}' where id_user = '{id}'";
+                        var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}' where id_user = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, conn);
+                        var command = new MySqlCommand(changeQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -73,7 +72,7 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
             }
         }
         private void CreateColumns()
@@ -91,11 +90,11 @@ namespace Dyczko_ComputerClub_System
         {
             dgw.Rows.Clear();
 
-            string querystring = $"select * from K_Users";
+            string querystring = $"select * from Users";
 
-            MySqlCommand command = new MySqlCommand(querystring, conn);
+            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
 
-            conn.Open();
+            DB.openConnection();
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -125,7 +124,7 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
                 //Вызов метода обновления ДатаГрида
                 RefreshDataGrid(dataGridView1);
             }
@@ -190,7 +189,7 @@ namespace Dyczko_ComputerClub_System
         private void UserList_Load(object sender, EventArgs e)
         {
             CreateColumns();
-            //RefreshDataGrid(dataGridView1);
+            RefreshDataGrid(dataGridView1);
             #region Стиль
             //Видимость полей в гриде
             dataGridView1.Columns[0].Visible = true;

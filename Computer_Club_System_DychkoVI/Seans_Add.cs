@@ -13,7 +13,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Seans_Add : Form
     {
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
+        Database DB = new Database();
         public Seans_Add()
         {
             InitializeComponent();
@@ -24,18 +24,18 @@ namespace Dyczko_ComputerClub_System
             DataTable list_client_table = new DataTable();
             MySqlCommand list_client_command = new MySqlCommand();
             //Открываем соединение
-            conn.Open();
+            DB.openConnection();
             //Формируем столбцы для комбобокса списка ЦП
-            list_client_table.Columns.Add(new DataColumn("s_ID", System.Type.GetType("System.String")));
-            list_client_table.Columns.Add(new DataColumn("s_FIO", System.Type.GetType("System.String")));
+            list_client_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.String")));
+            list_client_table.Columns.Add(new DataColumn("FIO", System.Type.GetType("System.String")));
             //Настройка видимости полей комбобокса
             comboBox1.DataSource = list_client_table;
-            comboBox1.DisplayMember = "s_FIO";
-            comboBox1.ValueMember = "s_ID";
+            comboBox1.DisplayMember = "FIO";
+            comboBox1.ValueMember = "ID";
             //Формируем строку запроса на отображение списка статусов прав пользователя
-            string sql_client_users = "SELECT ID, FIO FROM K_Clients";
+            string sql_client_users = "SELECT ID, FIO FROM Clients";
             list_client_command.CommandText = sql_client_users;
-            list_client_command.Connection = conn;
+            list_client_command.Connection = DB.getConnection();
             //Формирование списка ЦП для combobox'a
             MySqlDataReader list_client_reader;
             try
@@ -45,12 +45,12 @@ namespace Dyczko_ComputerClub_System
                 while (list_client_reader.Read())
                 {
                     DataRow rowToAdd = list_client_table.NewRow();
-                    rowToAdd["s_ID"] = list_client_reader[0].ToString();
-                    rowToAdd["s_FIO"] = list_client_reader[1].ToString();
+                    rowToAdd["ID"] = list_client_reader[0].ToString();
+                    rowToAdd["FIO"] = list_client_reader[1].ToString();
                     list_client_table.Rows.Add(rowToAdd);
                 }
                 list_client_reader.Close();
-                conn.Close();
+                DB.CloseConnection();
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
             }
         }
         public void GetCompList()
@@ -68,18 +68,17 @@ namespace Dyczko_ComputerClub_System
             DataTable list_comp_table = new DataTable();
             MySqlCommand list_comp_command = new MySqlCommand();
             //Открываем соединение
-            conn.Open();
+            DB.openConnection();
             //Формируем столбцы для комбобокса списка ЦП
-            list_comp_table.Columns.Add(new DataColumn("c_ID", System.Type.GetType("System.Int32")));
-            list_comp_table.Columns.Add(new DataColumn("c_Name", System.Type.GetType("System.String")));
+            list_comp_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             //Настройка видимости полей комбобокса
-            comboBox1.DataSource = list_comp_table;
-            comboBox1.DisplayMember = "c_Name";
-            comboBox1.ValueMember = "c_ID";
+            comboBox2.DataSource = list_comp_table;
+            comboBox2.ValueMember = "ID";
+            comboBox2.DisplayMember = "ID";
             //Формируем строку запроса на отображение списка статусов прав пользователя
-            string sql_list_comps = "SELECT c_ID, c_FIO FROM K_Comps";
+            string sql_list_comps = "SELECT ID, Name FROM Comps";
             list_comp_command.CommandText = sql_list_comps;
-            list_comp_command.Connection = conn;
+            list_comp_command.Connection = DB.getConnection();
             //Формирование списка ЦП для combobox'a
             MySqlDataReader list_comp_reader;
             try
@@ -89,12 +88,11 @@ namespace Dyczko_ComputerClub_System
                 while (list_comp_reader.Read())
                 {
                     DataRow rowToAdd = list_comp_table.NewRow();
-                    rowToAdd["c_ID"] = Convert.ToInt32(list_comp_reader[0]);
-                    rowToAdd["c_Name"] = list_comp_reader[1].ToString();
+                    rowToAdd["ID"] = Convert.ToInt32(list_comp_reader[0]);
                     list_comp_table.Rows.Add(rowToAdd);
                 }
                 list_comp_reader.Close();
-                conn.Close();
+                DB.CloseConnection();
             }
             catch (Exception ex)
             {
@@ -103,7 +101,7 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
             }
         }
         private void addseans(object sender, EventArgs e)
@@ -116,7 +114,7 @@ namespace Dyczko_ComputerClub_System
             {
                 string sql_update_current_flight = $"INSERT INTO Seans (route_number, price, departure_station, departure_date, arrival_station, arrival_date, id_state)" +
                     $"VALUES (@User, @Comp, @Start, @Stop, @time, @price)";
-                using (MySqlCommand command = new MySqlCommand(sql_update_current_flight, conn))
+                using (MySqlCommand command = new MySqlCommand(sql_update_current_flight, DB.getConnection()))
                 {
                     command.Parameters.Add("@User", MySqlDbType.VarChar).Value = comboBox1.SelectedValue.ToString();
                     command.Parameters.Add("@Comp", MySqlDbType.VarChar).Value = comboBox2.SelectedValue.ToString();
@@ -124,7 +122,7 @@ namespace Dyczko_ComputerClub_System
                     command.Parameters.Add("@stop", MySqlDbType.DateTime).Value = dateTimePicker2.Value;
                     command.Parameters.Add("@time", MySqlDbType.VarChar).Value = textBox1.Text;
                     command.Parameters.Add("@price", MySqlDbType.VarChar).Value = textBox2.Text;
-                    conn.Open();
+                    DB.openConnection();
                     try
                     {
                         command.ExecuteNonQuery();
@@ -136,7 +134,7 @@ namespace Dyczko_ComputerClub_System
                     }
                     finally
                     {
-                        conn.Close();
+                        DB.CloseConnection();
                     }
                 }
             }
@@ -162,6 +160,18 @@ namespace Dyczko_ComputerClub_System
         {
             Calc();
             Sum();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetUserList();
+            GetCompList();
+        }
+
+        private void Seans_Add_Load(object sender, EventArgs e)
+        {
+            GetUserList();
+            GetCompList();
         }
     }
 }

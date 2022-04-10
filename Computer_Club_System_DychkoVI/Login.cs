@@ -11,10 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace Dyczko_ComputerClub_System
 {
-    public partial class Log_in : Form
+    public partial class Login : Form
     {
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
-        public Log_in()
+        Database DB = new Database();
+        public Login()
         {
             InitializeComponent();
         }
@@ -26,15 +26,15 @@ namespace Dyczko_ComputerClub_System
 
         private void AuthBtn_Click(object sender, EventArgs e)
         {
-            var loginUser = textBox_login;
-            var passUser = textBox_password;
+            var loginUser = textBox_login.Text;
+            var passUser = textBox_password.Text;
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querystring = $"select id_iser, login_user, password_user from K_User where login_user = '{loginUser}' and password_user = '{passUser}'";
+            string querystring = $"select id_user, login_user, password_user from Users where login_user = '{loginUser}' and password_user = '{passUser}'";
 
-            MySqlCommand command = new MySqlCommand(querystring, conn);
+            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -59,7 +59,6 @@ namespace Dyczko_ComputerClub_System
 
         private void Log_in_Load(object sender, EventArgs e)
         {
-            textBox_password.PasswordChar = '*';
             Open_eye.Visible = false;
             textBox_login.MaxLength = 50;
             textBox_password.MaxLength = 50;
@@ -74,7 +73,7 @@ namespace Dyczko_ComputerClub_System
 
         private void Hide_eye_Click(object sender, EventArgs e)
         {
-            textBox_password.UseSystemPasswordChar = false;
+            textBox_password.UseSystemPasswordChar = true;
             Hide_eye.Visible = false;
             Open_eye.Visible = true;
         }

@@ -71,11 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientAdd.cs">
+    <Compile Include="Client_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientAdd.Designer.cs">
-      <DependentUpon>ClientAdd.cs</DependentUpon>
+    <Compile Include="Client_Add.Designer.cs">
+      <DependentUpon>Client_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Clients.cs">
       <SubType>Form</SubType>
@@ -83,17 +83,23 @@
     <Compile Include="Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Edit.Designer.cs">
+      <DependentUpon>Client_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClubMenu.Designer.cs">
       <DependentUpon>ClubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompAdd.cs">
+    <Compile Include="Comps_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompAdd.Designer.cs">
-      <DependentUpon>CompAdd.cs</DependentUpon>
+    <Compile Include="Comps_Add.Designer.cs">
+      <DependentUpon>Comps_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Comps.cs">
       <SubType>Form</SubType>
@@ -101,17 +107,18 @@
     <Compile Include="Comps.Designer.cs">
       <DependentUpon>Comps.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Comps_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Comps_Edit.Designer.cs">
+      <DependentUpon>Comps_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hiring.cs">
+    <Compile Include="DataBase.cs" />
+    <Compile Include="Staff_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hiring.designer.cs">
-      <DependentUpon>Hiring.cs</DependentUpon>
+    <Compile Include="Staff_Add.designer.cs">
+      <DependentUpon>Staff_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -149,6 +156,12 @@
     <Compile Include="Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_Edit.Designer.cs">
+      <DependentUpon>Staff_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemeColor.cs" />
     <Compile Include="UserList.cs">
       <SubType>Form</SubType>
@@ -161,26 +174,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientAdd.resx">
-      <DependentUpon>ClientAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Client_Add.resx">
+      <DependentUpon>Client_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client_Edit.resx">
+      <DependentUpon>Client_Edit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClubMenu.resx">
       <DependentUpon>ClubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompAdd.resx">
-      <DependentUpon>CompAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Comps_Add.resx">
+      <DependentUpon>Comps_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comps.resx">
       <DependentUpon>Comps.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Comps_Edit.resx">
+      <DependentUpon>Comps_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hiring.resx">
-      <DependentUpon>Hiring.cs</DependentUpon>
+    <EmbeddedResource Include="Staff_Add.resx">
+      <DependentUpon>Staff_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -201,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff_Edit.resx">
+      <DependentUpon>Staff_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>
@@ -298,6 +317,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pictures\Wallpapers\the-mandalorian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\corporate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\red_reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

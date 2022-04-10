@@ -1,7 +1,7 @@
 ﻿
 namespace Dyczko_ComputerClub_System
 {
-    partial class Log_in
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,9 @@ namespace Dyczko_ComputerClub_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Log_in));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -39,17 +40,16 @@ namespace Dyczko_ComputerClub_System
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label3 = new System.Windows.Forms.Label();
             this.Zareg = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Open_eye = new System.Windows.Forms.PictureBox();
             this.Closebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox_login = new Bunifu.UI.WinForms.BunifuTextBox();
             this.Hide_eye = new System.Windows.Forms.PictureBox();
-            this.textBox_password = new Bunifu.UI.WinForms.BunifuTextBox();
             this.AuthBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.textBox_login = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.textBox_password = new Bunifu.UI.WinForms.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Open_eye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Hide_eye)).BeginInit();
@@ -204,6 +204,109 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // Hide_eye
+            // 
+            this.Hide_eye.BackColor = System.Drawing.Color.White;
+            this.Hide_eye.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Hide_eye.Image = ((System.Drawing.Image)(resources.GetObject("Hide_eye.Image")));
+            this.Hide_eye.Location = new System.Drawing.Point(266, 248);
+            this.Hide_eye.Name = "Hide_eye";
+            this.Hide_eye.Size = new System.Drawing.Size(41, 40);
+            this.Hide_eye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Hide_eye.TabIndex = 3;
+            this.Hide_eye.TabStop = false;
+            this.Hide_eye.Click += new System.EventHandler(this.Hide_eye_Click);
+            // 
+            // AuthBtn
+            // 
+            this.AuthBtn.AllowAnimations = true;
+            this.AuthBtn.AllowMouseEffects = true;
+            this.AuthBtn.AllowToggling = false;
+            this.AuthBtn.AnimationSpeed = 200;
+            this.AuthBtn.AutoGenerateColors = false;
+            this.AuthBtn.AutoRoundBorders = false;
+            this.AuthBtn.AutoSizeLeftIcon = true;
+            this.AuthBtn.AutoSizeRightIcon = true;
+            this.AuthBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AuthBtn.BackColor1 = System.Drawing.Color.Yellow;
+            this.AuthBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AuthBtn.BackgroundImage")));
+            this.AuthBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.AuthBtn.ButtonText = "Авторизовать";
+            this.AuthBtn.ButtonTextMarginLeft = 0;
+            this.AuthBtn.ColorContrastOnClick = 45;
+            this.AuthBtn.ColorContrastOnHover = 45;
+            this.AuthBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.AuthBtn.CustomizableEdges = borderEdges2;
+            this.AuthBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.AuthBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.AuthBtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.AuthBtn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.AuthBtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.AuthBtn.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.AuthBtn.ForeColor = System.Drawing.Color.Black;
+            this.AuthBtn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AuthBtn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.AuthBtn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.AuthBtn.IconMarginLeft = 11;
+            this.AuthBtn.IconPadding = 10;
+            this.AuthBtn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AuthBtn.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.AuthBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.AuthBtn.IconSize = 25;
+            this.AuthBtn.IdleBorderColor = System.Drawing.Color.Yellow;
+            this.AuthBtn.IdleBorderRadius = 1;
+            this.AuthBtn.IdleBorderThickness = 1;
+            this.AuthBtn.IdleFillColor = System.Drawing.Color.Yellow;
+            this.AuthBtn.IdleIconLeftImage = null;
+            this.AuthBtn.IdleIconRightImage = null;
+            this.AuthBtn.IndicateFocus = false;
+            this.AuthBtn.Location = new System.Drawing.Point(13, 294);
+            this.AuthBtn.Name = "AuthBtn";
+            this.AuthBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.AuthBtn.OnDisabledState.BorderRadius = 1;
+            this.AuthBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.AuthBtn.OnDisabledState.BorderThickness = 1;
+            this.AuthBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.AuthBtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.AuthBtn.OnDisabledState.IconLeftImage = null;
+            this.AuthBtn.OnDisabledState.IconRightImage = null;
+            this.AuthBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.AuthBtn.onHoverState.BorderRadius = 1;
+            this.AuthBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.AuthBtn.onHoverState.BorderThickness = 1;
+            this.AuthBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.AuthBtn.onHoverState.ForeColor = System.Drawing.Color.Black;
+            this.AuthBtn.onHoverState.IconLeftImage = null;
+            this.AuthBtn.onHoverState.IconRightImage = null;
+            this.AuthBtn.OnIdleState.BorderColor = System.Drawing.Color.Yellow;
+            this.AuthBtn.OnIdleState.BorderRadius = 1;
+            this.AuthBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.AuthBtn.OnIdleState.BorderThickness = 1;
+            this.AuthBtn.OnIdleState.FillColor = System.Drawing.Color.Yellow;
+            this.AuthBtn.OnIdleState.ForeColor = System.Drawing.Color.Black;
+            this.AuthBtn.OnIdleState.IconLeftImage = null;
+            this.AuthBtn.OnIdleState.IconRightImage = null;
+            this.AuthBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AuthBtn.OnPressedState.BorderRadius = 1;
+            this.AuthBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.AuthBtn.OnPressedState.BorderThickness = 1;
+            this.AuthBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AuthBtn.OnPressedState.ForeColor = System.Drawing.Color.Black;
+            this.AuthBtn.OnPressedState.IconLeftImage = null;
+            this.AuthBtn.OnPressedState.IconRightImage = null;
+            this.AuthBtn.Size = new System.Drawing.Size(295, 39);
+            this.AuthBtn.TabIndex = 0;
+            this.AuthBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AuthBtn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AuthBtn.TextMarginLeft = 0;
+            this.AuthBtn.TextPadding = new System.Windows.Forms.Padding(0);
+            this.AuthBtn.UseDefaultRadiusAndThickness = true;
+            this.AuthBtn.Click += new System.EventHandler(this.AuthBtn_Click);
+            // 
             // textBox_login
             // 
             this.textBox_login.AcceptsReturn = false;
@@ -278,19 +381,6 @@ namespace Dyczko_ComputerClub_System
             this.textBox_login.UseSystemPasswordChar = false;
             this.textBox_login.WordWrap = true;
             // 
-            // Hide_eye
-            // 
-            this.Hide_eye.BackColor = System.Drawing.Color.White;
-            this.Hide_eye.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Hide_eye.Image = ((System.Drawing.Image)(resources.GetObject("Hide_eye.Image")));
-            this.Hide_eye.Location = new System.Drawing.Point(266, 248);
-            this.Hide_eye.Name = "Hide_eye";
-            this.Hide_eye.Size = new System.Drawing.Size(41, 40);
-            this.Hide_eye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Hide_eye.TabIndex = 3;
-            this.Hide_eye.TabStop = false;
-            this.Hide_eye.Click += new System.EventHandler(this.Hide_eye_Click);
-            // 
             // textBox_password
             // 
             this.textBox_password.AcceptsReturn = false;
@@ -354,9 +444,9 @@ namespace Dyczko_ComputerClub_System
             this.textBox_password.SelectionLength = 0;
             this.textBox_password.SelectionStart = 0;
             this.textBox_password.ShortcutsEnabled = true;
-            this.textBox_password.Size = new System.Drawing.Size(248, 40);
+            this.textBox_password.Size = new System.Drawing.Size(247, 40);
             this.textBox_password.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.textBox_password.TabIndex = 2;
+            this.textBox_password.TabIndex = 15;
             this.textBox_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textBox_password.TextMarginBottom = 0;
             this.textBox_password.TextMarginLeft = 3;
@@ -365,102 +455,13 @@ namespace Dyczko_ComputerClub_System
             this.textBox_password.UseSystemPasswordChar = false;
             this.textBox_password.WordWrap = true;
             // 
-            // AuthBtn
-            // 
-            this.AuthBtn.AllowAnimations = true;
-            this.AuthBtn.AllowMouseEffects = true;
-            this.AuthBtn.AllowToggling = false;
-            this.AuthBtn.AnimationSpeed = 200;
-            this.AuthBtn.AutoGenerateColors = false;
-            this.AuthBtn.AutoRoundBorders = false;
-            this.AuthBtn.AutoSizeLeftIcon = true;
-            this.AuthBtn.AutoSizeRightIcon = true;
-            this.AuthBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AuthBtn.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.AuthBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AuthBtn.BackgroundImage")));
-            this.AuthBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.AuthBtn.ButtonText = "Авторизовать";
-            this.AuthBtn.ButtonTextMarginLeft = 0;
-            this.AuthBtn.ColorContrastOnClick = 45;
-            this.AuthBtn.ColorContrastOnHover = 45;
-            this.AuthBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.AuthBtn.CustomizableEdges = borderEdges2;
-            this.AuthBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.AuthBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.AuthBtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.AuthBtn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.AuthBtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.AuthBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.AuthBtn.ForeColor = System.Drawing.Color.White;
-            this.AuthBtn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AuthBtn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.AuthBtn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.AuthBtn.IconMarginLeft = 11;
-            this.AuthBtn.IconPadding = 10;
-            this.AuthBtn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AuthBtn.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.AuthBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.AuthBtn.IconSize = 25;
-            this.AuthBtn.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.AuthBtn.IdleBorderRadius = 1;
-            this.AuthBtn.IdleBorderThickness = 1;
-            this.AuthBtn.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.AuthBtn.IdleIconLeftImage = null;
-            this.AuthBtn.IdleIconRightImage = null;
-            this.AuthBtn.IndicateFocus = false;
-            this.AuthBtn.Location = new System.Drawing.Point(13, 294);
-            this.AuthBtn.Name = "AuthBtn";
-            this.AuthBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.AuthBtn.OnDisabledState.BorderRadius = 1;
-            this.AuthBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.AuthBtn.OnDisabledState.BorderThickness = 1;
-            this.AuthBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.AuthBtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.AuthBtn.OnDisabledState.IconLeftImage = null;
-            this.AuthBtn.OnDisabledState.IconRightImage = null;
-            this.AuthBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.AuthBtn.onHoverState.BorderRadius = 1;
-            this.AuthBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.AuthBtn.onHoverState.BorderThickness = 1;
-            this.AuthBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.AuthBtn.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.AuthBtn.onHoverState.IconLeftImage = null;
-            this.AuthBtn.onHoverState.IconRightImage = null;
-            this.AuthBtn.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.AuthBtn.OnIdleState.BorderRadius = 1;
-            this.AuthBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.AuthBtn.OnIdleState.BorderThickness = 1;
-            this.AuthBtn.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.AuthBtn.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.AuthBtn.OnIdleState.IconLeftImage = null;
-            this.AuthBtn.OnIdleState.IconRightImage = null;
-            this.AuthBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.AuthBtn.OnPressedState.BorderRadius = 1;
-            this.AuthBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.AuthBtn.OnPressedState.BorderThickness = 1;
-            this.AuthBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.AuthBtn.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.AuthBtn.OnPressedState.IconLeftImage = null;
-            this.AuthBtn.OnPressedState.IconRightImage = null;
-            this.AuthBtn.Size = new System.Drawing.Size(295, 39);
-            this.AuthBtn.TabIndex = 0;
-            this.AuthBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.AuthBtn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AuthBtn.TextMarginLeft = 0;
-            this.AuthBtn.TextPadding = new System.Windows.Forms.Padding(0);
-            this.AuthBtn.UseDefaultRadiusAndThickness = true;
-            this.AuthBtn.Click += new System.EventHandler(this.AuthBtn_Click);
-            // 
-            // Log_in
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(319, 381);
+            this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Open_eye);
             this.Controls.Add(this.Closebtn);
@@ -469,10 +470,9 @@ namespace Dyczko_ComputerClub_System
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_login);
             this.Controls.Add(this.Hide_eye);
-            this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.AuthBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Log_in";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.Load += new System.EventHandler(this.Log_in_Load);
@@ -485,8 +485,6 @@ namespace Dyczko_ComputerClub_System
         }
 
         #endregion
-        private Bunifu.UI.WinForms.BunifuTextBox textBox_password;
-        private Bunifu.UI.WinForms.BunifuTextBox textBox_login;
         private System.Windows.Forms.PictureBox Hide_eye;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Zareg;
@@ -495,5 +493,7 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.PictureBox Open_eye;
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton AuthBtn;
+        private Bunifu.UI.WinForms.BunifuTextBox textBox_login;
+        private Bunifu.UI.WinForms.BunifuTextBox textBox_password;
     }
 }

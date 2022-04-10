@@ -46,7 +46,7 @@ namespace Dyczko_ComputerClub_System
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     btnCloseChildForm.Visible = true;
@@ -60,7 +60,7 @@ namespace Dyczko_ComputerClub_System
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -69,7 +69,6 @@ namespace Dyczko_ComputerClub_System
             pictureBox1.Visible = false;
             btnDczk.Visible = false;
             label1.Visible = false;
-            monthCalendar1.Visible = false;
             if (activeForm != null)
                 activeForm.Close();
             ActivateButton(btnSender);
@@ -113,7 +112,6 @@ namespace Dyczko_ComputerClub_System
             pictureBox1.Visible = true;
             btnDczk.Visible = true;
             label1.Visible = true;
-            monthCalendar1.Visible = true;
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
@@ -121,6 +119,16 @@ namespace Dyczko_ComputerClub_System
         private void BtnAuth_Click(object sender, EventArgs e)
         {
             OpenChildForm(new UserList(), sender);
+        }
+
+        private void BtnSetup_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Seans_Add(), sender);
+        }
+
+        private void BtnLicenses_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

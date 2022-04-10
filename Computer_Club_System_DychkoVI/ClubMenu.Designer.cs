@@ -44,7 +44,6 @@ namespace Dyczko_ComputerClub_System
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.btnDczk = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -108,6 +107,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnLicenses.Text = "Инфо";
             this.BtnLicenses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnLicenses.UseVisualStyleBackColor = false;
+            this.BtnLicenses.Click += new System.EventHandler(this.BtnLicenses_Click);
             // 
             // BtnSetup
             // 
@@ -128,6 +128,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnSetup.Text = "Сеансы";
             this.BtnSetup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSetup.UseVisualStyleBackColor = false;
+            this.BtnSetup.Click += new System.EventHandler(this.BtnSetup_Click);
             // 
             // BtnComp
             // 
@@ -211,7 +212,7 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.ForeColor = System.Drawing.Color.White;
             this.panelTitleBar.Location = new System.Drawing.Point(190, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(869, 60);
+            this.panelTitleBar.Size = new System.Drawing.Size(835, 60);
             this.panelTitleBar.TabIndex = 1;
             // 
             // btnCloseChildForm
@@ -235,7 +236,7 @@ namespace Dyczko_ComputerClub_System
             this.lblTitle.AutoSize = true;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(538, 0);
+            this.lblTitle.Location = new System.Drawing.Point(504, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(331, 32);
             this.lblTitle.TabIndex = 0;
@@ -245,12 +246,11 @@ namespace Dyczko_ComputerClub_System
             // 
             this.panelDesktopPane.Controls.Add(this.btnDczk);
             this.panelDesktopPane.Controls.Add(this.label1);
-            this.panelDesktopPane.Controls.Add(this.monthCalendar1);
             this.panelDesktopPane.Controls.Add(this.pictureBox1);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktopPane.Location = new System.Drawing.Point(190, 60);
             this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(869, 493);
+            this.panelDesktopPane.Size = new System.Drawing.Size(835, 493);
             this.panelDesktopPane.TabIndex = 2;
             // 
             // btnDczk
@@ -275,17 +275,9 @@ namespace Dyczko_ComputerClub_System
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 457);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(705, 36);
+            this.label1.Size = new System.Drawing.Size(835, 36);
             this.label1.TabIndex = 12;
             this.label1.Text = "Система компьютерного клуба";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(1, 3);
-            this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.monthCalendar1.Location = new System.Drawing.Point(705, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 11;
             // 
             // pictureBox1
             // 
@@ -294,7 +286,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(869, 493);
+            this.pictureBox1.Size = new System.Drawing.Size(835, 493);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -304,7 +296,7 @@ namespace Dyczko_ComputerClub_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1059, 553);
+            this.ClientSize = new System.Drawing.Size(1025, 553);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panel1);
@@ -333,7 +325,6 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Panel panelDesktopPane;
         private System.Windows.Forms.Button btnCloseChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label btnDczk;
         private System.Windows.Forms.Button BtnSetup;

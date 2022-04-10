@@ -13,7 +13,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Register : Form
     {
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
+        Database DB = new Database();
         public Register()
         {
             InitializeComponent();
@@ -21,19 +21,19 @@ namespace Dyczko_ComputerClub_System
 
         private void RegBtn_Click(object sender, EventArgs e)
         {
-            var login = textBox_login;
-            var password = textBox_password;
+            var login = textBox_login.Text;
+            var password = textBox_password.Text;
 
-            string querystring = $"Insert into K_Users(login_user, password_user) values('{login}','{password}')";
+            string querystring = $"INSERT INTO Users (login_user, password_user) VALUES ('{login}','{password}')";
 
-            MySqlCommand command = new MySqlCommand(querystring, conn);
+            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
 
-            conn.Open();
+            DB.openConnection();
 
-            if(command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("Аккаунт успешно создан!", "Успех!");
-                Log_in logn = new Log_in();
+                Login logn = new Login();
                 this.Hide();
                 logn.ShowDialog();
             }
@@ -41,12 +41,11 @@ namespace Dyczko_ComputerClub_System
             {
                 MessageBox.Show("Аккаунт не создан!");
             }
-            conn.Close();
             if (CheckUser())
-
             {
                 return;
             }
+            DB.CloseConnection();
         }
         private Boolean CheckUser()
         {
@@ -55,9 +54,9 @@ namespace Dyczko_ComputerClub_System
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
-            string querystring = $"select id_user, id_user, login_user, password_user from K_User where login_user = '{loginUser}' and password_user = '{passUser}'";
+            string querystring = $"select id_user, login_user, password_user from Users where login_user = '{loginUser}' and password_user = '{passUser}'";
 
-            MySqlCommand command = new MySqlCommand(querystring, conn);
+            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -74,7 +73,7 @@ namespace Dyczko_ComputerClub_System
         }
         private void Vhod_Click(object sender, EventArgs e)
         {
-            Log_in logn = new Log_in();
+            Login logn = new Login();
             logn.ShowDialog();
             this.Hide();
         }
@@ -88,7 +87,7 @@ namespace Dyczko_ComputerClub_System
 
         private void Hide_eye_Click(object sender, EventArgs e)
         {
-            textBox_password.UseSystemPasswordChar = false;
+            textBox_password.UseSystemPasswordChar = true;
             Hide_eye.Visible = false;
             Open_eye.Visible = true;
         }
@@ -100,7 +99,6 @@ namespace Dyczko_ComputerClub_System
 
         private void Register_Load(object sender, EventArgs e)
         {
-            textBox_password.PasswordChar = '*';
             Open_eye.Visible = false;
             textBox_login.MaxLength = 50;
             textBox_password.MaxLength = 50;

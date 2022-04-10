@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAgCAYAAABQISshAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIdSURBVFhH1Vk9SwNBEL3S0tLiLmdpaWlpaSU2gqWl+Ass
-        LSwEwb2LYmEj1v4BK9tglVKwCFhIxA9MlMSPkFnf7K3IhTFqTHK7Dx4pdm/2zb7d2V0S/AVxSnOR0pul
-        hCpgNUrorpRoPQxmsahq4mKMMKUFO+xwECs9iUEOwWaU0qMkYhTksTBmJ07oBBqmrZzBUNrV2wj2GKlu
-        RxpsXDQaMJnxkZ6w0n4HdgEWn4eKXqTARZAnEy5dxvt6ysrsD7YRSVyECb1JAYsmnKlD46yVK8M6cSEF
-        cImRotu++8YsJ0ed6CWcqfHEW+lfiMpUDlXXmT3xE6H1HRN/auVn4A0Eu5rSBy4zSnQjt1+4tBVdYgem
-        ojOTBNdmJPIkdvKC1DIlma8C4zyxh09qwYg1rlQHcgePyMsLieACKDR6RboOUK1qcqNPpDY70pYb/SKX
-        Xj/Lbg/ZkWupwSeyGZwIXmVyB1+IRO6CUkrHUqNfpAqqll5F5XqWO7hPaO+Eu7SVvckVvUqdfGDu4sgn
-        o9TJB/I5aJJgcEacmdTRcTZCpZdsGhl8dCXnxifM4yqlK+kDFwmtN3FZz1j5eWRLrHsvfegW6QG/y1a2
-        jGiPFt1Ohh7ChNat3P7InKG6HKg48nLCb38nesF7Jru+FP96xKQ2eWN/uyd+A7gzz0FMsDHflPkJzvco
-        LKUVK+f/4NnAWbPBLo0+ITPGDv+NYYf/AUHwAc5CvHxTGWvYAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="textBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAATwAAAAlCAYAAADfq1XhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC2SURBVHhe7dQxDQMxAARB80fll2EERgDkZclNKHhnpGsO
-        wA6AlLXWZ875MzO7cbtxJ3dj7APgVrtxJ3eCB9xN8IAMwQMyBA/IEDwgQ/CADMEDMgQPyBA8IEPwgAzB
-        AzIED8gQPCBD8IAMwQMyBA/IEDwgQ/CADMEDMgQPyBA8IEPwgAzBAzIED8gQPCBD8IAMwQMyBA/IEDwg
-        Q/CADMEDMgQPyPgL3vM8332Ymd243biTO4CCMV6CQBWKXGO18wAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="textBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAATwAAAAlCAYAAADfq1XhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC2SURBVHhe7dQxDQMxAARB80fll2EERgDkZclNKHhnpGsO
-        wA6AlLXWZ875MzO7cbtxJ3dj7APgVrtxJ3eCB9xN8IAMwQMyBA/IEDwgQ/CADMEDMgQPyBA8IEPwgAzB
-        AzIED8gQPCBD8IAMwQMyBA/IEDwgQ/CADMEDMgQPyBA8IEPwgAzBAzIED8gQPCBD8IAMwQMyBA/IEDwg
-        Q/CADMEDMgQPyPgL3vM8332Ymd243biTO4CCMV6CQBWKXGO18wAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

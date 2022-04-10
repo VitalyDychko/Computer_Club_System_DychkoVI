@@ -21,35 +21,46 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
-
+        Database DB = new Database();
+        //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
+        //что бы в БД не отправлялся null
         int selected_Row;
         public Staff()
         {
             InitializeComponent();
             #region Элементы контекстного меню
             // создаем элементы меню
-            ToolStripMenuItem DelMenuItem = new ToolStripMenuItem("Удалить");
             ToolStripMenuItem HireMenuItem = new ToolStripMenuItem("Нанять");
             ToolStripMenuItem FireMenuItem = new ToolStripMenuItem("Уволить");
             ToolStripMenuItem SelectMenuItem = new ToolStripMenuItem("Выделенный ID");
             // добавляем элементы в меню
-            contextMenuStrip1.Items.AddRange(new[] { DelMenuItem, HireMenuItem, FireMenuItem, SelectMenuItem });
+            contextMenuStrip1.Items.AddRange(new[] { HireMenuItem, FireMenuItem, SelectMenuItem });
             // ассоциируем контекстное меню с текстовым полем
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
             // устанавливаем обработчики событий для меню
-            DelMenuItem.Click += удалитьToolStripMenuItem_Click;
             HireMenuItem.Click += зачислитьToolStripMenuItem_Click;
             FireMenuItem.Click += отчислитьToolStripMenuItem_Click;
             SelectMenuItem.Click += выделенныйIDToolStripMenuItem_Click;
             #endregion
         }
         #region Основные методы
+        private void CreateColumns()
+        {
+            dataGridView1.Columns.Add("ID", "Код");
+            dataGridView1.Columns.Add("FIO", "ФИО");
+            dataGridView1.Columns.Add("Age", "Возраст");
+            dataGridView1.Columns.Add("Gen", "Пол");
+            dataGridView1.Columns.Add("Num", "Телефонный номер");
+            dataGridView1.Columns.Add("Email", "Электронная почта");
+            dataGridView1.Columns.Add("Post", "Должность");
+            dataGridView1.Columns.Add("Stat", "Статус");
+            dataGridView1.Columns.Add("IsNew", string.Empty);
+        }
         public void UpdateT()
         {
             try
             {
-                conn.Open();
+                DB.openConnection();
 
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
@@ -61,27 +72,26 @@ namespace Dyczko_ComputerClub_System
                     if (rowState == RowState.Deleted)
                     {
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
-                        var deleteQuery = $"delete from K_Staff where s_ID = {id}";
+                        var deleteQuery = $"delete from Staff where ID = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, conn);
+                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
 
                     if (rowState == RowState.Modified)
                     {
                         var id = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                        var fam = dataGridView1.Rows[index].Cells[1].Value.ToString();
-                        var nam = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                        var age = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                        var gen = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                        var num = dataGridView1.Rows[index].Cells[5].Value.ToString();
-                        var mail = dataGridView1.Rows[index].Cells[6].Value.ToString();
-                        var post = dataGridView1.Rows[index].Cells[7].Value.ToString();
-                        var stat = dataGridView1.Rows[index].Cells[8].Value.ToString();
+                        var fio = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                        var age = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                        var gen = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                        var num = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                        var mail = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                        var post = dataGridView1.Rows[index].Cells[6].Value.ToString();
+                        var stat = dataGridView1.Rows[index].Cells[7].Value.ToString();
 
-                        var changeQuery = $"update K_Clients set s_Fam = '{fam}', s_Nam = '{nam}', s_Age = '{age}', s_Sex = '{gen}', s_Number = '{num}', s_Email = '{mail}', s_Post = '{post}', s_Stat = '{stat}' where s_ID = '{id}'";
+                        var changeQuery = $"update Staff set FIO = '{fio}', Age = '{age}', Gen = '{gen}', Num = '{num}', Email = '{mail}', Post = '{post}', Stat = '{stat}' where ID = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, conn);
+                        var command = new MySqlCommand(changeQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -92,45 +102,45 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
+                ChangeColorDGV();
             }
-        }
-        private void CreateColumns()
-        {
-            dataGridView1.Columns.Add("s_ID", "Код");
-            dataGridView1.Columns.Add("s_Fam", "Фамилия");
-            dataGridView1.Columns.Add("s_Nam", "Имя");
-            dataGridView1.Columns.Add("s_Age", "Возраст");
-            dataGridView1.Columns.Add("s_Sex", "Пол");
-            dataGridView1.Columns.Add("s_Number", "Телефонный номер");
-            dataGridView1.Columns.Add("s_Email", "Электронная почта");
-            dataGridView1.Columns.Add("s_Post", "Должность");
-            dataGridView1.Columns.Add("s_Stat", "Статус");
-            dataGridView1.Columns.Add("IsNew", string.Empty);
         }
         private void ReadsSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetString(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetInt32(4), record.GetString(5), record.GetString(6), record.GetString(7), record.GetString(8), RowState.ModifiedNew);
+            dgw.Rows.Add(record.GetString(0), record.GetString(1), record.GetInt32(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetString(7), RowState.ModifiedNew);
         }
         private void RefreshDataGrid(DataGridView dgw)
         {
-            dgw.Rows.Clear();
-
-            string querystring = $"select * from K_Staff";
-
-            MySqlCommand command = new MySqlCommand(querystring, conn);
-
-            conn.Open();
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                ReadsSingleRow(dgw, reader);
+                dgw.Rows.Clear();
+
+                string querystring = $"select * from Staff";
+
+                MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+
+                DB.openConnection();
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ReadsSingleRow(dgw, reader);
+                }
+                reader.Close();
             }
-            reader.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
+            finally
+            {
+                ChangeColorDGV();
+                DB.CloseConnection();
+            }
         }
-        public void DeleteUser()
+        public void DeleteRow()
         {
             int index = dataGridView1.CurrentCell.RowIndex;
 
@@ -150,30 +160,28 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
                 //Вызов метода обновления ДатаГрида
-                RefreshDataGrid(dataGridView1);
             }
         }
         private void Change()
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
-            var id = textBox1.Text;
-            var fam = textBox2.Text;
-            var nam = textBox3.Text;
-            var sex = textBox5.Text;
-            var num = textBox6.Text;
-            var mail = textBox7.Text;
-            var post = textBox8.Text;
-            var stat = textBox9.Text;
+            var id = IDBox.Text;
+            var fio = FioBox.Text;
             int age;
+            var gen = GenBox.Text;
+            var num = NumBox.Text;
+            var mail = MailBox.Text;
+            var post = JobBox.SelectedValue.ToString();
+            var stat = StatBox.Text;
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(textBox4.Text, out age))
+                if (int.TryParse(AgeBox.Text, out age))
                 {
-                    dataGridView1.Rows[selectedRowIndex].SetValues(id, fam, nam, age, sex, num, mail, post, stat);
+                    dataGridView1.Rows[selectedRowIndex].SetValues(id, fio, age, gen, num, mail, post, stat);
                     dataGridView1.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
                 }
                 else
@@ -182,93 +190,98 @@ namespace Dyczko_ComputerClub_System
                 }
             }
         }
+        public void GetJobList()
+        {
+            DataTable list_job_table = new DataTable();
+            MySqlCommand list_job_command = new MySqlCommand();
+            DB.openConnection();
+            list_job_table.Columns.Add(new DataColumn("ID_cat", System.Type.GetType("System.Int32")));
+            list_job_table.Columns.Add(new DataColumn("Job", System.Type.GetType("System.String")));
+            JobBox.DataSource = list_job_table;
+            JobBox.DisplayMember = "Job";
+            JobBox.ValueMember = "Job";
+            string sql_list_job = "SELECT ID_cat, Job FROM Job_Categories";
+            list_job_command.CommandText = sql_list_job;
+            list_job_command.Connection = DB.getConnection();
+            MySqlDataReader list_job_reader;
+            try
+            {
+                list_job_reader = list_job_command.ExecuteReader();
+                while (list_job_reader.Read())
+                {
+                    DataRow rowToAdd = list_job_table.NewRow();
+                    rowToAdd["ID_cat"] = Convert.ToInt32(list_job_reader[0]);
+                    rowToAdd["Job"] = list_job_reader[1].ToString();
+                    list_job_table.Rows.Add(rowToAdd);
+                }
+                list_job_reader.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка чтения списка.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                DB.CloseConnection();
+            }
+        }
         public void ChangeState(string new_state)
         {
             int redact_id = selected_Row;
-            conn.Open();
-            string query2 = $"UPDATE K_Staff SET s_Stat='{new_state}' WHERE (s_ID='{redact_id}')";
-            MySqlCommand command = new MySqlCommand(query2, conn);
+            DB.openConnection();
+            string query2 = $"UPDATE Staff SET Stat='{new_state}' WHERE (ID='{redact_id}')";
+            MySqlCommand command = new MySqlCommand(query2, DB.getConnection());
             command.ExecuteNonQuery();
-            conn.Close();
+            DB.CloseConnection();
             UpdateT();
             ChangeColorDGV();
         }
         #endregion
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            ChangeState("1");
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            ChangeState("2");
-        }
-
         private void ChangeColorDGV()
         {
             //Отражаем количество записей в ДатаГриде
-            int count_rows = dataGridView1.RowCount - 1;
+            int count_rows = dataGridView1.RowCount;
             toolStripLabel2.Text = (count_rows).ToString();
             //Проходимся по ДатаГриду и красим строки в нужные нам цвета, в зависимости от статуса студента
             for (int i = 0; i < count_rows; i++)
             {
 
                 //статус конкретного студента в Базе данных, на основании индекса строки
-                int id_selected_status = Convert.ToInt32(dataGridView1.Rows[i].Cells[8].Value);
+                string id_selected_status = Convert.ToString(dataGridView1.Rows[i].Cells[7].Value);
                 //Логический блок для определения цветности
-                if (id_selected_status == 1)
+                if (id_selected_status == "Увольнение")
                 {
                     //Красим в красный
-                    dataGridView1.Rows[i].Cells[8].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[i].Cells[7].Style.BackColor = Color.Red;
                 }
-                if (id_selected_status == 2)
+                if (id_selected_status == "Работает")
                 {
                     //Красим в зелёный
-                    dataGridView1.Rows[i].Cells[8].Style.BackColor = Color.Green;
+                    dataGridView1.Rows[i].Cells[7].Style.BackColor = Color.Green;
                 }
-                if (id_selected_status == 3)
+                if (id_selected_status == "Отпуск")
                 {
                     //Красим в желтый
-                    dataGridView1.Rows[i].Cells[8].Style.BackColor = Color.Cyan;
+                    dataGridView1.Rows[i].Cells[7].Style.BackColor = Color.Cyan;
                 }
             }
         }
         #region ТулСтрип
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            DeleteUser();
-        }
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteUser();
-        }
         private void зачислитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeState("2");
+            ChangeState("Работает");
         }
 
         private void отчислитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeState("1");
+            ChangeState("Не на месте");
         }
 
         private void выделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{selected_Row}");
-        }
-        private void сброс(object sender, EventArgs e)
-        {
-            toolStripTextBox1.Clear();
-            toolStripTextBox2.Clear();
-            toolStripTextBox3.Clear();
-            toolStripTextBox4.Clear();
-            toolStripTextBox5.Clear();
-            toolStripTextBox6.Clear();
-            toolStripTextBox7.Clear();
-            toolStripTextBox8.Clear();
-            toolStripTextBox9.Clear();
         }
 
         private void перезагрузка(object sender, EventArgs e)
@@ -281,6 +294,7 @@ namespace Dyczko_ComputerClub_System
             //Вызываем метод для заполнение дата Грида
             CreateColumns();
             RefreshDataGrid(dataGridView1);
+            GetJobList();
             #region Стиль
             //Видимость полей в гриде
             dataGridView1.Columns[0].Visible = true;
@@ -291,7 +305,7 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.Columns[5].Visible = true;
             dataGridView1.Columns[6].Visible = true;
             dataGridView1.Columns[7].Visible = true;
-            dataGridView1.Columns[8].Visible = true;
+            dataGridView1.Columns[8].Visible = false;
             //Режим для полей "Только для чтения"
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
@@ -301,25 +315,18 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
             dataGridView1.Columns[7].ReadOnly = true;
-            dataGridView1.Columns[8].ReadOnly = true;
             //Растягивание полей грида
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //Убираем заголовки строк
             dataGridView1.RowHeadersVisible = false;
             //Показываем заголовки столбцов
             dataGridView1.ColumnHeadersVisible = true;
             //Стиль
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Black", 9, FontStyle.Bold); //шрифт
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 85, 255); // цвет ряда-заголовка
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // цвет символов заголовков
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9, FontStyle.Bold); //шрифт
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Gold; // цвет ряда-заголовка
             dataGridView1.GridColor = Color.White;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
@@ -336,15 +343,10 @@ namespace Dyczko_ComputerClub_System
             ChangeColorDGV();
         }
         #region Управление
-        private void button4_Click(object sender, EventArgs e)
+        private void Staff_Adder(object sender, EventArgs e)
         {
-            Hiring hiring = new Hiring();
+            Staff_Add hiring = new Staff_Add();
             hiring.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DeleteUser();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -366,16 +368,39 @@ namespace Dyczko_ComputerClub_System
             {
                 DataGridViewRow row = dataGridView1.Rows[selected_Row];
 
-                textBox1.Text = row.Cells[0].Value.ToString();
-                textBox2.Text = row.Cells[1].Value.ToString();
-                textBox3.Text = row.Cells[2].Value.ToString();
-                textBox4.Text = row.Cells[3].Value.ToString();
-                textBox5.Text = row.Cells[4].Value.ToString();
-                textBox6.Text = row.Cells[5].Value.ToString();
-                textBox7.Text = row.Cells[6].Value.ToString();
-                textBox8.Text = row.Cells[7].Value.ToString();
-                textBox9.Text = row.Cells[8].Value.ToString();
+                IDBox.Text = row.Cells[0].Value.ToString();
+                FioBox.Text = row.Cells[1].Value.ToString();
+                AgeBox.Text = row.Cells[2].Value.ToString();
+                GenBox.Text = row.Cells[3].Value.ToString();
+                NumBox.Text = row.Cells[4].Value.ToString();
+                MailBox.Text = row.Cells[5].Value.ToString();
+                JobBox.Text = row.Cells[6].Value.ToString();
+                StatBox.Text = row.Cells[7].Value.ToString();
+                toolStripLabel4.Text = row.Cells[0].Value.ToString();
             }
+        }
+
+        private void BtnDelete(object sender, EventArgs e)
+        {
+            DeleteRow();
+            UpdateT();
+        }
+
+        private void BtnChange(object sender, EventArgs e)
+        {
+            Change();
+            UpdateT();
+        }
+
+        private void Reload(object sender, EventArgs e)
+        {
+            RefreshDataGrid(dataGridView1);
+        }
+
+        private void BtnRedact_Click(object sender, EventArgs e)
+        {
+            Staff_Edit SE = new Staff_Edit();
+            SE.ShowDialog();
         }
     }
 }

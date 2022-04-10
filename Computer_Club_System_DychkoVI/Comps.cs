@@ -21,11 +21,7 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        MySqlConnection conn = ConnDB.ConnMysqlClient();
-        private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
-        private BindingSource SourceBind = new BindingSource();
-        private DataTable datatable = new DataTable();
-        private DataSet ds = new DataSet();
+        Database DB = new Database();
         int selected_Row;
         public Comps()
         {
@@ -52,11 +48,11 @@ namespace Dyczko_ComputerClub_System
         {
             try
             {
-                conn.Open();
+                DB.openConnection();
 
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
-                    var rowState = (RowState)dataGridView1.Rows[index].Cells[4].Value;
+                    var rowState = (RowState)dataGridView1.Rows[index].Cells[5].Value;
 
                     if (rowState == RowState.Existed)
                         continue;
@@ -64,9 +60,9 @@ namespace Dyczko_ComputerClub_System
                     if (rowState == RowState.Deleted)
                     {
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
-                        var deleteQuery = $"delete from K_Comps where c_ID = {id}";
+                        var deleteQuery = $"delete from Comps where ID = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, conn);
+                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
 
@@ -78,9 +74,9 @@ namespace Dyczko_ComputerClub_System
                         var type = dataGridView1.Rows[index].Cells[3].Value.ToString();
                         var stat = dataGridView1.Rows[index].Cells[4].Value.ToString();
 
-                        var changeQuery = $"update K_Comps set c_Name = '{nam}', c_Supp = '{supp}', c_Type = '{type}', c_Stat = '{stat}' where c_ID = '{id}'";
+                        var changeQuery = $"update Comps set Name = '{nam}', Supp = '{supp}', Type = '{type}', Stat = '{stat}' where ID = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, conn);
+                        var command = new MySqlCommand(changeQuery, DB.getConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -91,16 +87,17 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
+                ChangeColorDGV();
             }
         }
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("c_ID", "Номер");
-            dataGridView1.Columns.Add("c_Name", "Фамилия");
-            dataGridView1.Columns.Add("c_Supp", "Поставщик");
-            dataGridView1.Columns.Add("c_Type", "Тип");
-            dataGridView1.Columns.Add("c_Stat", "Состояние");
+            dataGridView1.Columns.Add("ID", "Номер");
+            dataGridView1.Columns.Add("Name", "Наименование");
+            dataGridView1.Columns.Add("Supp", "Поставщик");
+            dataGridView1.Columns.Add("Type", "Тип");
+            dataGridView1.Columns.Add("Stat", "Состояние");
             dataGridView1.Columns.Add("IsNew", string.Empty);
         }
         private void ReadsSingleRow(DataGridView dgw, IDataRecord record)
@@ -111,11 +108,11 @@ namespace Dyczko_ComputerClub_System
         {
             dgw.Rows.Clear();
 
-            string querystring = $"select * from C_Comps";
+            string querystring = $"select * from Comps";
 
-            MySqlCommand command = new MySqlCommand(querystring, conn);
+            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
 
-            conn.Open();
+            DB.openConnection();
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -125,7 +122,7 @@ namespace Dyczko_ComputerClub_System
             }
             reader.Close();
         }
-        public void DeleteUser()
+        public void DeleteRow()
         {
             int index = dataGridView1.CurrentCell.RowIndex;
 
@@ -134,10 +131,10 @@ namespace Dyczko_ComputerClub_System
             {
                 if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
                 {
-                    dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
+                    dataGridView1.Rows[index].Cells[5].Value = RowState.Deleted;
                     return;
                 }
-                dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[5].Value = RowState.Deleted;
             }
             catch (Exception ex)
             {
@@ -145,7 +142,7 @@ namespace Dyczko_ComputerClub_System
             }
             finally
             {
-                conn.Close();
+                DB.CloseConnection();
                 //Вызов метода обновления ДатаГрида
                 RefreshDataGrid(dataGridView1);
             }
@@ -155,17 +152,17 @@ namespace Dyczko_ComputerClub_System
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
             int id;
-            var nam = textBox2.Text;
-            var supp = textBox3.Text;
-            var type = textBox4.Text;
-            var stat = textBox5.Text;
+            var nam = NameBox.Text;
+            var supp = SuppBox.Text;
+            var type = TypeBox.Text;
+            var stat = StatBox.Text;
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(textBox1.Text, out id))
+                if (int.TryParse(IDBox.Text, out id))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id, nam, supp, type, stat);
-                    dataGridView1.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
+                    dataGridView1.Rows[selectedRowIndex].Cells[5].Value = RowState.Modified;
                 }
                 else
                 {
@@ -173,16 +170,41 @@ namespace Dyczko_ComputerClub_System
                 }
             }
         }
-        public void ChangeState(string new_state)
+        public void GetTypeList()
         {
-            int redact_id = selected_Row;
-            conn.Open();
-            string query2 = $"UPDATE K_Comps SET c_Stat='{new_state}' WHERE (c_ID='{redact_id}')";
-            MySqlCommand command = new MySqlCommand(query2, conn);
-            command.ExecuteNonQuery();
-            conn.Close();
-            UpdateT();
-            ChangeColorDGV();
+            DataTable list_of_table = new DataTable();
+            MySqlCommand list_command = new MySqlCommand();
+            DB.openConnection();
+            list_of_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
+            list_of_table.Columns.Add(new DataColumn("Type", System.Type.GetType("System.String")));
+            TypeBox.DataSource = list_of_table;
+            TypeBox.DisplayMember = "Type";
+            TypeBox.ValueMember = "Type";
+            string sql_list = "SELECT ID, Type FROM Devices_Categories";
+            list_command.CommandText = sql_list;
+            list_command.Connection = DB.getConnection();
+            MySqlDataReader list_reader;
+            try
+            {
+                list_reader = list_command.ExecuteReader();
+                while (list_reader.Read())
+                {
+                    DataRow rowToAdd = list_of_table.NewRow();
+                    rowToAdd["ID"] = Convert.ToInt32(list_reader[0]);
+                    rowToAdd["Type"] = list_reader[1].ToString();
+                    list_of_table.Rows.Add(rowToAdd);
+                }
+                list_reader.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка чтения списка.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                DB.CloseConnection();
+            }
         }
         #endregion
 
@@ -203,24 +225,23 @@ namespace Dyczko_ComputerClub_System
         {
             ChangeState("Busy");
         }
-        private void Reloading_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void Sbros_Click(object sender, EventArgs e)
-        {
-            toolStripTextBox1.Clear();
-            toolStripTextBox2.Clear();
-            toolStripTextBox3.Clear();
-            toolStripTextBox4.Clear();
-            toolStripTextBox5.Clear();
-        }
         #endregion
-
+        public void ChangeState(string new_state)
+        {
+            int redact_id = selected_Row;
+            DB.openConnection();
+            string query2 = $"UPDATE Comps SET Stat='{new_state}' WHERE (ID='{redact_id}')";
+            MySqlCommand command = new MySqlCommand(query2, DB.getConnection());
+            command.ExecuteNonQuery();
+            DB.CloseConnection();
+            UpdateT();
+            ChangeColorDGV();
+        }
         private void ChangeColorDGV()
         {
             //Отражаем количество записей в ДатаГриде
-            int count_rows = dataGridView1.RowCount - 1;
+            int count_rows = dataGridView1.RowCount;
+            toolStripLabel2.Text = (count_rows).ToString();
             //Проходимся по ДатаГриду и красим строки в нужные нам цвета, в зависимости от статуса студента
             for (int i = 0; i < count_rows; i++)
             {
@@ -249,6 +270,7 @@ namespace Dyczko_ComputerClub_System
         {
             CreateColumns();
             RefreshDataGrid(dataGridView1);
+            GetTypeList();
             #region Стиль
             //Видимость полей в гриде
             dataGridView1.Columns[0].Visible = true;
@@ -256,6 +278,7 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.Columns[2].Visible = true;
             dataGridView1.Columns[3].Visible = true;
             dataGridView1.Columns[4].Visible = true;
+            dataGridView1.Columns[5].Visible = false;
             //Режим для полей "Только для чтения"
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
@@ -273,9 +296,8 @@ namespace Dyczko_ComputerClub_System
             //Показываем заголовки столбцов
             dataGridView1.ColumnHeadersVisible = true;
             //Стиль
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Black", 9, FontStyle.Bold); //шрифт
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 85, 255); // цвет ряда-заголовка
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // цвет символов заголовков
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9, FontStyle.Bold); //шрифт
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Gold; // цвет ряда-заголовка
             dataGridView1.GridColor = Color.White;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
@@ -292,27 +314,6 @@ namespace Dyczko_ComputerClub_System
             ChangeColorDGV();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            CompAdd CAD = new CompAdd();
-            CAD.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DeleteUser();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            RefreshDataGrid(dataGridView1);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UpdateT();
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
@@ -321,36 +322,43 @@ namespace Dyczko_ComputerClub_System
             {
                 DataGridViewRow row = dataGridView1.Rows[selected_Row];
 
-                textBox1.Text = row.Cells[0].Value.ToString();
-                textBox2.Text = row.Cells[1].Value.ToString();
-                textBox3.Text = row.Cells[2].Value.ToString();
-                textBox4.Text = row.Cells[3].Value.ToString();
-                textBox5.Text = row.Cells[4].Value.ToString();
+                IDBox.Text = row.Cells[0].Value.ToString();
+                NameBox.Text = row.Cells[1].Value.ToString();
+                SuppBox.Text = row.Cells[2].Value.ToString();
+                TypeBox.Text = row.Cells[3].Value.ToString();
+                StatBox.Text = row.Cells[4].Value.ToString();
+                toolStripLabel4.Text = row.Cells[0].Value.ToString();
             }
         }
-        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+
+        private void btnChange_Click(object sender, EventArgs e)
         {
-            //Конструкция "LIKE" является способом "поиска" в полях. Это обычный синтаксис SQL
-            SourceBind.Filter = "Номер LIKE'" + toolStripTextBox1.Text + "%'";
-        }
-        private void toolStripTextBox2_TextChanged(object sender, EventArgs e)
-        {
-            SourceBind.Filter = "Название LIKE'" + toolStripTextBox2.Text + "%'";
+            Change();
+            UpdateT();
         }
 
-        private void toolStripTextBox3_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
-            SourceBind.Filter = "Поставщик LIKE'" + toolStripTextBox3.Text + "%'";
+            DeleteRow();
+            UpdateT();
         }
 
-        private void toolStripTextBox4_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            SourceBind.Filter = "Тип LIKE'" + toolStripTextBox4.Text + "%'";
+            RefreshDataGrid(dataGridView1);
+            ChangeColorDGV();
         }
 
-        private void toolStripTextBox5_Click(object sender, EventArgs e)
+        private void BtnAdding_Click(object sender, EventArgs e)
         {
-            SourceBind.Filter = "Состояние LIKE'" + toolStripTextBox5.Text + "%'";
+            Comps_Add CAD = new Comps_Add();
+            CAD.ShowDialog();
+        }
+
+        private void BtnRedact_Click(object sender, EventArgs e)
+        {
+            Comps_Edit CED = new Comps_Edit();
+            CED.ShowDialog();
         }
     }
 }

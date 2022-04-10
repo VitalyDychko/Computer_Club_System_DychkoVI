@@ -73,6 +73,16 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap corporate {
+            get {
+                object obj = ResourceManager.GetObject("corporate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_icon_database_4531114 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-database-4531114", resourceCulture);
@@ -176,6 +186,26 @@ namespace Dyczko_ComputerClub_System.Properties {
         internal static System.Drawing.Bitmap open_eye {
             get {
                 object obj = ResourceManager.GetObject("open-eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil {
+            get {
+                object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +336,16 @@ namespace Dyczko_ComputerClub_System.Properties {
         internal static System.Drawing.Bitmap premium_icon_security_camera_4531279 {
             get {
                 object obj = ResourceManager.GetObject("premium-icon-security-camera-4531279", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_reload {
+            get {
+                object obj = ResourceManager.GetObject("red_reload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
