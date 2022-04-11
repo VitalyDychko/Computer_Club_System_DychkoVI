@@ -32,13 +32,16 @@ namespace Dyczko_ComputerClub_System
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnChange = new System.Windows.Forms.Button();
             this.BtnClear = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.AgeBox = new System.Windows.Forms.TextBox();
             this.IDBox = new System.Windows.Forms.ComboBox();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.JobBox = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.AgeBox = new System.Windows.Forms.TextBox();
             this.GenBox = new System.Windows.Forms.ComboBox();
             this.EmailBox = new System.Windows.Forms.TextBox();
             this.NumBox = new System.Windows.Forms.TextBox();
@@ -48,9 +51,6 @@ namespace Dyczko_ComputerClub_System
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.JobBox = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +94,17 @@ namespace Dyczko_ComputerClub_System
             this.label1.Text = "Редактирование данных о работнике";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_file_4531378;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
+            // 
             // BtnChange
             // 
             this.BtnChange.BackColor = System.Drawing.Color.Lime;
@@ -122,6 +133,18 @@ namespace Dyczko_ComputerClub_System
             this.BtnClear.UseVisualStyleBackColor = false;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
+            // IDBox
+            // 
+            this.IDBox.BackColor = System.Drawing.Color.Black;
+            this.IDBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.IDBox.ForeColor = System.Drawing.Color.White;
+            this.IDBox.FormattingEnabled = true;
+            this.IDBox.Location = new System.Drawing.Point(24, 72);
+            this.IDBox.Name = "IDBox";
+            this.IDBox.Size = new System.Drawing.Size(174, 21);
+            this.IDBox.TabIndex = 60;
+            this.IDBox.TextChanged += new System.EventHandler(this.IDBox_TextChanged);
+            // 
             // BtnClose
             // 
             this.BtnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -137,16 +160,16 @@ namespace Dyczko_ComputerClub_System
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // pictureBox1
+            // label2
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_file_4531378;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 59;
-            this.pictureBox1.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Yellow;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(-1, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "ID:";
             // 
             // panel3
             // 
@@ -170,23 +193,32 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Size = new System.Drawing.Size(385, 168);
             this.panel3.TabIndex = 59;
             // 
+            // JobBox
+            // 
+            this.JobBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.JobBox.FormattingEnabled = true;
+            this.JobBox.Location = new System.Drawing.Point(80, 126);
+            this.JobBox.Name = "JobBox";
+            this.JobBox.Size = new System.Drawing.Size(297, 21);
+            this.JobBox.TabIndex = 65;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Yellow;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(18, 126);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 19);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Отдел:";
+            // 
             // AgeBox
             // 
             this.AgeBox.Location = new System.Drawing.Point(80, 34);
             this.AgeBox.Name = "AgeBox";
             this.AgeBox.Size = new System.Drawing.Size(297, 20);
             this.AgeBox.TabIndex = 61;
-            // 
-            // IDBox
-            // 
-            this.IDBox.BackColor = System.Drawing.Color.Black;
-            this.IDBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.IDBox.ForeColor = System.Drawing.Color.White;
-            this.IDBox.FormattingEnabled = true;
-            this.IDBox.Location = new System.Drawing.Point(24, 72);
-            this.IDBox.Name = "IDBox";
-            this.IDBox.Size = new System.Drawing.Size(174, 21);
-            this.IDBox.TabIndex = 60;
             // 
             // GenBox
             // 
@@ -276,37 +308,6 @@ namespace Dyczko_ComputerClub_System
             this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "ФИО:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Yellow;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(-1, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ID:";
-            // 
-            // JobBox
-            // 
-            this.JobBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.JobBox.FormattingEnabled = true;
-            this.JobBox.Location = new System.Drawing.Point(80, 126);
-            this.JobBox.Name = "JobBox";
-            this.JobBox.Size = new System.Drawing.Size(297, 21);
-            this.JobBox.TabIndex = 65;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Yellow;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(18, 126);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 19);
-            this.label9.TabIndex = 64;
-            this.label9.Text = "Отдел:";
             // 
             // Staff_Edit
             // 

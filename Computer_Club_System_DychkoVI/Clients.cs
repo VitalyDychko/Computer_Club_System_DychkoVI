@@ -13,10 +13,15 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Clients : Form
     {
-        Database DB = new Database();
-        private readonly MySqlDataAdapter MySQLData = new MySqlDataAdapter();
-        private readonly BindingSource SourceBind = new BindingSource();
-        private readonly DataTable datatable = new DataTable();
+        enum RowState
+        {
+            Existed,
+            New,
+            Modified,
+            ModifiedNew,
+            Deleted
+        }
+        readonly Database DB = new Database();
         int selected_Row;
         public Clients()
         {
@@ -43,9 +48,9 @@ namespace Dyczko_ComputerClub_System
 
             string querystring = $"select * from Clients";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
-            DB.openConnection();
+            DB.OpenConnection();
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -54,6 +59,7 @@ namespace Dyczko_ComputerClub_System
                 ReadsSingleRow(dgw, reader);
             }
             reader.Close();
+            Count_of_Rows();
         }
         public void DeleteRow()
         {
@@ -78,7 +84,7 @@ namespace Dyczko_ComputerClub_System
 
         private void UpdateT()
         {
-            DB.openConnection();
+            DB.OpenConnection();
             for(int index = 0; index < dataGridView1.Rows.Count; index++)
             {
                 var rowState = (RowState)dataGridView1.Rows[index].Cells[6].Value;
@@ -91,7 +97,7 @@ namespace Dyczko_ComputerClub_System
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
                     var deleteQuery = $"delete from Clients where ID = {id}";
 
-                    var command = new MySqlCommand(deleteQuery, DB.getConnection());
+                    var command = new MySqlCommand(deleteQuery, DB.GetConnection());
                     command.ExecuteNonQuery();
                 }
                 
@@ -106,10 +112,11 @@ namespace Dyczko_ComputerClub_System
 
                     var changeQuery = $"update Clients set FIO = '{fio}', Age = '{age}', Sex = '{gen}', Number = '{num}', Email = '{mail}' where ID = '{id}'";
 
-                    var command = new MySqlCommand(changeQuery, DB.getConnection());
+                    var command = new MySqlCommand(changeQuery, DB.GetConnection());
                     command.ExecuteNonQuery();
                 }
             }
+            Count_of_Rows();
             DB.CloseConnection();
         }
         private void Change()
@@ -121,11 +128,10 @@ namespace Dyczko_ComputerClub_System
             var gen = GenBox.Text;
             var num = NumBox.Text;
             var mail = EmailBox.Text;
-            int age;
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if(int.TryParse(AgeBox.Text, out age))
+                if (int.TryParse(AgeBox.Text, out int age))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id, fio, age, gen, num, mail);
                     dataGridView1.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
@@ -136,14 +142,19 @@ namespace Dyczko_ComputerClub_System
                 }
             }
         }
+        private void Count_of_Rows()
+        {
+            int count_rows = dataGridView1.RowCount;
+            toolStripLabel2.Text = (count_rows).ToString();
+        }
         #endregion
         #region Items
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void УдалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteRow();
         }
 
-        private void выделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ВыделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{selected_Row}");
         }
@@ -195,11 +206,11 @@ namespace Dyczko_ComputerClub_System
             #endregion
         }
         #region ToolStrip
-        private void toolStripButton4_Click(object sender, EventArgs e)
+        private void ToolStripButton4_Click(object sender, EventArgs e)
         {
             DeleteRow();
         }
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void ToolStripButton2_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
         }
@@ -207,7 +218,7 @@ namespace Dyczko_ComputerClub_System
         #endregion
         #region Управление записями
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
 
@@ -221,6 +232,7 @@ namespace Dyczko_ComputerClub_System
                 GenBox.Text = row.Cells[3].Value.ToString();
                 NumBox.Text = row.Cells[4].Value.ToString();
                 EmailBox.Text = row.Cells[5].Value.ToString();
+                toolStripLabel4.Text = row.Cells[0].Value.ToString();
             }
         }
 

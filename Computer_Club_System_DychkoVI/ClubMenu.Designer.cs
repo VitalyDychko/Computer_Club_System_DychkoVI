@@ -32,7 +32,7 @@ namespace Dyczko_ComputerClub_System
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClubMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnAuth = new System.Windows.Forms.Button();
-            this.BtnLicenses = new System.Windows.Forms.Button();
+            this.BtnInfo = new System.Windows.Forms.Button();
             this.BtnSetup = new System.Windows.Forms.Button();
             this.BtnComp = new System.Windows.Forms.Button();
             this.BtnClients = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@ namespace Dyczko_ComputerClub_System
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panel1.Controls.Add(this.BtnAuth);
-            this.panel1.Controls.Add(this.BtnLicenses);
+            this.panel1.Controls.Add(this.BtnInfo);
             this.panel1.Controls.Add(this.BtnSetup);
             this.panel1.Controls.Add(this.BtnComp);
             this.panel1.Controls.Add(this.BtnClients);
@@ -88,26 +88,26 @@ namespace Dyczko_ComputerClub_System
             this.BtnAuth.UseVisualStyleBackColor = false;
             this.BtnAuth.Click += new System.EventHandler(this.BtnAuth_Click);
             // 
-            // BtnLicenses
+            // BtnInfo
             // 
-            this.BtnLicenses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.BtnLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLicenses.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnLicenses.FlatAppearance.BorderSize = 0;
-            this.BtnLicenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLicenses.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            this.BtnLicenses.ForeColor = System.Drawing.Color.White;
-            this.BtnLicenses.Image = ((System.Drawing.Image)(resources.GetObject("BtnLicenses.Image")));
-            this.BtnLicenses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLicenses.Location = new System.Drawing.Point(0, 336);
-            this.BtnLicenses.Name = "BtnLicenses";
-            this.BtnLicenses.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnLicenses.Size = new System.Drawing.Size(190, 69);
-            this.BtnLicenses.TabIndex = 7;
-            this.BtnLicenses.Text = "Инфо";
-            this.BtnLicenses.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnLicenses.UseVisualStyleBackColor = false;
-            this.BtnLicenses.Click += new System.EventHandler(this.BtnLicenses_Click);
+            this.BtnInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.BtnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnInfo.FlatAppearance.BorderSize = 0;
+            this.BtnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInfo.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.BtnInfo.ForeColor = System.Drawing.Color.White;
+            this.BtnInfo.Image = ((System.Drawing.Image)(resources.GetObject("BtnInfo.Image")));
+            this.BtnInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnInfo.Location = new System.Drawing.Point(0, 336);
+            this.BtnInfo.Name = "BtnInfo";
+            this.BtnInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnInfo.Size = new System.Drawing.Size(190, 69);
+            this.BtnInfo.TabIndex = 7;
+            this.BtnInfo.Text = "Инфо";
+            this.BtnInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInfo.UseVisualStyleBackColor = false;
+            this.BtnInfo.Click += new System.EventHandler(this.BtnLicenses_Click);
             // 
             // BtnSetup
             // 
@@ -128,7 +128,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnSetup.Text = "Сеансы";
             this.BtnSetup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSetup.UseVisualStyleBackColor = false;
-            this.BtnSetup.Click += new System.EventHandler(this.BtnSetup_Click);
+            this.BtnSetup.Click += new System.EventHandler(this.BtnSeans_Click);
             // 
             // BtnComp
             // 
@@ -328,7 +328,7 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label btnDczk;
         private System.Windows.Forms.Button BtnSetup;
-        private System.Windows.Forms.Button BtnLicenses;
+        private System.Windows.Forms.Button BtnInfo;
         private System.Windows.Forms.Button BtnAuth;
     }
 }

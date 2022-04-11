@@ -121,9 +121,9 @@ namespace Dyczko_ComputerClub_System
             OpenChildForm(new UserList(), sender);
         }
 
-        private void BtnSetup_Click(object sender, EventArgs e)
+        private void BtnSeans_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Seans_Add(), sender);
+            OpenChildForm(new Seans(), sender);
         }
 
         private void BtnLicenses_Click(object sender, EventArgs e)

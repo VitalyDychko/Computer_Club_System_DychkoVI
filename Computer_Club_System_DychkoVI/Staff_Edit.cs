@@ -17,13 +17,13 @@ namespace Dyczko_ComputerClub_System
         {
             InitializeComponent();
         }
-        Database DB = new Database();
-        public void SelectData()
+        readonly Database DB = new Database();
+        public void SelectWorkerData()
         {
             string selected_ID = IDBox.SelectedValue.ToString();
-            DB.openConnection();
+            DB.OpenConnection();
             string msql = $"SELECT * FROM Staff WHERE ID={selected_ID}";
-            MySqlCommand command = new MySqlCommand(msql, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(msql, DB.GetConnection());
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -41,7 +41,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_Worker_table = new DataTable();
             MySqlCommand list_Worker_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_Worker_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             list_Worker_table.Columns.Add(new DataColumn("FIO", System.Type.GetType("System.String")));
             IDBox.DataSource = list_Worker_table;
@@ -49,7 +49,7 @@ namespace Dyczko_ComputerClub_System
             IDBox.ValueMember = "ID";
             string sql_list_clients = "SELECT ID, FIO FROM Staff";
             list_Worker_command.CommandText = sql_list_clients;
-            list_Worker_command.Connection = DB.getConnection();
+            list_Worker_command.Connection = DB.GetConnection();
             MySqlDataReader list_clients_reader;
             try
             {
@@ -77,7 +77,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_job_table = new DataTable();
             MySqlCommand list_job_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_job_table.Columns.Add(new DataColumn("ID_cat", System.Type.GetType("System.Int32")));
             list_job_table.Columns.Add(new DataColumn("Job", System.Type.GetType("System.String")));
             JobBox.DataSource = list_job_table;
@@ -85,7 +85,7 @@ namespace Dyczko_ComputerClub_System
             JobBox.ValueMember = "Job";
             string sql_list_job = "SELECT ID_cat, Job FROM Job_Categories";
             list_job_command.CommandText = sql_list_job;
-            list_job_command.Connection = DB.getConnection();
+            list_job_command.Connection = DB.GetConnection();
             MySqlDataReader list_job_reader;
             try
             {
@@ -112,23 +112,7 @@ namespace Dyczko_ComputerClub_System
         private void BtnChange_Click(object sender, EventArgs e)
         {
             //Определяем значение переменных для записи в БД
-            var id = IDBox.SelectedValue.ToString();
-            var fio = FIOBox.Text;
-            var age = AgeBox.Text;
-            var gen = GenBox.Text;
-            var num = NumBox.Text;
-            var mail = EmailBox.Text;
-            var post = JobBox.SelectedValue.ToString();
-            //Формируем запрос на изменение
-            var changeQuery = $"update Staff set FIO = '{fio}', Age = '{age}', Gen = '{gen}', Num = '{num}', Email = '{mail}', Post = '{post}' where ID = '{id}'";
-            // устанавливаем соединение с БД
-            DB.openConnection();
-            // объект для выполнения SQL-запроса
-            MySqlCommand command = new MySqlCommand(changeQuery, DB.getConnection());
-            // выполняем запрос
-            command.ExecuteNonQuery();
-            // закрываем подключение к БД
-            DB.CloseConnection();
+            DB.Edit_Staff(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text, JobBox.SelectedValue);
             //Закрываем форму
             this.Close();
         }
@@ -137,7 +121,7 @@ namespace Dyczko_ComputerClub_System
         {
             GetJobList();
             GetWorkerList();
-            SelectData();
+            SelectWorkerData();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -147,7 +131,12 @@ namespace Dyczko_ComputerClub_System
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            SelectData();
+            SelectWorkerData();
+        }
+
+        private void IDBox_TextChanged(object sender, EventArgs e)
+        {
+            SelectWorkerData();
         }
     }
 }

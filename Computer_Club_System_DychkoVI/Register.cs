@@ -26,9 +26,9 @@ namespace Dyczko_ComputerClub_System
 
             string querystring = $"INSERT INTO Users (login_user, password_user) VALUES ('{login}','{password}')";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
-            DB.openConnection();
+            DB.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -56,7 +56,7 @@ namespace Dyczko_ComputerClub_System
             DataTable table = new DataTable();
             string querystring = $"select id_user, login_user, password_user from Users where login_user = '{loginUser}' and password_user = '{passUser}'";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
             adapter.SelectCommand = command;
             adapter.Fill(table);

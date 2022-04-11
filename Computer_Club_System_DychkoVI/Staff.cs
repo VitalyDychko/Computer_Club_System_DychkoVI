@@ -21,7 +21,7 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        Database DB = new Database();
+        readonly Database DB = new Database();
         //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
         //что бы в БД не отправлялся null
         int selected_Row;
@@ -38,9 +38,9 @@ namespace Dyczko_ComputerClub_System
             // ассоциируем контекстное меню с текстовым полем
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
             // устанавливаем обработчики событий для меню
-            HireMenuItem.Click += зачислитьToolStripMenuItem_Click;
-            FireMenuItem.Click += отчислитьToolStripMenuItem_Click;
-            SelectMenuItem.Click += выделенныйIDToolStripMenuItem_Click;
+            HireMenuItem.Click += WelcomeToolStripMenuItem_Click;
+            FireMenuItem.Click += KickToolStripMenuItem_Click;
+            SelectMenuItem.Click += ВыделенныйIDToolStripMenuItem_Click;
             #endregion
         }
         #region Основные методы
@@ -60,7 +60,7 @@ namespace Dyczko_ComputerClub_System
         {
             try
             {
-                DB.openConnection();
+                DB.OpenConnection();
 
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
@@ -74,7 +74,7 @@ namespace Dyczko_ComputerClub_System
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
                         var deleteQuery = $"delete from Staff where ID = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
+                        var command = new MySqlCommand(deleteQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
 
@@ -91,7 +91,7 @@ namespace Dyczko_ComputerClub_System
 
                         var changeQuery = $"update Staff set FIO = '{fio}', Age = '{age}', Gen = '{gen}', Num = '{num}', Email = '{mail}', Post = '{post}', Stat = '{stat}' where ID = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, DB.getConnection());
+                        var command = new MySqlCommand(changeQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -118,9 +118,9 @@ namespace Dyczko_ComputerClub_System
 
                 string querystring = $"select * from Staff";
 
-                MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+                MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
-                DB.openConnection();
+                DB.OpenConnection();
 
                 MySqlDataReader reader = command.ExecuteReader();
 
@@ -170,7 +170,6 @@ namespace Dyczko_ComputerClub_System
 
             var id = IDBox.Text;
             var fio = FioBox.Text;
-            int age;
             var gen = GenBox.Text;
             var num = NumBox.Text;
             var mail = MailBox.Text;
@@ -179,7 +178,7 @@ namespace Dyczko_ComputerClub_System
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(AgeBox.Text, out age))
+                if (int.TryParse(AgeBox.Text, out int age))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id, fio, age, gen, num, mail, post, stat);
                     dataGridView1.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
@@ -194,7 +193,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_job_table = new DataTable();
             MySqlCommand list_job_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_job_table.Columns.Add(new DataColumn("ID_cat", System.Type.GetType("System.Int32")));
             list_job_table.Columns.Add(new DataColumn("Job", System.Type.GetType("System.String")));
             JobBox.DataSource = list_job_table;
@@ -202,7 +201,7 @@ namespace Dyczko_ComputerClub_System
             JobBox.ValueMember = "Job";
             string sql_list_job = "SELECT ID_cat, Job FROM Job_Categories";
             list_job_command.CommandText = sql_list_job;
-            list_job_command.Connection = DB.getConnection();
+            list_job_command.Connection = DB.GetConnection();
             MySqlDataReader list_job_reader;
             try
             {
@@ -229,9 +228,9 @@ namespace Dyczko_ComputerClub_System
         public void ChangeState(string new_state)
         {
             int redact_id = selected_Row;
-            DB.openConnection();
+            DB.OpenConnection();
             string query2 = $"UPDATE Staff SET Stat='{new_state}' WHERE (ID='{redact_id}')";
-            MySqlCommand command = new MySqlCommand(query2, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(query2, DB.GetConnection());
             command.ExecuteNonQuery();
             DB.CloseConnection();
             UpdateT();
@@ -260,7 +259,7 @@ namespace Dyczko_ComputerClub_System
                     //Красим в зелёный
                     dataGridView1.Rows[i].Cells[7].Style.BackColor = Color.Green;
                 }
-                if (id_selected_status == "Отпуск")
+                if (id_selected_status == "Отгул")
                 {
                     //Красим в желтый
                     dataGridView1.Rows[i].Cells[7].Style.BackColor = Color.Cyan;
@@ -269,22 +268,22 @@ namespace Dyczko_ComputerClub_System
         }
         #region ТулСтрип
 
-        private void зачислитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void WelcomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeState("Работает");
         }
 
-        private void отчислитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void KickToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeState("Не на месте");
         }
 
-        private void выделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ВыделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{selected_Row}");
         }
 
-        private void перезагрузка(object sender, EventArgs e)
+        private void Rename(object sender, EventArgs e)
         {
             UpdateT();
         }
@@ -349,18 +348,18 @@ namespace Dyczko_ComputerClub_System
             hiring.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             UpdateT();
         }
         #endregion
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
 
@@ -396,11 +395,10 @@ namespace Dyczko_ComputerClub_System
         {
             RefreshDataGrid(dataGridView1);
         }
-
         private void BtnRedact_Click(object sender, EventArgs e)
         {
             Staff_Edit SE = new Staff_Edit();
-            SE.ShowDialog();
+            SE.Show();
         }
     }
 }

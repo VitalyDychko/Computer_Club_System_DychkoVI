@@ -29,32 +29,8 @@ namespace Dyczko_ComputerClub_System
         {
             if (FIOBox.TextLength != 0 || AgeBox.TextLength != 0 || NumberBox.TextLength != 0 || EmailBox.TextLength != 0)
             {
-                try
-                {
-                    DB.openConnection();
-
-                    var fio = FIOBox.Text;
-                    int age;
-                    var num = NumberBox.Text;
-                    var mail = EmailBox.Text;
-                    var gen = GenBox.Text;
-                    if(int.TryParse(AgeBox.Text, out age))
-                    {
-                         string commandStr = $"INSERT INTO Clients (FIO, Age, Sex, Number, Email)" +
-                             $"VALUES ('{fio}', '{age}','{gen}', '{num}', '{mail}')";
-                         using (MySqlCommand cmnd = new MySqlCommand(commandStr, DB.getConnection()))
-                         cmnd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                }
-                finally
-                {
-                    DB.CloseConnection();
-                    this.Close();
-                }
+                DB.Add_Client(FIOBox.Text, AgeBox.Text, GenBox.Text, NumberBox.Text, EmailBox.Text);
+                this.Close();
             }
             else
             {

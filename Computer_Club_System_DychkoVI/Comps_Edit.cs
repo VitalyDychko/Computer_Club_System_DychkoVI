@@ -17,7 +17,8 @@ namespace Dyczko_ComputerClub_System
         {
             InitializeComponent();
         }
-        Database DB = new Database();
+
+        readonly Database DB = new Database();
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -27,20 +28,7 @@ namespace Dyczko_ComputerClub_System
         private void BtnChange_Click(object sender, EventArgs e)
         {
             //Определяем значение переменных для записи в БД
-            var id = IDBox.SelectedValue.ToString();
-            var name = NameBox.Text;
-            var supp = SuppBox.Text;
-            var type = TypeBox.SelectedValue.ToString();
-            //Формируем запрос на изменение
-            var changeQuery = $"update Comps set Name = '{name}', Supp = '{supp}', Type = '{type}' where ID = '{id}'";
-            // устанавливаем соединение с БД
-            DB.openConnection();
-            // объект для выполнения SQL-запроса
-            MySqlCommand command = new MySqlCommand(changeQuery, DB.getConnection());
-            // выполняем запрос
-            command.ExecuteNonQuery();
-            // закрываем подключение к БД
-            DB.CloseConnection();
+            DB.Edit_Comp(IDBox.SelectedValue, TypeBox.SelectedValue, NameBox.Text, SuppBox.Text);
             //Закрываем форму
             this.Close();
         }
@@ -52,9 +40,9 @@ namespace Dyczko_ComputerClub_System
         public void SelectData()
         {
             string selected_ID = IDBox.SelectedValue.ToString();
-            DB.openConnection();
+            DB.OpenConnection();
             string msql = $"SELECT * FROM Comps WHERE ID={selected_ID}";
-            MySqlCommand command = new MySqlCommand(msql, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(msql, DB.GetConnection());
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -69,14 +57,14 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_of_table = new DataTable();
             MySqlCommand list_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_of_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             IDBox.DataSource = list_of_table;
             IDBox.DisplayMember = "ID";
             IDBox.ValueMember = "ID";
             string sql_list = "SELECT ID FROM Comps";
             list_command.CommandText = sql_list;
-            list_command.Connection = DB.getConnection();
+            list_command.Connection = DB.GetConnection();
             MySqlDataReader list_reader;
             try
             {
@@ -103,7 +91,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_of_table = new DataTable();
             MySqlCommand list_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_of_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             list_of_table.Columns.Add(new DataColumn("Type", System.Type.GetType("System.String")));
             TypeBox.DataSource = list_of_table;
@@ -111,7 +99,7 @@ namespace Dyczko_ComputerClub_System
             TypeBox.ValueMember = "Type";
             string sql_list = "SELECT ID, Type FROM Devices_Categories";
             list_command.CommandText = sql_list;
-            list_command.Connection = DB.getConnection();
+            list_command.Connection = DB.GetConnection();
             MySqlDataReader list_reader;
             try
             {
@@ -140,6 +128,11 @@ namespace Dyczko_ComputerClub_System
         {
             GetTypeList();
             GetCompsList();
+            SelectData();
+        }
+
+        private void IDBox_TextChanged(object sender, EventArgs e)
+        {
             SelectData();
         }
     }

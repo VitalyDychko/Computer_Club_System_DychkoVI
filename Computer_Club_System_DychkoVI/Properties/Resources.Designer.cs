@@ -83,6 +83,16 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fire {
+            get {
+                object obj = ResourceManager.GetObject("Fire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_icon_database_4531114 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-database-4531114", resourceCulture);
@@ -353,26 +363,6 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload {
-            get {
-                object obj = ResourceManager.GetObject("reload", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap reload__1_ {
-            get {
-                object obj = ResourceManager.GetObject("reload (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap the_mandalorian {
             get {
                 object obj = ResourceManager.GetObject("the-mandalorian", resourceCulture);
@@ -383,19 +373,9 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap trash_can {
+        internal static System.Drawing.Bitmap Trash_Can_Empty {
             get {
-                object obj = ResourceManager.GetObject("trash-can", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap VTsFFSC3NDQ {
-            get {
-                object obj = ResourceManager.GetObject("VTsFFSC3NDQ", resourceCulture);
+                object obj = ResourceManager.GetObject("Trash_Can_Empty", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

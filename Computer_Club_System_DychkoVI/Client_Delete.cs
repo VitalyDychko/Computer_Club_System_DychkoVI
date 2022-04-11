@@ -11,41 +11,14 @@ using MySql.Data.MySqlClient;
 
 namespace Dyczko_ComputerClub_System
 {
-    public partial class Client_Edit : Form
+    public partial class Client_Delete : Form
     {
-        public Client_Edit()
+        public Client_Delete()
         {
             InitializeComponent();
         }
-
-        readonly Database DB = new Database();
-        private void Close(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Clear(object sender, EventArgs e)
-        {
-            SelectData();
-        }
-        public void SelectData()
-        {
-            string selected_ID = IDBox.SelectedValue.ToString();
-            DB.OpenConnection();
-            string msql = $"SELECT * FROM Clients WHERE ID={selected_ID}";
-            MySqlCommand command = new MySqlCommand(msql, DB.GetConnection());
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                FIOBox.Text = reader[1].ToString();
-                AgeBox.Text = (reader[2].ToString());
-                GenBox.Text = reader[3].ToString();
-                NumBox.Text = reader[4].ToString();
-                EmailBox.Text = reader[5].ToString();
-            }
-            reader.Close();
-            DB.CloseConnection();
-        }
+        Database DB = new Database();
+        public delegate void Universal_Remover_Delegate(string table, object id);
         public void GetClientList()
         {
             DataTable list_clients_table = new DataTable();
@@ -82,23 +55,16 @@ namespace Dyczko_ComputerClub_System
                 DB.CloseConnection();
             }
         }
-        private void Redact(object sender, EventArgs e)
+        private void Remove(object sender, EventArgs e)
         {
-            //Определяем значение переменных для записи в БД
-            DB.Edit_Client(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text);
-            //Закрываем форму
-            this.Close();
+            Universal_Remover_Delegate UD = new Universal_Remover_Delegate(DB.Universal_Remover);
+            UD.Invoke("Clients", IDBox.SelectedValue);
+            GetClientList();
         }
 
-        private void Client_Edit_Load(object sender, EventArgs e)
+        private void Client_Delete_Load(object sender, EventArgs e)
         {
             GetClientList();
-            SelectData();
-        }
-
-        private void IDBox_TextChanged(object sender, EventArgs e)
-        {
-            SelectData();
         }
     }
 }

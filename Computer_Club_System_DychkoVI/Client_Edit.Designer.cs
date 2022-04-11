@@ -92,6 +92,7 @@ namespace Dyczko_ComputerClub_System
             this.IDBox.Name = "IDBox";
             this.IDBox.Size = new System.Drawing.Size(297, 21);
             this.IDBox.TabIndex = 60;
+            this.IDBox.TextChanged += new System.EventHandler(this.IDBox_TextChanged);
             // 
             // GenBox
             // 

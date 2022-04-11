@@ -13,7 +13,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Seans_Add : Form
     {
-        Database DB = new Database();
+        readonly Database DB = new Database();
         public Seans_Add()
         {
             InitializeComponent();
@@ -24,18 +24,18 @@ namespace Dyczko_ComputerClub_System
             DataTable list_client_table = new DataTable();
             MySqlCommand list_client_command = new MySqlCommand();
             //Открываем соединение
-            DB.openConnection();
+            DB.OpenConnection();
             //Формируем столбцы для комбобокса списка ЦП
             list_client_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.String")));
             list_client_table.Columns.Add(new DataColumn("FIO", System.Type.GetType("System.String")));
             //Настройка видимости полей комбобокса
-            comboBox1.DataSource = list_client_table;
-            comboBox1.DisplayMember = "FIO";
-            comboBox1.ValueMember = "ID";
+            ClientBox.DataSource = list_client_table;
+            ClientBox.DisplayMember = "FIO";
+            ClientBox.ValueMember = "FIO";
             //Формируем строку запроса на отображение списка статусов прав пользователя
             string sql_client_users = "SELECT ID, FIO FROM Clients";
             list_client_command.CommandText = sql_client_users;
-            list_client_command.Connection = DB.getConnection();
+            list_client_command.Connection = DB.GetConnection();
             //Формирование списка ЦП для combobox'a
             MySqlDataReader list_client_reader;
             try
@@ -68,17 +68,17 @@ namespace Dyczko_ComputerClub_System
             DataTable list_comp_table = new DataTable();
             MySqlCommand list_comp_command = new MySqlCommand();
             //Открываем соединение
-            DB.openConnection();
+            DB.OpenConnection();
             //Формируем столбцы для комбобокса списка ЦП
             list_comp_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             //Настройка видимости полей комбобокса
-            comboBox2.DataSource = list_comp_table;
-            comboBox2.ValueMember = "ID";
-            comboBox2.DisplayMember = "ID";
+            CompBox.DataSource = list_comp_table;
+            CompBox.ValueMember = "ID";
+            CompBox.DisplayMember = "ID";
             //Формируем строку запроса на отображение списка статусов прав пользователя
             string sql_list_comps = "SELECT ID, Name FROM Comps";
             list_comp_command.CommandText = sql_list_comps;
-            list_comp_command.Connection = DB.getConnection();
+            list_comp_command.Connection = DB.GetConnection();
             //Формирование списка ЦП для combobox'a
             MySqlDataReader list_comp_reader;
             try
@@ -104,74 +104,76 @@ namespace Dyczko_ComputerClub_System
                 DB.CloseConnection();
             }
         }
-        private void addseans(object sender, EventArgs e)
+
+        private void Addseans(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(comboBox1.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
+            if (!String.IsNullOrWhiteSpace(MinuteBox.Text) || !String.IsNullOrWhiteSpace(PriceBox.Text))
             {
-                MessageBox.Show("Введите данные!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string sql_update_current_flight = $"INSERT INTO Seans (route_number, price, departure_station, departure_date, arrival_station, arrival_date, id_state)" +
-                    $"VALUES (@User, @Comp, @Start, @Stop, @time, @price)";
-                using (MySqlCommand command = new MySqlCommand(sql_update_current_flight, DB.getConnection()))
+                DateTime current_time = dateTimePicker2.Value;
+                DateTime Ending = current_time.AddMinutes(Convert.ToDouble(MinuteBox.Text));
+
+                string sql_seans_add = $"INSERT INTO Seans (comp, user, time, start, end, price) " +
+                                        $"VALUES (@PC, @US, @MIN, @START, @END, @PRICE)";
+                using (MySqlCommand command = new MySqlCommand(sql_seans_add, DB.GetConnection()))
                 {
-                    command.Parameters.Add("@User", MySqlDbType.VarChar).Value = comboBox1.SelectedValue.ToString();
-                    command.Parameters.Add("@Comp", MySqlDbType.VarChar).Value = comboBox2.SelectedValue.ToString();
-                    command.Parameters.Add("@start", MySqlDbType.DateTime).Value = dateTimePicker1.Value;
-                    command.Parameters.Add("@stop", MySqlDbType.DateTime).Value = dateTimePicker2.Value;
-                    command.Parameters.Add("@time", MySqlDbType.VarChar).Value = textBox1.Text;
-                    command.Parameters.Add("@price", MySqlDbType.VarChar).Value = textBox2.Text;
-                    DB.openConnection();
+                    command.Parameters.Add("@PC", MySqlDbType.VarChar).Value = CompBox.SelectedValue.ToString();
+                    command.Parameters.Add("@US", MySqlDbType.VarChar).Value = ClientBox.SelectedValue.ToString();
+                    command.Parameters.Add("@MIN", MySqlDbType.VarChar).Value = MinuteBox.Text;
+                    command.Parameters.Add("@START", MySqlDbType.DateTime).Value = dateTimePicker2.Value;
+                    command.Parameters.Add("@END", MySqlDbType.DateTime).Value = Ending;
+                    command.Parameters.Add("@PRICE", MySqlDbType.VarChar).Value = PriceBox.Text;
+                    DB.OpenConnection();
                     try
                     {
                         command.ExecuteNonQuery();
                         MessageBox.Show("Рейс успешно добавлен!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Введите данные!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"{ex}");
                     }
+
                     finally
                     {
                         DB.CloseConnection();
                     }
                 }
+                this.Close();
             }
+            else MessageBox.Show("Введите данные!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
         public void Calc()
         {
-            TimeSpan result = dateTimePicker2.Value - dateTimePicker1.Value;
-            textBox2.Text = result.TotalMinutes.ToString();
+            //TimeSpan result = dateTimePicker2.Value - dateTimePicker1.Value;
+            //PriceBox.Text = result.TotalMinutes.ToString();
 
-            string s = textBox2.Text;
-            string[] tempArry = textBox2.Text.Split('.');
-            textBox2.Text = tempArry[0];
+            //string s = PriceBox.Text;
+            //string[] tempArry = PriceBox.Text.Split('.');
+            //PriceBox.Text = tempArry[0];
         }
-        private void Sum()
-        {
-            double rub = 0.98;
-            int min = Convert.ToInt32(textBox2.Text);
-            var result = min * rub;
-            textBox1.Text = Convert.ToString(result);
-        }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            Calc();
-            Sum();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GetUserList();
-            GetCompList();
-        }
-
         private void Seans_Add_Load(object sender, EventArgs e)
         {
             GetUserList();
             GetCompList();
+        }
+        private void Sum()
+        {
+            int min = Convert.ToInt32(MinuteBox.Text);
+            var result = min * DB.Rub;
+            PriceBox.Text = Convert.ToString(Math.Round(result));
+        }
+        private void MinuteBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(MinuteBox.Text))
+            {
+                Sum();
+            }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+                this.Close();
         }
     }
 }

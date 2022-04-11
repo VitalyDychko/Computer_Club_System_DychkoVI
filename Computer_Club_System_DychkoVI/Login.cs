@@ -34,7 +34,7 @@ namespace Dyczko_ComputerClub_System
 
             string querystring = $"select id_user, login_user, password_user from Users where login_user = '{loginUser}' and password_user = '{passUser}'";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
             adapter.SelectCommand = command;
             adapter.Fill(table);

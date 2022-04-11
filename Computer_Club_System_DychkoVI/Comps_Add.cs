@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_of_table = new DataTable();
             MySqlCommand list_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_of_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             list_of_table.Columns.Add(new DataColumn("Type", System.Type.GetType("System.String")));
             TypeBox.DataSource = list_of_table;
@@ -30,7 +31,7 @@ namespace Dyczko_ComputerClub_System
             TypeBox.ValueMember = "Type";
             string sql_list = "SELECT ID, Type FROM Devices_Categories";
             list_command.CommandText = sql_list;
-            list_command.Connection = DB.getConnection();
+            list_command.Connection = DB.GetConnection();
             MySqlDataReader list_reader;
             try
             {
@@ -59,27 +60,8 @@ namespace Dyczko_ComputerClub_System
         {
             if (NameBox.TextLength != 0 || SuppBox.TextLength != 0)
             {
-                try
-                {
-                    DB.openConnection();
-
-                    var nam = NameBox.Text;
-                    var supp = SuppBox.Text;
-                    var type = TypeBox.SelectedValue.ToString();
-                    string commandStr = $"INSERT INTO Comps (Name, Supp, Type)" +
-                                        $"VALUES ('{nam}', '{supp}','{type}')";
-                    using (MySqlCommand cmnd = new MySqlCommand(commandStr, DB.getConnection()))
-                    cmnd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                }
-                finally
-                {
-                    DB.CloseConnection();
-                    this.Close();
-                }
+                DB.Add_Comp(NameBox.Text, SuppBox.Text, TypeBox.SelectedValue);
+                this.Close();
             }
             else
             {

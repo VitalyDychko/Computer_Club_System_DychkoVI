@@ -13,7 +13,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Staff_Add : Form
     {
-        Database DB = new Database();
+        readonly Database DB = new Database();
         public Staff_Add()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_job_table = new DataTable();
             MySqlCommand list_job_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_job_table.Columns.Add(new DataColumn("ID_cat", System.Type.GetType("System.Int32")));
             list_job_table.Columns.Add(new DataColumn("Job", System.Type.GetType("System.String")));
             JobBox.DataSource = list_job_table;
@@ -30,7 +30,7 @@ namespace Dyczko_ComputerClub_System
             JobBox.ValueMember = "ID_cat";
             string sql_list_job = "SELECT ID_cat, Job FROM Job_Categories";
             list_job_command.CommandText = sql_list_job;
-            list_job_command.Connection = DB.getConnection();
+            list_job_command.Connection = DB.GetConnection();
             MySqlDataReader list_job_reader;
             try
             {
@@ -58,33 +58,8 @@ namespace Dyczko_ComputerClub_System
         {
             if (FIOBox.TextLength != 0 || AgeBox.TextLength != 0 || NumberBox.TextLength != 0 || EmailBox.TextLength != 0)
             {
-                try
-                {
-                    DB.openConnection();
-
-                    var fio = FIOBox.Text;
-                    int age;
-                    var num = NumberBox.Text;
-                    var mail = EmailBox.Text;
-                    var gen = GenBox.Text;
-                    var post = JobBox.Text;
-                    if (int.TryParse(AgeBox.Text, out age))
-                    {
-                        string commandStr = $"INSERT INTO Staff (FIO, Age, Gen, Num, Email, Post)" +
-                            $"VALUES ('{fio}', '{age}','{gen}', '{num}', '{mail}', '{post}')";
-                        using (MySqlCommand cmnd = new MySqlCommand(commandStr, DB.getConnection()))
-                            cmnd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex}");
-                }
-                finally
-                {
-                    DB.CloseConnection();
-                    this.Close();
-                }
+                DB.Add_Worker(FIOBox.Text, AgeBox.Text, GenBox.Text, NumberBox.Text, EmailBox.Text, JobBox.Text);
+                this.Close();
             }
             else
             {

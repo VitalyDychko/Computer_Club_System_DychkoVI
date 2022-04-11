@@ -13,6 +13,14 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class UserList : Form
     {
+        enum RowState
+        {
+            Existed,
+            New,
+            Modified,
+            ModifiedNew,
+            Deleted
+        }
         Database DB = new Database();
         private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
         private BindingSource SourceBind = new BindingSource();
@@ -23,23 +31,15 @@ namespace Dyczko_ComputerClub_System
         {
             InitializeComponent();
         }
-        enum RowState
-        {
-            Existed,
-            New,
-            Modified,
-            ModifiedNew,
-            Deleted
-        }
         #region Основные методы
         public void UpdateT()
         {
             try
             {
-                DB.openConnection();
+                DB.OpenConnection();
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
-                    var rowState = (RowState)dataGridView1.Rows[index].Cells[2].Value;
+                    var rowState = (RowState)dataGridView1.Rows[index].Cells[3].Value;
 
                     if (rowState == RowState.Existed)
                         continue;
@@ -49,7 +49,7 @@ namespace Dyczko_ComputerClub_System
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
                         var deleteQuery = $"delete from Users where id_user = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
+                        var command = new MySqlCommand(deleteQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
 
@@ -61,7 +61,7 @@ namespace Dyczko_ComputerClub_System
 
                         var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}' where id_user = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, DB.getConnection());
+                        var command = new MySqlCommand(changeQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -92,9 +92,9 @@ namespace Dyczko_ComputerClub_System
 
             string querystring = $"select * from Users";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
-            DB.openConnection();
+            DB.OpenConnection();
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -103,6 +103,7 @@ namespace Dyczko_ComputerClub_System
                 ReadsSingleRow(dgw, reader);
             }
             reader.Close();
+            Count_of_Rows();
         }
         public void DeleteUser()
         {
@@ -113,10 +114,10 @@ namespace Dyczko_ComputerClub_System
             {
                 if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
                 {
-                    dataGridView1.Rows[index].Cells[2].Value = RowState.Deleted;
+                    dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
                     return;
                 }
-                dataGridView1.Rows[index].Cells[2].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
             }
             catch (Exception ex)
             {
@@ -134,15 +135,15 @@ namespace Dyczko_ComputerClub_System
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
             int id_iser;
-            var loginUser = textBox2.Text;
-            var passUser = textBox3.Text;
+            var loginUser = LoginBox.Text;
+            var passUser = PassBox.Text;
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(textBox1.Text, out id_iser))
+                if (int.TryParse(IDBox.Text, out id_iser))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id_iser, loginUser, passUser);
-                    dataGridView1.Rows[selectedRowIndex].Cells[2].Value = RowState.Modified;
+                    dataGridView1.Rows[selectedRowIndex].Cells[3].Value = RowState.Modified;
                 }
                 else
                 {
@@ -150,21 +151,12 @@ namespace Dyczko_ComputerClub_System
                 }
             }
         }
+        private void Count_of_Rows()
+        {
+            int count_rows = dataGridView1.RowCount;
+            toolStripLabel2.Text = (count_rows).ToString();
+        }
         #endregion
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UpdateT();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DeleteUser();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Change();
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -180,9 +172,10 @@ namespace Dyczko_ComputerClub_System
             {
                 DataGridViewRow row = dataGridView1.Rows[selected_Row];
 
-                textBox1.Text = row.Cells[0].Value.ToString();
-                textBox2.Text = row.Cells[1].Value.ToString();
-                textBox3.Text = row.Cells[2].Value.ToString();
+                IDBox.Text = row.Cells[0].Value.ToString();
+                LoginBox.Text = row.Cells[1].Value.ToString();
+                PassBox.Text = row.Cells[2].Value.ToString();
+                toolStripLabel4.Text = row.Cells[0].Value.ToString();
             }
         }
 
@@ -208,8 +201,8 @@ namespace Dyczko_ComputerClub_System
             //Показываем заголовки столбцов
             dataGridView1.ColumnHeadersVisible = true;
             //Стиль
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Black", 9, FontStyle.Bold); //шрифт
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 85, 255); // цвет ряда-заголовка
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9, FontStyle.Bold); //шрифт
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Gold; // цвет ряда-заголовка
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // цвет символов заголовков
             dataGridView1.GridColor = Color.White;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -224,6 +217,23 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             #endregion
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            DeleteUser();
+            Update();
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            Change();
+            Update();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshDataGrid(dataGridView1);
         }
     }
 }

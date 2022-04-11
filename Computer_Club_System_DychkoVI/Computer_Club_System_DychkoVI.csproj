@@ -83,6 +83,12 @@
     <Compile Include="Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client_Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client_Delete.Designer.cs">
+      <DependentUpon>Client_Delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     <Compile Include="Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff_Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_Delete.Designer.cs">
+      <DependentUpon>Staff_Delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client_Delete.resx">
+      <DependentUpon>Client_Delete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client_Edit.resx">
       <DependentUpon>Client_Edit.cs</DependentUpon>
@@ -329,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pictures\Icons for buttons\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\Fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\Trash_Can_Empty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

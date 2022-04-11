@@ -48,7 +48,7 @@ namespace Dyczko_ComputerClub_System
         {
             try
             {
-                DB.openConnection();
+                DB.OpenConnection();
 
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
@@ -62,7 +62,7 @@ namespace Dyczko_ComputerClub_System
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
                         var deleteQuery = $"delete from Comps where ID = {id}";
 
-                        var command = new MySqlCommand(deleteQuery, DB.getConnection());
+                        var command = new MySqlCommand(deleteQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
 
@@ -76,7 +76,7 @@ namespace Dyczko_ComputerClub_System
 
                         var changeQuery = $"update Comps set Name = '{nam}', Supp = '{supp}', Type = '{type}', Stat = '{stat}' where ID = '{id}'";
 
-                        var command = new MySqlCommand(changeQuery, DB.getConnection());
+                        var command = new MySqlCommand(changeQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -110,9 +110,9 @@ namespace Dyczko_ComputerClub_System
 
             string querystring = $"select * from Comps";
 
-            MySqlCommand command = new MySqlCommand(querystring, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
-            DB.openConnection();
+            DB.OpenConnection();
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -174,7 +174,7 @@ namespace Dyczko_ComputerClub_System
         {
             DataTable list_of_table = new DataTable();
             MySqlCommand list_command = new MySqlCommand();
-            DB.openConnection();
+            DB.OpenConnection();
             list_of_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             list_of_table.Columns.Add(new DataColumn("Type", System.Type.GetType("System.String")));
             TypeBox.DataSource = list_of_table;
@@ -182,7 +182,7 @@ namespace Dyczko_ComputerClub_System
             TypeBox.ValueMember = "Type";
             string sql_list = "SELECT ID, Type FROM Devices_Categories";
             list_command.CommandText = sql_list;
-            list_command.Connection = DB.getConnection();
+            list_command.Connection = DB.GetConnection();
             MySqlDataReader list_reader;
             try
             {
@@ -229,9 +229,9 @@ namespace Dyczko_ComputerClub_System
         public void ChangeState(string new_state)
         {
             int redact_id = selected_Row;
-            DB.openConnection();
+            DB.OpenConnection();
             string query2 = $"UPDATE Comps SET Stat='{new_state}' WHERE (ID='{redact_id}')";
-            MySqlCommand command = new MySqlCommand(query2, DB.getConnection());
+            MySqlCommand command = new MySqlCommand(query2, DB.GetConnection());
             command.ExecuteNonQuery();
             DB.CloseConnection();
             UpdateT();
