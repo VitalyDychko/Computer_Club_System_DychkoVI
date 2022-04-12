@@ -16,7 +16,7 @@ namespace Dyczko_ComputerClub_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClubMenu());
+            Application.Run(new Login());
         }
     }
 }

@@ -142,11 +142,6 @@ namespace Dyczko_ComputerClub_System
             Application.Exit();
         }
 
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-        }
-
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
