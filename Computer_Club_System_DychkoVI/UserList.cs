@@ -21,7 +21,8 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        Database DB = new Database();
+
+        readonly Database DB = new Database();
         private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
         private BindingSource SourceBind = new BindingSource();
         private DataTable datatable = new DataTable();
@@ -32,6 +33,14 @@ namespace Dyczko_ComputerClub_System
             InitializeComponent();
         }
         #region Основные методы
+        private void CreateColumns()
+        {
+            dataGridView1.Columns.Add("id_user", "ID");
+            dataGridView1.Columns.Add("login_user", "Пользователь");
+            dataGridView1.Columns.Add("password_user", "Пароль");
+            dataGridView1.Columns.Add("hash", "Хэш пароля");
+            dataGridView1.Columns.Add("IsNew", string.Empty);
+        }
         public void UpdateT()
         {
             try
@@ -39,7 +48,7 @@ namespace Dyczko_ComputerClub_System
                 DB.OpenConnection();
                 for (int index = 0; index < dataGridView1.Rows.Count; index++)
                 {
-                    var rowState = (RowState)dataGridView1.Rows[index].Cells[3].Value;
+                    var rowState = (RowState)dataGridView1.Rows[index].Cells[4].Value;
 
                     if (rowState == RowState.Existed)
                         continue;
@@ -58,8 +67,9 @@ namespace Dyczko_ComputerClub_System
                         var id = dataGridView1.Rows[index].Cells[0].Value.ToString();
                         var log = dataGridView1.Rows[index].Cells[1].Value.ToString();
                         var pass = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                        var hash = dataGridView1.Rows[index].Cells[3].Value.ToString();
 
-                        var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}' where id_user = '{id}'";
+                        var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}', hash = '{hash}' where id_user = '{id}'";
 
                         var command = new MySqlCommand(changeQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
@@ -73,18 +83,12 @@ namespace Dyczko_ComputerClub_System
             finally
             {
                 DB.CloseConnection();
+                RefreshDataGrid(dataGridView1);
             }
-        }
-        private void CreateColumns()
-        {
-            dataGridView1.Columns.Add("id_user", "ID");
-            dataGridView1.Columns.Add("login_user", "Пользователь");
-            dataGridView1.Columns.Add("password_user", "Пароль");
-            dataGridView1.Columns.Add("IsNew", string.Empty);
         }
         private void ReadsSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), RowState.ModifiedNew);
+            dgw.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), RowState.ModifiedNew);
         }
         private void RefreshDataGrid(DataGridView dgw)
         {
@@ -105,7 +109,7 @@ namespace Dyczko_ComputerClub_System
             reader.Close();
             Count_of_Rows();
         }
-        public void DeleteUser()
+        public void DeleteRow()
         {
             int index = dataGridView1.CurrentCell.RowIndex;
 
@@ -114,20 +118,15 @@ namespace Dyczko_ComputerClub_System
             {
                 if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
                 {
-                    dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+                    dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
                     return;
                 }
-                dataGridView1.Rows[index].Cells[3].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[4].Value = RowState.Deleted;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка удаления строки \n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                DB.CloseConnection();
-                //Вызов метода обновления ДатаГрида
-                RefreshDataGrid(dataGridView1);
             }
         }
         private void Change()
@@ -143,7 +142,7 @@ namespace Dyczko_ComputerClub_System
                 if (int.TryParse(IDBox.Text, out id_iser))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id_iser, loginUser, passUser);
-                    dataGridView1.Rows[selectedRowIndex].Cells[3].Value = RowState.Modified;
+                    dataGridView1.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
                 }
                 else
                 {
@@ -188,14 +187,18 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.Columns[0].Visible = true;
             dataGridView1.Columns[1].Visible = true;
             dataGridView1.Columns[2].Visible = true;
+            dataGridView1.Columns[3].Visible = true;
+            dataGridView1.Columns[4].Visible = false;
             //Режим для полей "Только для чтения"
             dataGridView1.Columns[0].ReadOnly = true;
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
+            dataGridView1.Columns[3].ReadOnly = true;
             //Растягивание полей грида
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //Убираем заголовки строк
             dataGridView1.RowHeadersVisible = false;
             //Показываем заголовки столбцов
@@ -203,7 +206,6 @@ namespace Dyczko_ComputerClub_System
             //Стиль
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 9, FontStyle.Bold); //шрифт
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Gold; // цвет ряда-заголовка
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // цвет символов заголовков
             dataGridView1.GridColor = Color.White;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
@@ -221,19 +223,31 @@ namespace Dyczko_ComputerClub_System
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            DeleteUser();
-            Update();
+            DeleteRow();
+            UpdateT();
         }
 
         private void btnChange_Click(object sender, EventArgs e)
         {
             Change();
-            Update();
+            UpdateT();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            User_Add UD = new User_Add();
+            UD.Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            User_Edit UE = new User_Edit();
+            UE.Show();
         }
     }
 }

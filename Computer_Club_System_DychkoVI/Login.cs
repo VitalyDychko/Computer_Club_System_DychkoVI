@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,8 +18,14 @@ namespace Dyczko_ComputerClub_System
         public Login()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
-
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void Closebtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -53,8 +60,8 @@ namespace Dyczko_ComputerClub_System
         private void Zareg_Click(object sender, EventArgs e)
         {
             Register reg = new Register();
-            reg.ShowDialog();
             this.Hide();
+            reg.ShowDialog();
         }
 
         private void Log_in_Load(object sender, EventArgs e)
@@ -76,6 +83,27 @@ namespace Dyczko_ComputerClub_System
             textBox_password.UseSystemPasswordChar = true;
             Hide_eye.Visible = false;
             Open_eye.Visible = true;
+        }
+
+        private void Login_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

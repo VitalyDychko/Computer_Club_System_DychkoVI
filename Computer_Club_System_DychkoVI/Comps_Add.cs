@@ -15,6 +15,7 @@ namespace Dyczko_ComputerClub_System
     public partial class Comps_Add : Form
     {
         Database DB = new Database();
+        public delegate void AddCompDelegate(string nam, string supp, object type);
         public Comps_Add()
         {
             InitializeComponent();
@@ -60,7 +61,8 @@ namespace Dyczko_ComputerClub_System
         {
             if (NameBox.TextLength != 0 || SuppBox.TextLength != 0)
             {
-                DB.Add_Comp(NameBox.Text, SuppBox.Text, TypeBox.SelectedValue);
+                AddCompDelegate ACD = new AddCompDelegate(DB.Add_Comp);
+                ACD.Invoke(NameBox.Text, SuppBox.Text, TypeBox.SelectedValue);
                 this.Close();
             }
             else
@@ -83,6 +85,33 @@ namespace Dyczko_ComputerClub_System
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(TypeBox.Text))
+            {
+                string Picture = TypeBox.Text;
+                switch (Picture)
+                {
+                    case "Игровой компьютер":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Comp;
+                        break;
+                    case "Playstation":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.PS;
+                        break;
+                    case "Xbox":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Xbox;
+                        break;
+                    case "Другое устройство":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.laptop;
+                        break;
+                    default:
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_light_saber_922809;
+                        break;
+
+                }
+            }
         }
     }
 }

@@ -30,26 +30,27 @@ namespace Dyczko_ComputerClub_System
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.label3 = new System.Windows.Forms.Label();
             this.Zareg = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Open_eye = new System.Windows.Forms.PictureBox();
-            this.Closebtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Hide_eye = new System.Windows.Forms.PictureBox();
             this.AuthBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.textBox_login = new Bunifu.UI.WinForms.BunifuTextBox();
             this.textBox_password = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.btnMin = new System.Windows.Forms.Button();
+            this.btnMax = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Open_eye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Hide_eye)).BeginInit();
@@ -82,14 +83,16 @@ namespace Dyczko_ComputerClub_System
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(109, 159);
+            this.label2.BackColor = System.Drawing.Color.Yellow;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(0, -1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 40);
+            this.label2.Size = new System.Drawing.Size(172, 47);
             this.label2.TabIndex = 14;
             this.label2.Text = "Вход";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             // 
             // Open_eye
             // 
@@ -104,102 +107,12 @@ namespace Dyczko_ComputerClub_System
             this.Open_eye.TabStop = false;
             this.Open_eye.Click += new System.EventHandler(this.Open_eye_Click);
             // 
-            // Closebtn
-            // 
-            this.Closebtn.AllowAnimations = true;
-            this.Closebtn.AllowMouseEffects = true;
-            this.Closebtn.AllowToggling = false;
-            this.Closebtn.AnimationSpeed = 200;
-            this.Closebtn.AutoGenerateColors = false;
-            this.Closebtn.AutoRoundBorders = true;
-            this.Closebtn.AutoSizeLeftIcon = true;
-            this.Closebtn.AutoSizeRightIcon = true;
-            this.Closebtn.BackColor = System.Drawing.Color.Transparent;
-            this.Closebtn.BackColor1 = System.Drawing.Color.Red;
-            this.Closebtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Closebtn.BackgroundImage")));
-            this.Closebtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.Closebtn.ButtonText = "x";
-            this.Closebtn.ButtonTextMarginLeft = 0;
-            this.Closebtn.ColorContrastOnClick = 45;
-            this.Closebtn.ColorContrastOnHover = 45;
-            this.Closebtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.Closebtn.CustomizableEdges = borderEdges1;
-            this.Closebtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Closebtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.Closebtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.Closebtn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.Closebtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.Closebtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.Closebtn.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Closebtn.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.Closebtn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.Closebtn.IconMarginLeft = 11;
-            this.Closebtn.IconPadding = 10;
-            this.Closebtn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Closebtn.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.Closebtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.Closebtn.IconSize = 25;
-            this.Closebtn.IdleBorderColor = System.Drawing.Color.Red;
-            this.Closebtn.IdleBorderRadius = 37;
-            this.Closebtn.IdleBorderThickness = 1;
-            this.Closebtn.IdleFillColor = System.Drawing.Color.Red;
-            this.Closebtn.IdleIconLeftImage = null;
-            this.Closebtn.IdleIconRightImage = null;
-            this.Closebtn.IndicateFocus = false;
-            this.Closebtn.Location = new System.Drawing.Point(271, 12);
-            this.Closebtn.Name = "Closebtn";
-            this.Closebtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.Closebtn.OnDisabledState.BorderRadius = 1;
-            this.Closebtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.Closebtn.OnDisabledState.BorderThickness = 1;
-            this.Closebtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.Closebtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.Closebtn.OnDisabledState.IconLeftImage = null;
-            this.Closebtn.OnDisabledState.IconRightImage = null;
-            this.Closebtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Closebtn.onHoverState.BorderRadius = 1;
-            this.Closebtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.Closebtn.onHoverState.BorderThickness = 1;
-            this.Closebtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Closebtn.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.onHoverState.IconLeftImage = null;
-            this.Closebtn.onHoverState.IconRightImage = null;
-            this.Closebtn.OnIdleState.BorderColor = System.Drawing.Color.Red;
-            this.Closebtn.OnIdleState.BorderRadius = 1;
-            this.Closebtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.Closebtn.OnIdleState.BorderThickness = 1;
-            this.Closebtn.OnIdleState.FillColor = System.Drawing.Color.Red;
-            this.Closebtn.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.OnIdleState.IconLeftImage = null;
-            this.Closebtn.OnIdleState.IconRightImage = null;
-            this.Closebtn.OnPressedState.BorderColor = System.Drawing.Color.Maroon;
-            this.Closebtn.OnPressedState.BorderRadius = 1;
-            this.Closebtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.Closebtn.OnPressedState.BorderThickness = 1;
-            this.Closebtn.OnPressedState.FillColor = System.Drawing.Color.Maroon;
-            this.Closebtn.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.OnPressedState.IconLeftImage = null;
-            this.Closebtn.OnPressedState.IconRightImage = null;
-            this.Closebtn.Size = new System.Drawing.Size(37, 39);
-            this.Closebtn.TabIndex = 12;
-            this.Closebtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Closebtn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Closebtn.TextMarginLeft = 0;
-            this.Closebtn.TextPadding = new System.Windows.Forms.Padding(0);
-            this.Closebtn.UseDefaultRadiusAndThickness = true;
-            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_encripted_4531326;
-            this.pictureBox2.Location = new System.Drawing.Point(75, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(16, 52);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(167, 144);
+            this.pictureBox2.Size = new System.Drawing.Size(291, 144);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -236,11 +149,11 @@ namespace Dyczko_ComputerClub_System
             this.AuthBtn.ColorContrastOnClick = 45;
             this.AuthBtn.ColorContrastOnHover = 45;
             this.AuthBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.AuthBtn.CustomizableEdges = borderEdges2;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.AuthBtn.CustomizableEdges = borderEdges3;
             this.AuthBtn.DialogResult = System.Windows.Forms.DialogResult.None;
             this.AuthBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.AuthBtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -340,26 +253,26 @@ namespace Dyczko_ComputerClub_System
             this.textBox_login.Modified = false;
             this.textBox_login.Multiline = false;
             this.textBox_login.Name = "textBox_login";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_login.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.textBox_login.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_login.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_login.OnIdleState = stateProperties4;
+            stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties17.FillColor = System.Drawing.Color.Empty;
+            stateProperties17.ForeColor = System.Drawing.Color.Empty;
+            stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_login.OnActiveState = stateProperties17;
+            stateProperties18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties18.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.textBox_login.OnDisabledState = stateProperties18;
+            stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties19.FillColor = System.Drawing.Color.Empty;
+            stateProperties19.ForeColor = System.Drawing.Color.Empty;
+            stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_login.OnHoverState = stateProperties19;
+            stateProperties20.BorderColor = System.Drawing.Color.Silver;
+            stateProperties20.FillColor = System.Drawing.Color.White;
+            stateProperties20.ForeColor = System.Drawing.Color.Empty;
+            stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_login.OnIdleState = stateProperties20;
             this.textBox_login.Padding = new System.Windows.Forms.Padding(3);
             this.textBox_login.PasswordChar = '\0';
             this.textBox_login.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -414,26 +327,26 @@ namespace Dyczko_ComputerClub_System
             this.textBox_password.Modified = false;
             this.textBox_password.Multiline = false;
             this.textBox_password.Name = "textBox_password";
-            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties5.FillColor = System.Drawing.Color.Empty;
-            stateProperties5.ForeColor = System.Drawing.Color.Empty;
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_password.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.textBox_password.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.Empty;
-            stateProperties7.ForeColor = System.Drawing.Color.Empty;
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_password.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.White;
-            stateProperties8.ForeColor = System.Drawing.Color.Empty;
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textBox_password.OnIdleState = stateProperties8;
+            stateProperties21.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties21.FillColor = System.Drawing.Color.Empty;
+            stateProperties21.ForeColor = System.Drawing.Color.Empty;
+            stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_password.OnActiveState = stateProperties21;
+            stateProperties22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties22.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties22.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.textBox_password.OnDisabledState = stateProperties22;
+            stateProperties23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties23.FillColor = System.Drawing.Color.Empty;
+            stateProperties23.ForeColor = System.Drawing.Color.Empty;
+            stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_password.OnHoverState = stateProperties23;
+            stateProperties24.BorderColor = System.Drawing.Color.Silver;
+            stateProperties24.FillColor = System.Drawing.Color.White;
+            stateProperties24.ForeColor = System.Drawing.Color.Empty;
+            stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.textBox_password.OnIdleState = stateProperties24;
             this.textBox_password.Padding = new System.Windows.Forms.Padding(3);
             this.textBox_password.PasswordChar = '\0';
             this.textBox_password.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -455,16 +368,63 @@ namespace Dyczko_ComputerClub_System
             this.textBox_password.UseSystemPasswordChar = false;
             this.textBox_password.WordWrap = true;
             // 
+            // btnMin
+            // 
+            this.btnMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMin.Location = new System.Drawing.Point(172, -1);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(47, 47);
+            this.btnMin.TabIndex = 18;
+            this.btnMin.Text = "–";
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnMax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMax.FlatAppearance.BorderSize = 0;
+            this.btnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMax.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMax.Location = new System.Drawing.Point(219, -1);
+            this.btnMax.Name = "btnMax";
+            this.btnMax.Size = new System.Drawing.Size(47, 47);
+            this.btnMax.TabIndex = 17;
+            this.btnMax.Text = "◳\t";
+            this.btnMax.UseVisualStyleBackColor = false;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClose.Location = new System.Drawing.Point(266, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(47, 47);
+            this.btnClose.TabIndex = 16;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(319, 381);
+            this.ClientSize = new System.Drawing.Size(314, 388);
+            this.Controls.Add(this.btnMin);
+            this.Controls.Add(this.btnMax);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Open_eye);
-            this.Controls.Add(this.Closebtn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Zareg);
             this.Controls.Add(this.label3);
@@ -472,10 +432,12 @@ namespace Dyczko_ComputerClub_System
             this.Controls.Add(this.Hide_eye);
             this.Controls.Add(this.AuthBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register";
+            this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.Log_in_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.Open_eye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Hide_eye)).EndInit();
@@ -489,11 +451,13 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Zareg;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Closebtn;
         private System.Windows.Forms.PictureBox Open_eye;
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton AuthBtn;
         private Bunifu.UI.WinForms.BunifuTextBox textBox_login;
         private Bunifu.UI.WinForms.BunifuTextBox textBox_password;
+        private System.Windows.Forms.Button btnMin;
+        private System.Windows.Forms.Button btnMax;
+        private System.Windows.Forms.Button btnClose;
     }
 }

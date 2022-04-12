@@ -18,6 +18,7 @@ namespace Dyczko_ComputerClub_System
             InitializeComponent();
         }
         readonly Database DB = new Database();
+        public delegate void EditStaffDelegate(object id, string fio, int age, string gen, string num, string mail, object post);
         public void SelectWorkerData()
         {
             string selected_ID = IDBox.SelectedValue.ToString();
@@ -112,7 +113,8 @@ namespace Dyczko_ComputerClub_System
         private void BtnChange_Click(object sender, EventArgs e)
         {
             //Определяем значение переменных для записи в БД
-            DB.Edit_Staff(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text, JobBox.SelectedValue);
+            EditStaffDelegate ESD = new EditStaffDelegate(DB.Edit_Staff);
+            ESD.Invoke(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text, JobBox.SelectedValue);
             //Закрываем форму
             this.Close();
         }
@@ -128,15 +130,39 @@ namespace Dyczko_ComputerClub_System
         {
             this.Close();
         }
-
-        private void BtnClear_Click(object sender, EventArgs e)
+        private void IDBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectWorkerData();
         }
 
-        private void IDBox_TextChanged(object sender, EventArgs e)
+        private void JobBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectWorkerData();
+            if (!String.IsNullOrWhiteSpace(GenBox.Text))
+            {
+                string Picture = JobBox.Text;
+                switch (Picture)
+                {
+                    case "Администрация":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.corporate;
+                        break;
+                    case "Бухгалтерия":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Buhgalter;
+                        break;
+                    case "Обслуживание":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Worker;
+                        break;
+                    case "Служба Безопасности":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.police;
+                        break;
+                    case "Техподдержка и ремонт":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Repairer;
+                        break;
+                    default:
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.hacker;
+                        break;
+
+                }
+            }
         }
     }
 }

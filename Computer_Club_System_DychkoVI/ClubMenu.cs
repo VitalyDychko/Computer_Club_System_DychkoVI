@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,18 +13,25 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class ClubMenu : Form
     {
-        //Fields
+        //Поля
         private Button currentButton;
         private readonly Random random;
         private int tempIndex;
         private Form activeForm;
+        //Конструктор
         public ClubMenu()
         {
             InitializeComponent();
             random = new Random();
-
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
-        //Methods
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //Методы
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -128,7 +136,39 @@ namespace Dyczko_ComputerClub_System
 
         private void BtnLicenses_Click(object sender, EventArgs e)
         {
+            Information Info = new Information();
+            Info.ShowDialog();
+        }
 
+        private void btnDczk_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://vk.com/vitdczk");
+        }
+
+        private void BtnClose(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void BtnMax(object sender, EventArgs e)
+        {
+            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+        }
+
+        private void BtnMin(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnBonus_Click(object sender, EventArgs e)
+        {
+            FunctMenu FM = new FunctMenu();
+            FM.Show();
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

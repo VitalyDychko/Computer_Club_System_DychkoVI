@@ -30,7 +30,7 @@ namespace Dyczko_ComputerClub_System
             // создаем элементы меню
             ToolStripMenuItem OffMenuItem = new ToolStripMenuItem("Отключить");
             ToolStripMenuItem OnMenuItem = new ToolStripMenuItem("Включить");
-            ToolStripMenuItem BusyMenuItem = new ToolStripMenuItem("Занят");
+            ToolStripMenuItem BusyMenuItem = new ToolStripMenuItem("На ремонте");
             ToolStripMenuItem SelectMenuItem = new ToolStripMenuItem("Выделенный ID");
             // добавляем элементы в меню
             contextMenuStrip1.Items.AddRange(new[] { OffMenuItem, OnMenuItem, BusyMenuItem, SelectMenuItem });
@@ -223,7 +223,7 @@ namespace Dyczko_ComputerClub_System
         }
         private void занятToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeState("Busy");
+            ChangeState("On repair");
         }
         #endregion
         public void ChangeState(string new_state)
@@ -259,7 +259,7 @@ namespace Dyczko_ComputerClub_System
                     //Красим в зелёный
                     dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Green;
                 }
-                if (id_selected_status == "Busy")
+                if (id_selected_status == "On repair")
                 {
                     //Красим в желтый
                     dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Yellow;

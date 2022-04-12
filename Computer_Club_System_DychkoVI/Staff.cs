@@ -28,20 +28,6 @@ namespace Dyczko_ComputerClub_System
         public Staff()
         {
             InitializeComponent();
-            #region Элементы контекстного меню
-            // создаем элементы меню
-            ToolStripMenuItem HireMenuItem = new ToolStripMenuItem("Нанять");
-            ToolStripMenuItem FireMenuItem = new ToolStripMenuItem("Уволить");
-            ToolStripMenuItem SelectMenuItem = new ToolStripMenuItem("Выделенный ID");
-            // добавляем элементы в меню
-            contextMenuStrip1.Items.AddRange(new[] { HireMenuItem, FireMenuItem, SelectMenuItem });
-            // ассоциируем контекстное меню с текстовым полем
-            dataGridView1.ContextMenuStrip = contextMenuStrip1;
-            // устанавливаем обработчики событий для меню
-            HireMenuItem.Click += WelcomeToolStripMenuItem_Click;
-            FireMenuItem.Click += KickToolStripMenuItem_Click;
-            SelectMenuItem.Click += ВыделенныйIDToolStripMenuItem_Click;
-            #endregion
         }
         #region Основные методы
         private void CreateColumns()
@@ -267,21 +253,6 @@ namespace Dyczko_ComputerClub_System
             }
         }
         #region ТулСтрип
-
-        private void WelcomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeState("Работает");
-        }
-
-        private void KickToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeState("Не на месте");
-        }
-
-        private void ВыделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"{selected_Row}");
-        }
 
         private void Rename(object sender, EventArgs e)
         {

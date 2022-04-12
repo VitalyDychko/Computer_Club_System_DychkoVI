@@ -126,7 +126,7 @@ namespace Dyczko_ComputerClub_System
                     try
                     {
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Рейс успешно добавлен!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Сеанс успешно добавлен!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -163,17 +163,18 @@ namespace Dyczko_ComputerClub_System
             var result = min * DB.Rub;
             PriceBox.Text = Convert.ToString(Math.Round(result));
         }
-        private void MinuteBox_TextChanged(object sender, EventArgs e)
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+                this.Close();
+        }
+
+        private void MinuteBox_TextChanged_1(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(MinuteBox.Text))
             {
                 Sum();
             }
-        }
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-                this.Close();
         }
     }
 }

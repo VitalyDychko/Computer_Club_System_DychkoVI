@@ -31,6 +31,7 @@ namespace Dyczko_ComputerClub_System
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClubMenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnBonus = new System.Windows.Forms.Button();
             this.BtnAuth = new System.Windows.Forms.Button();
             this.BtnInfo = new System.Windows.Forms.Button();
             this.BtnSetup = new System.Windows.Forms.Button();
@@ -38,14 +39,18 @@ namespace Dyczko_ComputerClub_System
             this.BtnClients = new System.Windows.Forms.Button();
             this.BtnSotr = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.btnDczk = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,6 +59,7 @@ namespace Dyczko_ComputerClub_System
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.BtnBonus);
             this.panel1.Controls.Add(this.BtnAuth);
             this.panel1.Controls.Add(this.BtnInfo);
             this.panel1.Controls.Add(this.BtnSetup);
@@ -66,6 +72,28 @@ namespace Dyczko_ComputerClub_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(190, 553);
             this.panel1.TabIndex = 0;
+            // 
+            // BtnBonus
+            // 
+            this.BtnBonus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.BtnBonus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBonus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBonus.FlatAppearance.BorderSize = 0;
+            this.BtnBonus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBonus.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.BtnBonus.ForeColor = System.Drawing.Color.White;
+            this.BtnBonus.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_card_4531350;
+            this.BtnBonus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBonus.Location = new System.Drawing.Point(0, 474);
+            this.BtnBonus.Name = "BtnBonus";
+            this.BtnBonus.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnBonus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BtnBonus.Size = new System.Drawing.Size(190, 69);
+            this.BtnBonus.TabIndex = 9;
+            this.BtnBonus.Text = "Меню функций";
+            this.BtnBonus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnBonus.UseVisualStyleBackColor = false;
+            this.BtnBonus.Click += new System.EventHandler(this.BtnBonus_Click);
             // 
             // BtnAuth
             // 
@@ -81,6 +109,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnAuth.Location = new System.Drawing.Point(0, 405);
             this.BtnAuth.Name = "BtnAuth";
             this.BtnAuth.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnAuth.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnAuth.Size = new System.Drawing.Size(190, 69);
             this.BtnAuth.TabIndex = 8;
             this.BtnAuth.Text = "Пользователи системы";
@@ -102,6 +131,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnInfo.Location = new System.Drawing.Point(0, 336);
             this.BtnInfo.Name = "BtnInfo";
             this.BtnInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnInfo.Size = new System.Drawing.Size(190, 69);
             this.BtnInfo.TabIndex = 7;
             this.BtnInfo.Text = "Инфо";
@@ -123,6 +153,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnSetup.Location = new System.Drawing.Point(0, 267);
             this.BtnSetup.Name = "BtnSetup";
             this.BtnSetup.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnSetup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnSetup.Size = new System.Drawing.Size(190, 69);
             this.BtnSetup.TabIndex = 4;
             this.BtnSetup.Text = "Сеансы";
@@ -144,6 +175,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnComp.Location = new System.Drawing.Point(0, 198);
             this.BtnComp.Name = "BtnComp";
             this.BtnComp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnComp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnComp.Size = new System.Drawing.Size(190, 69);
             this.BtnComp.TabIndex = 3;
             this.BtnComp.Text = "Компьютеры и приставки";
@@ -165,6 +197,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnClients.Location = new System.Drawing.Point(0, 129);
             this.BtnClients.Name = "BtnClients";
             this.BtnClients.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnClients.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnClients.Size = new System.Drawing.Size(190, 69);
             this.BtnClients.TabIndex = 2;
             this.BtnClients.Text = "Клиенты";
@@ -186,6 +219,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnSotr.Location = new System.Drawing.Point(0, 60);
             this.BtnSotr.Name = "BtnSotr";
             this.BtnSotr.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnSotr.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BtnSotr.Size = new System.Drawing.Size(190, 69);
             this.BtnSotr.TabIndex = 1;
             this.BtnSotr.Text = "Сотрудники";
@@ -196,17 +230,32 @@ namespace Dyczko_ComputerClub_System
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelLogo.Controls.Add(this.lblTitle);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(190, 60);
             this.panelLogo.TabIndex = 0;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(190, 60);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(24)))));
+            this.panelTitleBar.Controls.Add(this.button3);
+            this.panelTitleBar.Controls.Add(this.button2);
+            this.panelTitleBar.Controls.Add(this.button1);
             this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
-            this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.panelTitleBar.ForeColor = System.Drawing.Color.White;
@@ -214,6 +263,52 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(835, 60);
             this.panelTitleBar.TabIndex = 1;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(694, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(47, 60);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "–";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.BtnMin);
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(741, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(47, 60);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "◳\t";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.BtnMax);
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(788, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 60);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "x";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.BtnClose);
             // 
             // btnCloseChildForm
             // 
@@ -231,17 +326,6 @@ namespace Dyczko_ComputerClub_System
             this.btnCloseChildForm.Visible = false;
             this.btnCloseChildForm.Click += new System.EventHandler(this.BtnCloseChildForm_Click);
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(504, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(331, 32);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
-            // 
             // panelDesktopPane
             // 
             this.panelDesktopPane.Controls.Add(this.btnDczk);
@@ -257,15 +341,16 @@ namespace Dyczko_ComputerClub_System
             // 
             this.btnDczk.AutoSize = true;
             this.btnDczk.BackColor = System.Drawing.Color.Black;
-            this.btnDczk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDczk.Cursor = System.Windows.Forms.Cursors.Help;
             this.btnDczk.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDczk.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDczk.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDczk.ForeColor = System.Drawing.Color.White;
             this.btnDczk.Location = new System.Drawing.Point(0, 0);
             this.btnDczk.Name = "btnDczk";
             this.btnDczk.Size = new System.Drawing.Size(135, 18);
             this.btnDczk.TabIndex = 13;
             this.btnDczk.Text = "Made by VitDczk";
+            this.btnDczk.Click += new System.EventHandler(this.btnDczk_Click);
             // 
             // label1
             // 
@@ -300,12 +385,14 @@ namespace Dyczko_ComputerClub_System
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClubMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Компьютерный клуб";
             this.panel1.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
-            this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
             this.panelDesktopPane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -330,6 +417,10 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Button BtnSetup;
         private System.Windows.Forms.Button BtnInfo;
         private System.Windows.Forms.Button BtnAuth;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnBonus;
     }
 }
 

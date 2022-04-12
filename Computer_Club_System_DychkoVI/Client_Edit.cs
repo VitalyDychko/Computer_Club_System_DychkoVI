@@ -19,15 +19,12 @@ namespace Dyczko_ComputerClub_System
         }
 
         readonly Database DB = new Database();
+        public delegate void EditClientDelegate(object id, string fio, int age, string gen, string num, string mail);
         private void Close(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Clear(object sender, EventArgs e)
-        {
-            SelectData();
-        }
         public void SelectData()
         {
             string selected_ID = IDBox.SelectedValue.ToString();
@@ -85,7 +82,8 @@ namespace Dyczko_ComputerClub_System
         private void Redact(object sender, EventArgs e)
         {
             //Определяем значение переменных для записи в БД
-            DB.Edit_Client(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text);
+            EditClientDelegate ECD = new EditClientDelegate(DB.Edit_Client);
+            ECD.Invoke(IDBox.SelectedValue, FIOBox.Text, Convert.ToInt32(AgeBox.Text), GenBox.Text, NumBox.Text, EmailBox.Text);
             //Закрываем форму
             this.Close();
         }
@@ -96,9 +94,34 @@ namespace Dyczko_ComputerClub_System
             SelectData();
         }
 
-        private void IDBox_TextChanged(object sender, EventArgs e)
+        private void IDBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectData();
+
+        }
+
+        private void GenBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(GenBox.Text))
+            {
+                string Picture = GenBox.Text;
+                switch (Picture)
+                {
+                    case "Мужской":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.corporate;
+                        break;
+                    case "Женский":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.girl;
+                        break;
+                    case "Другой":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.hacker;
+                        break;
+                    default:
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.hacker;
+                        break;
+
+                }
+            }
         }
     }
 }

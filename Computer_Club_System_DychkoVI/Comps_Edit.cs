@@ -19,6 +19,7 @@ namespace Dyczko_ComputerClub_System
         }
 
         readonly Database DB = new Database();
+        public delegate void EditCompDelegate(object id, object type, string name, string supp);
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -28,15 +29,12 @@ namespace Dyczko_ComputerClub_System
         private void BtnChange_Click(object sender, EventArgs e)
         {
             //Определяем значение переменных для записи в БД
-            DB.Edit_Comp(IDBox.SelectedValue, TypeBox.SelectedValue, NameBox.Text, SuppBox.Text);
+            EditCompDelegate ECD = new EditCompDelegate(DB.Edit_Comp);
+            ECD.Invoke(IDBox.SelectedValue, TypeBox.SelectedValue, NameBox.Text, SuppBox.Text);
             //Закрываем форму
             this.Close();
         }
 
-        private void BtnReload_Click(object sender, EventArgs e)
-        {
-            SelectData();
-        }
         public void SelectData()
         {
             string selected_ID = IDBox.SelectedValue.ToString();
@@ -134,6 +132,38 @@ namespace Dyczko_ComputerClub_System
         private void IDBox_TextChanged(object sender, EventArgs e)
         {
             SelectData();
+        }
+
+        private void IDBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectData();
+        }
+
+        private void TypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(TypeBox.Text))
+            {
+                string Picture = TypeBox.Text;
+                switch (Picture)
+                {
+                    case "Игровой компьютер":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Comp;
+                        break;
+                    case "Playstation":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.PS;
+                        break;
+                    case "Xbox":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Xbox;
+                        break;
+                    case "Другое устройство":
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.laptop;
+                        break;
+                    default:
+                        this.pictureBox2.Image = global::Dyczko_ComputerClub_System.Properties.Resources.premium_icon_light_saber_922809;
+                        break;
+
+                }
+            }
         }
     }
 }

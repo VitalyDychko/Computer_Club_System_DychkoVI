@@ -30,6 +30,7 @@ namespace Dyczko_ComputerClub_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comps));
             this.panel1 = new System.Windows.Forms.Panel();
             this.TabRedact = new System.Windows.Forms.TabControl();
             this.tabEdit = new System.Windows.Forms.TabPage();
@@ -48,11 +49,6 @@ namespace Dyczko_ComputerClub_System
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabSearch = new System.Windows.Forms.TabPage();
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -79,7 +75,6 @@ namespace Dyczko_ComputerClub_System
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tabSearch.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -97,44 +92,42 @@ namespace Dyczko_ComputerClub_System
             // TabRedact
             // 
             this.TabRedact.Controls.Add(this.tabEdit);
-            this.TabRedact.Controls.Add(this.tabSearch);
+            this.TabRedact.Cursor = System.Windows.Forms.Cursors.Default;
             this.TabRedact.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TabRedact.Font = new System.Drawing.Font("Century Gothic", 7F, System.Drawing.FontStyle.Bold);
-            this.TabRedact.Location = new System.Drawing.Point(0, 389);
+            this.TabRedact.Location = new System.Drawing.Point(0, 393);
             this.TabRedact.Name = "TabRedact";
             this.TabRedact.SelectedIndex = 0;
-            this.TabRedact.Size = new System.Drawing.Size(925, 133);
+            this.TabRedact.Size = new System.Drawing.Size(925, 129);
             this.TabRedact.TabIndex = 61;
             // 
             // tabEdit
             // 
-            this.tabEdit.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.tabEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabEdit.BackColor = System.Drawing.Color.White;
             this.tabEdit.Controls.Add(this.panel2);
             this.tabEdit.Controls.Add(this.panel3);
             this.tabEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabEdit.Location = new System.Drawing.Point(4, 22);
             this.tabEdit.Name = "tabEdit";
             this.tabEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEdit.Size = new System.Drawing.Size(917, 107);
+            this.tabEdit.Size = new System.Drawing.Size(917, 103);
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Редактирование";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.IDBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(668, 3);
+            this.panel2.Location = new System.Drawing.Point(672, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 97);
             this.panel2.TabIndex = 54;
             // 
             // panel4
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnChange);
             this.panel4.Controls.Add(this.btnDel);
             this.panel4.Location = new System.Drawing.Point(3, 23);
@@ -188,16 +181,16 @@ namespace Dyczko_ComputerClub_System
             // 
             // IDBox
             // 
+            this.IDBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.IDBox.Location = new System.Drawing.Point(29, 1);
             this.IDBox.Name = "IDBox";
-            this.IDBox.Size = new System.Drawing.Size(207, 19);
+            this.IDBox.Size = new System.Drawing.Size(207, 20);
             this.IDBox.TabIndex = 7;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.StatBox);
             this.panel3.Controls.Add(this.TypeBox);
             this.panel3.Controls.Add(this.label8);
@@ -208,158 +201,110 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(7, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(658, 94);
+            this.panel3.Size = new System.Drawing.Size(662, 94);
             this.panel3.TabIndex = 52;
             // 
             // StatBox
             // 
             this.StatBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.StatBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StatBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.StatBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.StatBox.FormattingEnabled = true;
             this.StatBox.Items.AddRange(new object[] {
             "On",
             "Off",
-            "Busy"});
+            "On repair"});
             this.StatBox.Location = new System.Drawing.Point(107, 0);
             this.StatBox.Name = "StatBox";
-            this.StatBox.Size = new System.Drawing.Size(543, 21);
+            this.StatBox.Size = new System.Drawing.Size(549, 20);
             this.StatBox.TabIndex = 62;
             // 
             // TypeBox
             // 
             this.TypeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TypeBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TypeBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.TypeBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.TypeBox.FormattingEnabled = true;
             this.TypeBox.Location = new System.Drawing.Point(107, 66);
             this.TypeBox.Name = "TypeBox";
-            this.TypeBox.Size = new System.Drawing.Size(543, 21);
+            this.TypeBox.Size = new System.Drawing.Size(549, 20);
             this.TypeBox.TabIndex = 63;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(36, 0);
+            this.label8.Location = new System.Drawing.Point(4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 19);
+            this.label8.Size = new System.Drawing.Size(97, 19);
             this.label8.TabIndex = 54;
             this.label8.Text = "Статус:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 68);
+            this.label1.Location = new System.Drawing.Point(3, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 19);
+            this.label1.Size = new System.Drawing.Size(98, 19);
             this.label1.TabIndex = 62;
             this.label1.Text = "Тип:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SuppBox
             // 
             this.SuppBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.SuppBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.SuppBox.Location = new System.Drawing.Point(107, 44);
             this.SuppBox.Name = "SuppBox";
-            this.SuppBox.Size = new System.Drawing.Size(543, 19);
+            this.SuppBox.Size = new System.Drawing.Size(549, 20);
             this.SuppBox.TabIndex = 12;
             // 
             // NameBox
             // 
             this.NameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.NameBox.Location = new System.Drawing.Point(107, 22);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(543, 19);
+            this.NameBox.Size = new System.Drawing.Size(549, 20);
             this.NameBox.TabIndex = 8;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 44);
+            this.label4.Location = new System.Drawing.Point(3, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 19);
+            this.label4.Size = new System.Drawing.Size(98, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Поставщик:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(15, 22);
+            this.label3.Location = new System.Drawing.Point(4, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.Size = new System.Drawing.Size(97, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Название:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tabSearch
-            // 
-            this.tabSearch.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabSearch.Controls.Add(this.toolStrip5);
-            this.tabSearch.Controls.Add(this.toolStrip4);
-            this.tabSearch.Controls.Add(this.toolStrip3);
-            this.tabSearch.Controls.Add(this.toolStrip2);
-            this.tabSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabSearch.Location = new System.Drawing.Point(4, 22);
-            this.tabSearch.Name = "tabSearch";
-            this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(917, 107);
-            this.tabSearch.TabIndex = 1;
-            this.tabSearch.Text = "Поиск";
-            this.tabSearch.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip5
-            // 
-            this.toolStrip5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip5.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(907, 25);
-            this.toolStrip5.TabIndex = 3;
-            this.toolStrip5.Text = "toolStrip5";
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip4.Location = new System.Drawing.Point(3, 25);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(907, 25);
-            this.toolStrip4.TabIndex = 2;
-            this.toolStrip4.Text = "toolStrip4";
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip3.Location = new System.Drawing.Point(3, 50);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(907, 25);
-            this.toolStrip3.TabIndex = 1;
-            this.toolStrip3.Text = "toolStrip3";
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Location = new System.Drawing.Point(3, 75);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(907, 25);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel7
             // 
+            this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.Controls.Add(this.dataGridView1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 25);
@@ -372,20 +317,22 @@ namespace Dyczko_ComputerClub_System
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(905, 487);
+            this.dataGridView1.Size = new System.Drawing.Size(905, 352);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.toolStrip1.BackColor = System.Drawing.Color.Gold;
             this.toolStrip1.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -411,9 +358,9 @@ namespace Dyczko_ComputerClub_System
             // 
             // toolStripLabel1
             // 
-            this.toolStripLabel1.BackColor = System.Drawing.Color.White;
+            this.toolStripLabel1.BackColor = System.Drawing.Color.Black;
             this.toolStripLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.White;
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(149, 22);
             this.toolStripLabel1.Text = "Количество устройств:";
@@ -434,8 +381,8 @@ namespace Dyczko_ComputerClub_System
             // 
             // toolStripLabel3
             // 
-            this.toolStripLabel3.BackColor = System.Drawing.Color.White;
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel3.BackColor = System.Drawing.Color.Black;
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.White;
             this.toolStripLabel3.Name = "toolStripLabel3";
             this.toolStripLabel3.Size = new System.Drawing.Size(155, 22);
             this.toolStripLabel3.Text = "Выбранное устройство:";
@@ -550,6 +497,7 @@ namespace Dyczko_ComputerClub_System
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Comps";
             this.Text = "Компьютеры и приставки";
             this.Load += new System.EventHandler(this.Comps_Load);
@@ -560,8 +508,6 @@ namespace Dyczko_ComputerClub_System
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tabSearch.ResumeLayout(false);
-            this.tabSearch.PerformLayout();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -590,11 +536,6 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabPage tabSearch;
-        private System.Windows.Forms.ToolStrip toolStrip5;
-        private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;

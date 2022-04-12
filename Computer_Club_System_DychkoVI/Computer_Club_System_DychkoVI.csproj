@@ -49,8 +49,20 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToggleSwitch">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
+      <HintPath>DLLs\Bunifu UI\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,12 +95,6 @@
     <Compile Include="Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client_Delete.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Client_Delete.Designer.cs">
-      <DependentUpon>Client_Delete.cs</DependentUpon>
-    </Compile>
     <Compile Include="Client_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,23 @@
       <DependentUpon>Comps_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
+    <Compile Include="FunctMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FunctMenu.Designer.cs">
+      <DependentUpon>FunctMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Information.Designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +156,6 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,12 +180,6 @@
     <Compile Include="Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff_Delete.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff_Delete.Designer.cs">
-      <DependentUpon>Staff_Delete.cs</DependentUpon>
-    </Compile>
     <Compile Include="Staff_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +193,18 @@
     <Compile Include="UserList.Designer.cs">
       <DependentUpon>UserList.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Add.Designer.cs">
+      <DependentUpon>User_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_Edit.Designer.cs">
+      <DependentUpon>User_Edit.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -191,9 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Client_Delete.resx">
-      <DependentUpon>Client_Delete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client_Edit.resx">
       <DependentUpon>Client_Edit.cs</DependentUpon>
@@ -210,6 +231,12 @@
     <EmbeddedResource Include="Comps_Edit.resx">
       <DependentUpon>Comps_Edit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FunctMenu.resx">
+      <DependentUpon>FunctMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff_Add.resx">
       <DependentUpon>Staff_Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +246,7 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
@@ -238,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Add.resx">
+      <DependentUpon>User_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Edit.resx">
+      <DependentUpon>User_Edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +384,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pictures\Icons for buttons\Trash_Can_Empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\hacker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\laptop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\police.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\girl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\Buhgalter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\Repairer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\Worker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\3437393.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\Comp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\PS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\Xbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\DataBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Icons for buttons\free-icon-font-cross-3917050.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

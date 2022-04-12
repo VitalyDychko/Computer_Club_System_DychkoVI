@@ -8,7 +8,8 @@ namespace Dyczko_ComputerClub_System
     public class Database
     {
         public double Rub { get; set; } = 0.98;
-        readonly MySqlConnection conn = new MySqlConnection("server=chuc.caseum.ru;port=33333;user=st_3_19_5;database=is_3_19_st5_KURS;password=54175268;");
+        public static MySqlConnection Conn { get => conn; set => conn = value; }
+        public static MySqlConnection conn = new MySqlConnection("server=chuc.caseum.ru;port=33333;user=st_3_19_5;database=is_3_19_st5_KURS;password=54175268;");
         private static readonly MySqlDataAdapter MyDA = new MySqlDataAdapter();
         private static readonly BindingSource bSource = new BindingSource();
         private static readonly DataSet ds = new DataSet();
@@ -16,21 +17,21 @@ namespace Dyczko_ComputerClub_System
 
         public void OpenConnection()
         {
-            if (conn.State == ConnectionState.Closed)
+            if (Conn.State == ConnectionState.Closed)
             {
-                conn.Open();
+                Conn.Open();
             }
         }
         public void CloseConnection()
         {
-            if (conn.State == ConnectionState.Open)
+            if (Conn.State == ConnectionState.Open)
             {
-                conn.Close();
+                Conn.Close();
             }
         }
         public MySqlConnection GetConnection()
         {
-            return conn;
+            return Conn;
         }
         #region Методы добавления
         public void Add_Client(string fio, string _age, string gen, string num, string mail)
@@ -139,23 +140,5 @@ namespace Dyczko_ComputerClub_System
             CloseConnection();
         }
         #endregion
-        public void Universal_Remover(string table, object id)
-        {
-            try
-            {
-                OpenConnection();
-                string commandStr = $"DELETE FROM {table} WHERE ID='{id}'";
-                using (MySqlCommand cmnd = new MySqlCommand(commandStr, GetConnection()))
-                    cmnd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex}");
-            }
-            finally
-            {
-                CloseConnection();
-            }
-        }
     }
 }
