@@ -83,9 +83,9 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_eye {
+        internal static System.Drawing.Bitmap Closed_eye {
             get {
-                object obj = ResourceManager.GetObject("close-eye", resourceCulture);
+                object obj = ResourceManager.GetObject("Closed-eye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap open_eye {
+        internal static System.Drawing.Bitmap Opened_eye {
             get {
-                object obj = ResourceManager.GetObject("open-eye", resourceCulture);
+                object obj = ResourceManager.GetObject("Opened-eye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

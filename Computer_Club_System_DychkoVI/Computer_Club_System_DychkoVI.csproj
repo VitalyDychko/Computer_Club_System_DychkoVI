@@ -433,5 +433,11 @@
   <ItemGroup>
     <None Include="Pictures\Icons for buttons\free-icon-font-cross-3917050.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Password\Opened-eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\Password\Closed-eye.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
