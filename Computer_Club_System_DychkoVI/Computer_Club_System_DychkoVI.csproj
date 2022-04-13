@@ -448,5 +448,38 @@
   <ItemGroup>
     <None Include="Pictures\Password\Closed-eye.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\manio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\arman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0hackerman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0comp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0noodles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pictures\CyberIcons\0computer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

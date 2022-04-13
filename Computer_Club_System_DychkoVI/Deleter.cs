@@ -25,7 +25,7 @@ namespace Dyczko_ComputerClub_System
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         Database DB = new Database();
         public delegate void Universal_Remover_Delegate(string table, object id);
-        public void GetUniversalList(string table)
+        public void GetUniversalList(object table)
         {
             DataTable list_clients_table = new DataTable();
             MySqlCommand list_clients_command = new MySqlCommand();
@@ -62,32 +62,18 @@ namespace Dyczko_ComputerClub_System
         private void Remove(object sender, EventArgs e)
         {
             Universal_Remover_Delegate UD = new Universal_Remover_Delegate(DB.Universal_Remover);
-            UD.Invoke(TableBox.SelectedValue.ToString(), IDBox.SelectedValue);
-            GetUniversalList(TableBox.SelectedValue.ToString());
+            UD.Invoke(TableBox.Text, IDBox.SelectedValue);
+            GetUniversalList(TableBox.Text);
         }
 
         private void Client_Delete_Load(object sender, EventArgs e)
         {
-            GetUniversalList(TableBox.SelectedValue.ToString());
+            GetTables(TableBox);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        public static List<string> GetTables(string connectionString)
-        {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                DataTable schema = connection.GetSchema("Tables");
-                List<string> TableNames = new List<string>();
-                foreach (DataRow row in schema.Rows)
-                {
-                    TableNames.Add(row[2].ToString());
-                }
-                return TableNames;
-            }
         }
         public void GetTables(ComboBox cb)
         {
@@ -105,7 +91,7 @@ namespace Dyczko_ComputerClub_System
 
         private void TableBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetUniversalList(TableBox.SelectedValue.ToString());
+            GetUniversalList(TableBox.Text);
         }
 
         private void Deleter_MouseDown(object sender, MouseEventArgs e)

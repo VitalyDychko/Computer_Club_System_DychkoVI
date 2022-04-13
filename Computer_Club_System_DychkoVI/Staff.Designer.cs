@@ -101,10 +101,10 @@ namespace Dyczko_ComputerClub_System
             this.TabRedact.Controls.Add(this.tabEdit);
             this.TabRedact.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TabRedact.Font = new System.Drawing.Font("Century Gothic", 7F, System.Drawing.FontStyle.Bold);
-            this.TabRedact.Location = new System.Drawing.Point(0, 354);
+            this.TabRedact.Location = new System.Drawing.Point(0, 291);
             this.TabRedact.Name = "TabRedact";
             this.TabRedact.SelectedIndex = 0;
-            this.TabRedact.Size = new System.Drawing.Size(856, 179);
+            this.TabRedact.Size = new System.Drawing.Size(924, 179);
             this.TabRedact.TabIndex = 58;
             // 
             // tabEdit
@@ -116,7 +116,7 @@ namespace Dyczko_ComputerClub_System
             this.tabEdit.Location = new System.Drawing.Point(4, 22);
             this.tabEdit.Name = "tabEdit";
             this.tabEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEdit.Size = new System.Drawing.Size(848, 153);
+            this.tabEdit.Size = new System.Drawing.Size(916, 153);
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Редактирование";
             // 
@@ -129,7 +129,7 @@ namespace Dyczko_ComputerClub_System
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(603, 3);
+            this.panel2.Location = new System.Drawing.Point(671, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 147);
             this.panel2.TabIndex = 54;
@@ -241,7 +241,7 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Location = new System.Drawing.Point(1, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(593, 148);
+            this.panel3.Size = new System.Drawing.Size(661, 148);
             this.panel3.TabIndex = 52;
             // 
             // JobBox
@@ -253,7 +253,7 @@ namespace Dyczko_ComputerClub_System
             this.JobBox.FormattingEnabled = true;
             this.JobBox.Location = new System.Drawing.Point(90, 122);
             this.JobBox.Name = "JobBox";
-            this.JobBox.Size = new System.Drawing.Size(500, 20);
+            this.JobBox.Size = new System.Drawing.Size(568, 20);
             this.JobBox.TabIndex = 63;
             // 
             // label1
@@ -275,7 +275,7 @@ namespace Dyczko_ComputerClub_System
             this.AgeBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.AgeBox.Location = new System.Drawing.Point(90, 27);
             this.AgeBox.Name = "AgeBox";
-            this.AgeBox.Size = new System.Drawing.Size(500, 20);
+            this.AgeBox.Size = new System.Drawing.Size(568, 20);
             this.AgeBox.TabIndex = 60;
             // 
             // GenBox
@@ -291,7 +291,7 @@ namespace Dyczko_ComputerClub_System
             "Другой"});
             this.GenBox.Location = new System.Drawing.Point(90, 49);
             this.GenBox.Name = "GenBox";
-            this.GenBox.Size = new System.Drawing.Size(500, 20);
+            this.GenBox.Size = new System.Drawing.Size(568, 20);
             this.GenBox.TabIndex = 61;
             // 
             // MailBox
@@ -301,7 +301,7 @@ namespace Dyczko_ComputerClub_System
             this.MailBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.MailBox.Location = new System.Drawing.Point(90, 97);
             this.MailBox.Name = "MailBox";
-            this.MailBox.Size = new System.Drawing.Size(500, 20);
+            this.MailBox.Size = new System.Drawing.Size(568, 20);
             this.MailBox.TabIndex = 12;
             // 
             // NumBox
@@ -311,7 +311,7 @@ namespace Dyczko_ComputerClub_System
             this.NumBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.NumBox.Location = new System.Drawing.Point(90, 74);
             this.NumBox.Name = "NumBox";
-            this.NumBox.Size = new System.Drawing.Size(500, 20);
+            this.NumBox.Size = new System.Drawing.Size(568, 20);
             this.NumBox.TabIndex = 11;
             // 
             // FioBox
@@ -321,7 +321,7 @@ namespace Dyczko_ComputerClub_System
             this.FioBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.FioBox.Location = new System.Drawing.Point(90, 5);
             this.FioBox.Name = "FioBox";
-            this.FioBox.Size = new System.Drawing.Size(500, 20);
+            this.FioBox.Size = new System.Drawing.Size(568, 20);
             this.FioBox.TabIndex = 8;
             // 
             // label7
@@ -393,7 +393,7 @@ namespace Dyczko_ComputerClub_System
             this.panel7.Location = new System.Drawing.Point(0, 25);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.panel7.Size = new System.Drawing.Size(856, 332);
+            this.panel7.Size = new System.Drawing.Size(924, 269);
             this.panel7.TabIndex = 57;
             // 
             // dataGridView1
@@ -407,7 +407,7 @@ namespace Dyczko_ComputerClub_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(836, 322);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 259);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
@@ -433,7 +433,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(856, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(924, 25);
             this.toolStrip1.TabIndex = 56;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -556,7 +556,7 @@ namespace Dyczko_ComputerClub_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(856, 533);
+            this.ClientSize = new System.Drawing.Size(924, 470);
             this.Controls.Add(this.TabRedact);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.toolStrip1);

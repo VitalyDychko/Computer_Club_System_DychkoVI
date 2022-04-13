@@ -65,7 +65,7 @@ namespace Dyczko_ComputerClub_System
             this.panel7.Location = new System.Drawing.Point(0, 25);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.panel7.Size = new System.Drawing.Size(856, 508);
+            this.panel7.Size = new System.Drawing.Size(924, 445);
             this.panel7.TabIndex = 60;
             // 
             // dataGridView1
@@ -79,7 +79,7 @@ namespace Dyczko_ComputerClub_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(836, 498);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 435);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -105,7 +105,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(856, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(924, 25);
             this.toolStrip1.TabIndex = 59;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -256,7 +256,7 @@ namespace Dyczko_ComputerClub_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 533);
+            this.ClientSize = new System.Drawing.Size(924, 470);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

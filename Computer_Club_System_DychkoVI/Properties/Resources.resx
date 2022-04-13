@@ -124,11 +124,17 @@
   <data name="free-icon-database-4531114" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\free-icon-database-4531114.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="0file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="free-icon-woman-4531110" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\free-icon-woman-4531110.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="g_earth-0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\g_earth-0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Closed-eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\Password\Closed-eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Trash_Can_Empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\Trash_Can_Empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,11 +142,17 @@
   <data name="corporate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\corporate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="premium-icon-cyborg-4531223" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\CyberIcons\premium-icon-cyborg-4531223.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="police" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\police.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Opened-eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\Password\Opened-eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="free-icon-hacker-4529975" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\free-icon-hacker-4529975.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="premium-icon-card-4531350" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\premium-icon-card-4531350.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="premium-icon-security-4531293" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\premium-icon-security-4531293.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,11 +172,17 @@
   <data name="the-mandalorian" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Wallpapers\the-mandalorian.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="0man" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0sword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\Fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Opened-eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\Password\Opened-eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="premium-icon-cyborg-4531223" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\premium-icon-cyborg-4531223.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,8 +190,8 @@
   <data name="Repairer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\Repairer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="premium-icon-encripted-4531326" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\CyberIcons\premium-icon-encripted-4531326.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Иконушка святая" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\Иконушка святая.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,8 +202,14 @@
   <data name="premium-icon-headphones-4531283 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\premium-icon-headphones-4531283 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="0comp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0comp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="free-icon-implant-4529992" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\free-icon-implant-4529992.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0drink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0drink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="premium-icon-file-4531378" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\premium-icon-file-4531378.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,26 +220,29 @@
   <data name="free-icon-font-cross-3917050" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\free-icon-font-cross-3917050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="premium-icon-card-4531350" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\CyberIcons\premium-icon-card-4531350.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="premium-icon-encripted-4531326" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\premium-icon-encripted-4531326.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="premium-icon-hacker-4531307" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\premium-icon-hacker-4531307.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="0profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Comp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\Comp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0hackerman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0hackerman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="red_reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\Icons for buttons\red_reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="premium-icon-noodles-4531232" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\CyberIcons\premium-icon-noodles-4531232.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Buhgalter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\Buhgalter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Иконушка святая" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\Иконушка святая.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="0noodles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0noodles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="man" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +256,8 @@
   <data name="code" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="police" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\CyberIcons\police.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="premium-icon-noodles-4531232" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\premium-icon-noodles-4531232.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Xbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\Xbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,7 +286,7 @@
   <data name="3437393" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\CyberIcons\3437393.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Closed-eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\Password\Closed-eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="0computer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pictures\CyberIcons\0computer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

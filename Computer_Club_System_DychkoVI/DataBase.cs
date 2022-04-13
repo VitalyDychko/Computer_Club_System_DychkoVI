@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Dyczko_ComputerClub_System

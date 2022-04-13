@@ -41,14 +41,18 @@ namespace Dyczko_ComputerClub_System
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.LoginLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.IDlabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,6 +68,8 @@ namespace Dyczko_ComputerClub_System
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Gold;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(12, 9);
@@ -74,6 +80,8 @@ namespace Dyczko_ComputerClub_System
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
@@ -177,19 +185,6 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Size = new System.Drawing.Size(214, 174);
             this.panel3.TabIndex = 2;
             // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Black;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.ForeColor = System.Drawing.Color.Gold;
-            this.label9.Location = new System.Drawing.Point(9, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(194, 42);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Текущий пользователь";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // LoginLabel
             // 
             this.LoginLabel.BackColor = System.Drawing.Color.Black;
@@ -234,12 +229,61 @@ namespace Dyczko_ComputerClub_System
             this.label12.TabIndex = 8;
             this.label12.Text = "Код пользователя:";
             // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Black;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.ForeColor = System.Drawing.Color.Gold;
+            this.label9.Location = new System.Drawing.Point(9, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(194, 42);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Текущий пользователь";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.listBox2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel4.Location = new System.Drawing.Point(596, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(354, 174);
+            this.panel4.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.BackColor = System.Drawing.Color.Gold;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Location = new System.Drawing.Point(12, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(329, 21);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Услуги:";
+            // 
+            // listBox2
+            // 
+            this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 15;
+            this.listBox2.Location = new System.Drawing.Point(12, 33);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(329, 124);
+            this.listBox2.TabIndex = 1;
+            // 
             // Information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(597, 174);
+            this.ClientSize = new System.Drawing.Size(949, 174);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -250,6 +294,7 @@ namespace Dyczko_ComputerClub_System
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,5 +317,8 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Label IDlabel;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }

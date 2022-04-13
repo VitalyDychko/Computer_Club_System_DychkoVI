@@ -76,6 +76,25 @@ namespace Dyczko_ComputerClub_System
                 connection.Close();
             }
         }
+        public void GetServices(ListBox lb2)
+        {
+            using (MySqlConnection connection = new MySqlConnection(X))
+            {
+                connection.Open();
+                string sql2 = $"SELECT ID_s, Service, Price FROM Services";
+                MySqlCommand command2 = new MySqlCommand(sql2, connection);
+                MySqlDataReader reader = command2.ExecuteReader();
+                while (reader.Read())
+                {
+                    lb2.Items.Add("Услуга:");
+                    lb2.Items.Add(reader[1].ToString());
+                    lb2.Items.Add("Цена:");
+                    lb2.Items.Add(reader[2].ToString());
+                    lb2.Items.Add("##############################");
+                }
+                connection.Close();
+            }
+        }
         public void GetUserInfo()
         {
             IDlabel.Text = Auth.auth_id;
@@ -88,6 +107,7 @@ namespace Dyczko_ComputerClub_System
             DevicesCount();
             GetTables(listBox1);
             GetUserInfo();
+            GetServices(listBox2);
         }
     }
 }

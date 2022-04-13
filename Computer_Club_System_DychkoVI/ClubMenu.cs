@@ -53,9 +53,10 @@ namespace Dyczko_ComputerClub_System
                     DisableButton();
                     Color color = SelectThemeColor();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = color;
-                    currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    currentButton.BackColor = Color.Gold;
+                    currentButton.ForeColor = Color.Black;
+                    currentButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    lblTitle.BackColor = color;
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     btnCloseChildForm.Visible = true;
@@ -64,20 +65,19 @@ namespace Dyczko_ComputerClub_System
         }
         private void DisableButton()
         {
-            foreach (Control previousBtn in panel1.Controls)
+            foreach (Control previousBtn in panelforbuttons.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.ForeColor = Color.White;
+                    previousBtn.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
             pictureBox1.Visible = false;
-            btnDczk.Visible = false;
-            label1.Visible = false;
             if (activeForm != null)
                 activeForm.Close();
             ActivateButton(btnSender);
@@ -116,11 +116,9 @@ namespace Dyczko_ComputerClub_System
         {
             DisableButton();
             lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
-            panelTitleBar.BackColor = Color.FromArgb(16, 16, 24);
-            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            panelTitleBar.BackColor = Color.Black;
+            lblTitle.BackColor = Color.Black;
             pictureBox1.Visible = true;
-            btnDczk.Visible = true;
-            label1.Visible = true;
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
