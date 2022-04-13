@@ -127,6 +127,7 @@ namespace Dyczko_ComputerClub_System
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.IDBox);
             this.panel2.Controls.Add(this.panel4);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(603, 3);
             this.panel2.Name = "panel2";
@@ -183,6 +184,7 @@ namespace Dyczko_ComputerClub_System
             // 
             this.panel4.Controls.Add(this.btnChange);
             this.panel4.Controls.Add(this.btnDel);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel4.Location = new System.Drawing.Point(3, 59);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(235, 84);
@@ -236,6 +238,7 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Location = new System.Drawing.Point(1, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(593, 148);

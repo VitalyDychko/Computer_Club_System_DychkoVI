@@ -92,6 +92,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.User_Add_MouseDown);
             // 
             // label1
             // 
@@ -105,6 +106,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.TabIndex = 60;
             this.label1.Text = "Добавление нового пользователя\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.User_Add_MouseDown);
             // 
             // panel6
             // 
@@ -120,6 +122,7 @@ namespace Dyczko_ComputerClub_System
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(511, 182);
             this.panel6.TabIndex = 58;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.User_Add_MouseDown);
             // 
             // HashBox
             // 
@@ -392,6 +395,7 @@ namespace Dyczko_ComputerClub_System
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
             this.Load += new System.EventHandler(this.User_Add_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.User_Add_MouseDown);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

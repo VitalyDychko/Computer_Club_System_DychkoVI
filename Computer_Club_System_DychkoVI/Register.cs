@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -56,9 +57,7 @@ namespace Dyczko_ComputerClub_System
             if (command.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("Аккаунт успешно создан!", "Успех!");
-                Login logn = new Login();
-                this.Hide();
-                logn.ShowDialog();
+                Form_Destroying();
             }
             else
             {
@@ -76,7 +75,7 @@ namespace Dyczko_ComputerClub_System
             var password = PassBox.Text;
             var hash = HashBox.Text;
 
-            string querystring = $"select id_user, login_user, password_user, hash from Users where login_user = '{login}', password_user = '{password}' and hash = '{hash}'";
+            string querystring = $"select ID, login_user, password_user, hash from Users where login_user = '{login}', password_user = '{password}' and hash = '{hash}'";
 
             MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
@@ -93,11 +92,14 @@ namespace Dyczko_ComputerClub_System
                 return false;
             }
         }
+        private void Form_Destroying()
+        {
+            this.Close();
+            new Thread(() => Application.Run(new Login())).Start();
+        }
         private void Vhod_Click(object sender, EventArgs e)
         {
-            Login logn = new Login();
-            logn.ShowDialog();
-            this.Hide();
+            Form_Destroying();
         }
 
         private void Open_eye_Click(object sender, EventArgs e)

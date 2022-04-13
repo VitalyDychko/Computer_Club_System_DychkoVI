@@ -76,13 +76,18 @@ namespace Dyczko_ComputerClub_System
                 connection.Close();
             }
         }
-
+        public void GetUserInfo()
+        {
+            IDlabel.Text = Auth.auth_id;
+            LoginLabel.Text = Auth.auth_login;
+        }
         private void Information_Load(object sender, EventArgs e)
         {
             WorkersCount();
             ClientsCount();
             DevicesCount();
             GetTables(listBox1);
+            GetUserInfo();
         }
     }
 }

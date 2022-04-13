@@ -99,6 +99,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Client_Add_MouseDown);
             // 
             // label1
             // 
@@ -112,6 +113,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.TabIndex = 60;
             this.label1.Text = "Добавление нового клиента";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Client_Add_MouseDown);
             // 
             // BtnClose
             // 
@@ -145,6 +147,7 @@ namespace Dyczko_ComputerClub_System
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(329, 260);
             this.panel6.TabIndex = 58;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Client_Add_MouseDown);
             // 
             // EmailBox
             // 
@@ -523,6 +526,7 @@ namespace Dyczko_ComputerClub_System
             this.Name = "Client_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Client_Add_MouseDown);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

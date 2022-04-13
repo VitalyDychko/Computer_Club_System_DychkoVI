@@ -35,7 +35,7 @@ namespace Dyczko_ComputerClub_System
         #region Основные методы
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("id_user", "ID");
+            dataGridView1.Columns.Add("ID", "ID");
             dataGridView1.Columns.Add("login_user", "Пользователь");
             dataGridView1.Columns.Add("password_user", "Пароль");
             dataGridView1.Columns.Add("hash", "Хэш пароля");
@@ -56,7 +56,7 @@ namespace Dyczko_ComputerClub_System
                     if (rowState == RowState.Deleted)
                     {
                         var id = Convert.ToString(dataGridView1.Rows[index].Cells[0].Value);
-                        var deleteQuery = $"delete from Users where id_user = {id}";
+                        var deleteQuery = $"delete from Users where ID = {id}";
 
                         var command = new MySqlCommand(deleteQuery, DB.GetConnection());
                         command.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace Dyczko_ComputerClub_System
                         var pass = dataGridView1.Rows[index].Cells[2].Value.ToString();
                         var hash = dataGridView1.Rows[index].Cells[3].Value.ToString();
 
-                        var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}', hash = '{hash}' where id_user = '{id}'";
+                        var changeQuery = $"update Users set login_user = '{log}', password_user = '{pass}', hash = '{hash}' where ID = '{id}'";
 
                         var command = new MySqlCommand(changeQuery, DB.GetConnection());
                         command.ExecuteNonQuery();

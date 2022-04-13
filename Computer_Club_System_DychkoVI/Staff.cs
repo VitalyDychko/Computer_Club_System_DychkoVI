@@ -180,12 +180,12 @@ namespace Dyczko_ComputerClub_System
             DataTable list_job_table = new DataTable();
             MySqlCommand list_job_command = new MySqlCommand();
             DB.OpenConnection();
-            list_job_table.Columns.Add(new DataColumn("ID_cat", System.Type.GetType("System.Int32")));
+            list_job_table.Columns.Add(new DataColumn("ID", System.Type.GetType("System.Int32")));
             list_job_table.Columns.Add(new DataColumn("Job", System.Type.GetType("System.String")));
             JobBox.DataSource = list_job_table;
             JobBox.DisplayMember = "Job";
             JobBox.ValueMember = "Job";
-            string sql_list_job = "SELECT ID_cat, Job FROM Job_Categories";
+            string sql_list_job = "SELECT ID, Job FROM Job_Categories";
             list_job_command.CommandText = sql_list_job;
             list_job_command.Connection = DB.GetConnection();
             MySqlDataReader list_job_reader;
@@ -195,7 +195,7 @@ namespace Dyczko_ComputerClub_System
                 while (list_job_reader.Read())
                 {
                     DataRow rowToAdd = list_job_table.NewRow();
-                    rowToAdd["ID_cat"] = Convert.ToInt32(list_job_reader[0]);
+                    rowToAdd["ID"] = Convert.ToInt32(list_job_reader[0]);
                     rowToAdd["Job"] = list_job_reader[1].ToString();
                     list_job_table.Rows.Add(rowToAdd);
                 }

@@ -98,6 +98,7 @@ namespace Dyczko_ComputerClub_System
             this.label3.Size = new System.Drawing.Size(153, 13);
             this.label3.TabIndex = 30;
             this.label3.Text = "У вас уже имеется аккаунт?";
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // label1
             // 
@@ -110,6 +111,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.Size = new System.Drawing.Size(176, 29);
             this.label1.TabIndex = 40;
             this.label1.Text = "Регистрация";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // btnMin
             // 
@@ -214,6 +216,7 @@ namespace Dyczko_ComputerClub_System
             this.HashBox.TextPlaceholder = "Хэш";
             this.HashBox.UseSystemPasswordChar = false;
             this.HashBox.WordWrap = true;
+            this.HashBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox12
             // 
@@ -224,6 +227,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 39;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox11
             // 
@@ -234,6 +238,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 38;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox10
             // 
@@ -244,6 +249,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 37;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox9
             // 
@@ -254,6 +260,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 36;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox7
             // 
@@ -264,6 +271,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 34;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox5
             // 
@@ -274,6 +282,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 32;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // Open_eye
             // 
@@ -297,6 +306,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 24;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // pictureBox3
             // 
@@ -307,6 +317,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 23;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Register_MouseDown);
             // 
             // LoginBox
             // 
@@ -481,7 +492,7 @@ namespace Dyczko_ComputerClub_System
             this.RegBtn.AutoSizeLeftIcon = true;
             this.RegBtn.AutoSizeRightIcon = true;
             this.RegBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegBtn.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.RegBtn.BackColor1 = System.Drawing.Color.Yellow;
             this.RegBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RegBtn.BackgroundImage")));
             this.RegBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.RegBtn.ButtonText = "Создать";
@@ -510,10 +521,10 @@ namespace Dyczko_ComputerClub_System
             this.RegBtn.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.RegBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.RegBtn.IconSize = 25;
-            this.RegBtn.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.RegBtn.IdleBorderColor = System.Drawing.Color.Yellow;
             this.RegBtn.IdleBorderRadius = 1;
             this.RegBtn.IdleBorderThickness = 1;
-            this.RegBtn.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.RegBtn.IdleFillColor = System.Drawing.Color.Yellow;
             this.RegBtn.IdleIconLeftImage = null;
             this.RegBtn.IdleIconRightImage = null;
             this.RegBtn.IndicateFocus = false;
@@ -527,27 +538,27 @@ namespace Dyczko_ComputerClub_System
             this.RegBtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.RegBtn.OnDisabledState.IconLeftImage = null;
             this.RegBtn.OnDisabledState.IconRightImage = null;
-            this.RegBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.RegBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.RegBtn.onHoverState.BorderRadius = 1;
             this.RegBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.RegBtn.onHoverState.BorderThickness = 1;
-            this.RegBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.RegBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.RegBtn.onHoverState.ForeColor = System.Drawing.Color.White;
             this.RegBtn.onHoverState.IconLeftImage = null;
             this.RegBtn.onHoverState.IconRightImage = null;
-            this.RegBtn.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.RegBtn.OnIdleState.BorderColor = System.Drawing.Color.Yellow;
             this.RegBtn.OnIdleState.BorderRadius = 1;
             this.RegBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.RegBtn.OnIdleState.BorderThickness = 1;
-            this.RegBtn.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.RegBtn.OnIdleState.FillColor = System.Drawing.Color.Yellow;
             this.RegBtn.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.RegBtn.OnIdleState.IconLeftImage = null;
             this.RegBtn.OnIdleState.IconRightImage = null;
-            this.RegBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.RegBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.RegBtn.OnPressedState.BorderRadius = 1;
             this.RegBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.RegBtn.OnPressedState.BorderThickness = 1;
-            this.RegBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.RegBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.RegBtn.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.RegBtn.OnPressedState.IconLeftImage = null;
             this.RegBtn.OnPressedState.IconRightImage = null;

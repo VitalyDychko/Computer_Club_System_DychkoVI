@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -169,6 +170,15 @@ namespace Dyczko_ComputerClub_System
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void BtnForLeave_Click(object sender, EventArgs e)
+        {
+            Auth.auth = false;
+            Auth.auth_id = null;
+            Auth.auth_login = null;
+            this.Close();
+            new Thread(() => Application.Run(new Login())).Start();
         }
     }
 }

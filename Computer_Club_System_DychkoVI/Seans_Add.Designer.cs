@@ -92,6 +92,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.TabIndex = 60;
             this.label1.Text = "Добавление нового сеанса";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Seans_Add_MouseDown);
             // 
             // BtnClose
             // 
@@ -120,6 +121,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Seans_Add_MouseDown);
             // 
             // panel6
             // 
@@ -135,6 +137,7 @@ namespace Dyczko_ComputerClub_System
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(318, 257);
             this.panel6.TabIndex = 63;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Seans_Add_MouseDown);
             // 
             // BtnAdd
             // 
@@ -436,6 +439,7 @@ namespace Dyczko_ComputerClub_System
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление";
             this.Load += new System.EventHandler(this.Seans_Add_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Seans_Add_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

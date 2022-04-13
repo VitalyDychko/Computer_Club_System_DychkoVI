@@ -36,6 +36,8 @@ namespace Dyczko_ComputerClub_System
             this.AddClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnDeleter = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.AddSeans = new System.Windows.Forms.Button();
@@ -136,6 +138,8 @@ namespace Dyczko_ComputerClub_System
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel3.Controls.Add(this.BtnDeleter);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.panel11);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel8);
@@ -145,8 +149,35 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(261, 255);
+            this.panel3.Size = new System.Drawing.Size(261, 332);
             this.panel3.TabIndex = 1;
+            // 
+            // BtnDeleter
+            // 
+            this.BtnDeleter.BackColor = System.Drawing.Color.Red;
+            this.BtnDeleter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnDeleter.FlatAppearance.BorderSize = 0;
+            this.BtnDeleter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDeleter.ForeColor = System.Drawing.Color.White;
+            this.BtnDeleter.Location = new System.Drawing.Point(-1, 298);
+            this.BtnDeleter.Name = "BtnDeleter";
+            this.BtnDeleter.Size = new System.Drawing.Size(262, 34);
+            this.BtnDeleter.TabIndex = 5;
+            this.BtnDeleter.Text = "Удалить";
+            this.BtnDeleter.UseVisualStyleBackColor = false;
+            this.BtnDeleter.Click += new System.EventHandler(this.BtnDelete);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Yellow;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(0, 254);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(261, 44);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Удалить строку из любой таблицы";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel11
             // 
@@ -406,7 +437,7 @@ namespace Dyczko_ComputerClub_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 255);
+            this.ClientSize = new System.Drawing.Size(261, 332);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -463,5 +494,7 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Button RedUser;
         private System.Windows.Forms.Button AddUser;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BtnDeleter;
+        private System.Windows.Forms.Label label7;
     }
 }

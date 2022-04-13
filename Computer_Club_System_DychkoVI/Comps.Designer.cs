@@ -120,6 +120,7 @@ namespace Dyczko_ComputerClub_System
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.IDBox);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(672, 3);
             this.panel2.Name = "panel2";
@@ -142,7 +143,7 @@ namespace Dyczko_ComputerClub_System
             this.btnChange.FlatAppearance.BorderSize = 0;
             this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChange.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnChange.ForeColor = System.Drawing.Color.White;
+            this.btnChange.ForeColor = System.Drawing.Color.Gold;
             this.btnChange.Location = new System.Drawing.Point(3, 38);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(229, 28);
@@ -158,7 +159,7 @@ namespace Dyczko_ComputerClub_System
             this.btnDel.FlatAppearance.BorderSize = 0;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.ForeColor = System.Drawing.Color.Gold;
             this.btnDel.Location = new System.Drawing.Point(3, 3);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(229, 28);
@@ -171,8 +172,9 @@ namespace Dyczko_ComputerClub_System
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(3, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 19);
@@ -199,6 +201,7 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Controls.Add(this.NameBox);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Location = new System.Drawing.Point(7, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(662, 94);
@@ -237,8 +240,9 @@ namespace Dyczko_ComputerClub_System
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Default;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.Color.Gold;
             this.label8.Location = new System.Drawing.Point(4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 19);
@@ -249,8 +253,9 @@ namespace Dyczko_ComputerClub_System
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(3, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 19);
@@ -281,8 +286,9 @@ namespace Dyczko_ComputerClub_System
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Gold;
             this.label4.Location = new System.Drawing.Point(3, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 19);
@@ -293,8 +299,9 @@ namespace Dyczko_ComputerClub_System
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Gold;
             this.label3.Location = new System.Drawing.Point(4, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 19);

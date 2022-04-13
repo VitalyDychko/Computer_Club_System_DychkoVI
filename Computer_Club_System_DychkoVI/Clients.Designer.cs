@@ -123,6 +123,7 @@ namespace Dyczko_ComputerClub_System
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.IDBox);
             this.panel2.Controls.Add(this.panel4);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(566, 3);
             this.panel2.Name = "panel2";
@@ -133,6 +134,7 @@ namespace Dyczko_ComputerClub_System
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(3, 5);

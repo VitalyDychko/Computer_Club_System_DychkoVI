@@ -41,9 +41,10 @@ namespace Dyczko_ComputerClub_System
             this.panelLogo = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnForLeave = new System.Windows.Forms.Button();
+            this.btnforMin = new System.Windows.Forms.Button();
+            this.btnforMax = new System.Windows.Forms.Button();
+            this.btnforClose = new System.Windows.Forms.Button();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.btnDczk = new System.Windows.Forms.Label();
@@ -248,13 +249,15 @@ namespace Dyczko_ComputerClub_System
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(24)))));
-            this.panelTitleBar.Controls.Add(this.button3);
-            this.panelTitleBar.Controls.Add(this.button2);
-            this.panelTitleBar.Controls.Add(this.button1);
+            this.panelTitleBar.Controls.Add(this.BtnForLeave);
+            this.panelTitleBar.Controls.Add(this.btnforMin);
+            this.panelTitleBar.Controls.Add(this.btnforMax);
+            this.panelTitleBar.Controls.Add(this.btnforClose);
             this.panelTitleBar.Controls.Add(this.btnCloseChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
@@ -265,50 +268,65 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
-            // button3
+            // BtnForLeave
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(694, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 60);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "–";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.BtnMin);
+            this.BtnForLeave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnForLeave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnForLeave.FlatAppearance.BorderSize = 0;
+            this.BtnForLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnForLeave.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnForLeave.Location = new System.Drawing.Point(647, 0);
+            this.BtnForLeave.Name = "BtnForLeave";
+            this.BtnForLeave.Size = new System.Drawing.Size(47, 60);
+            this.BtnForLeave.TabIndex = 5;
+            this.BtnForLeave.Text = "🚪";
+            this.BtnForLeave.UseVisualStyleBackColor = true;
+            this.BtnForLeave.Click += new System.EventHandler(this.BtnForLeave_Click);
             // 
-            // button2
+            // btnforMin
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(741, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(47, 60);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "◳\t";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.BtnMax);
+            this.btnforMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnforMin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnforMin.FlatAppearance.BorderSize = 0;
+            this.btnforMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnforMin.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnforMin.Location = new System.Drawing.Point(694, 0);
+            this.btnforMin.Name = "btnforMin";
+            this.btnforMin.Size = new System.Drawing.Size(47, 60);
+            this.btnforMin.TabIndex = 4;
+            this.btnforMin.Text = "–";
+            this.btnforMin.UseVisualStyleBackColor = true;
+            this.btnforMin.Click += new System.EventHandler(this.BtnMin);
             // 
-            // button1
+            // btnforMax
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(788, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 60);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "x";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.BtnClose);
+            this.btnforMax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnforMax.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnforMax.FlatAppearance.BorderSize = 0;
+            this.btnforMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnforMax.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnforMax.Location = new System.Drawing.Point(741, 0);
+            this.btnforMax.Name = "btnforMax";
+            this.btnforMax.Size = new System.Drawing.Size(47, 60);
+            this.btnforMax.TabIndex = 3;
+            this.btnforMax.Text = "◳\t";
+            this.btnforMax.UseVisualStyleBackColor = true;
+            this.btnforMax.Click += new System.EventHandler(this.BtnMax);
+            // 
+            // btnforClose
+            // 
+            this.btnforClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnforClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnforClose.FlatAppearance.BorderSize = 0;
+            this.btnforClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnforClose.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnforClose.Location = new System.Drawing.Point(788, 0);
+            this.btnforClose.Name = "btnforClose";
+            this.btnforClose.Size = new System.Drawing.Size(47, 60);
+            this.btnforClose.TabIndex = 2;
+            this.btnforClose.Text = "x";
+            this.btnforClose.UseVisualStyleBackColor = true;
+            this.btnforClose.Click += new System.EventHandler(this.BtnClose);
             // 
             // btnCloseChildForm
             // 
@@ -363,6 +381,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.Size = new System.Drawing.Size(835, 36);
             this.label1.TabIndex = 12;
             this.label1.Text = "Система компьютерного клуба";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // pictureBox1
             // 
@@ -417,10 +436,11 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.Button BtnSetup;
         private System.Windows.Forms.Button BtnInfo;
         private System.Windows.Forms.Button BtnAuth;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnforMin;
+        private System.Windows.Forms.Button btnforMax;
+        private System.Windows.Forms.Button btnforClose;
         private System.Windows.Forms.Button BtnBonus;
+        private System.Windows.Forms.Button BtnForLeave;
     }
 }
 

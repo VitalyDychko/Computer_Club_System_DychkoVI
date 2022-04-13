@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,10 @@ namespace Dyczko_ComputerClub_System
         {
             InitializeComponent();
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //Вычисление хэша строки и возрат его из метода
         static string sha256(string randomString)
         {
@@ -72,7 +77,7 @@ namespace Dyczko_ComputerClub_System
             var password = PassBox.Text;
             var hash = HashBox.Text;
 
-            string querystring = $"select id_user, login_user, password_user, hash from Users where login_user = '{login}', password_user = '{password}' and hash = '{hash}'";
+            string querystring = $"select ID, login_user, password_user, hash from Users where login_user = '{login}', password_user = '{password}' and hash = '{hash}'";
 
             MySqlCommand command = new MySqlCommand(querystring, DB.GetConnection());
 
@@ -103,6 +108,12 @@ namespace Dyczko_ComputerClub_System
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void User_Add_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

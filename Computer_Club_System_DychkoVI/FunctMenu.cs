@@ -70,5 +70,11 @@ namespace Dyczko_ComputerClub_System
             Seans_Add SAD = new Seans_Add();
             SAD.ShowDialog();
         }
+
+        private void BtnDelete(object sender, EventArgs e)
+        {
+            Deleter DEL = new Deleter();
+            DEL.Show();
+        }
     }
 }

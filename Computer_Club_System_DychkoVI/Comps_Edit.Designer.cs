@@ -136,6 +136,7 @@ namespace Dyczko_ComputerClub_System
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 59;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Comps_Edit_MouseDown);
             // 
             // BtnClose
             // 
@@ -166,6 +167,7 @@ namespace Dyczko_ComputerClub_System
             this.label1.TabIndex = 60;
             this.label1.Text = "Редактирование данных о компьютере\r\n\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Comps_Edit_MouseDown);
             // 
             // panel3
             // 
@@ -180,6 +182,7 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(330, 207);
             this.panel3.TabIndex = 63;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Comps_Edit_MouseDown);
             // 
             // TypeBox
             // 
@@ -405,6 +408,7 @@ namespace Dyczko_ComputerClub_System
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактирование";
             this.Load += new System.EventHandler(this.Comps_Edit_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Comps_Edit_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
