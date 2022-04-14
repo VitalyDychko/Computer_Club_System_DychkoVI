@@ -49,15 +49,8 @@ namespace Dyczko_ComputerClub_System
                 }
                 list_clients_reader.Close();
             }
-            catch
-            {
-                MessageBox.Show("Ошибка чтения списка.", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
-            finally
-            {
-                DB.CloseConnection();
-            }
+            catch { MessageBox.Show($"таблица {TableBox.Text} не поддерживается!"); }
+            finally { DB.CloseConnection(); }
         }
         private void Remove(object sender, EventArgs e)
         {
