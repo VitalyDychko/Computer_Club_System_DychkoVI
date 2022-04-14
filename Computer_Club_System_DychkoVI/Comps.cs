@@ -16,7 +16,6 @@ namespace Dyczko_ComputerClub_System
         enum RowState
         {
             Existed,
-            New,
             Modified,
             ModifiedNew,
             Deleted
@@ -26,22 +25,6 @@ namespace Dyczko_ComputerClub_System
         public Comps()
         {
             InitializeComponent();
-            #region ContextMenu
-            // создаем элементы меню
-            ToolStripMenuItem OffMenuItem = new ToolStripMenuItem("Отключить");
-            ToolStripMenuItem OnMenuItem = new ToolStripMenuItem("Включить");
-            ToolStripMenuItem BusyMenuItem = new ToolStripMenuItem("На ремонте");
-            ToolStripMenuItem SelectMenuItem = new ToolStripMenuItem("Выделенный ID");
-            // добавляем элементы в меню
-            contextMenuStrip1.Items.AddRange(new[] { OffMenuItem, OnMenuItem, BusyMenuItem, SelectMenuItem });
-            // ассоциируем контекстное меню с текстовым полем
-            dataGridView1.ContextMenuStrip = contextMenuStrip1;
-            // устанавливаем обработчики событий для меню
-            OffMenuItem.Click += отключитьToolStripMenuItem_Click;
-            OnMenuItem.Click += включитьToolStripMenuItem_Click;
-            BusyMenuItem.Click += занятToolStripMenuItem_Click;
-            SelectMenuItem.Click += выделенныйIDToolStripMenuItem_Click;
-            #endregion
         }
         #region Основные методы
         public void UpdateT()
@@ -143,8 +126,6 @@ namespace Dyczko_ComputerClub_System
             finally
             {
                 DB.CloseConnection();
-                //Вызов метода обновления ДатаГрида
-                RefreshDataGrid(dataGridView1);
             }
         }
         private void Change()
@@ -208,35 +189,6 @@ namespace Dyczko_ComputerClub_System
         }
         #endregion
 
-        #region ContMenu
-        private void выделенныйIDToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"{selected_Row}");
-        }
-        private void отключитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeState("Off");
-        }
-        private void включитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeState("On");
-        }
-        private void занятToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangeState("On repair");
-        }
-        #endregion
-        public void ChangeState(string new_state)
-        {
-            int redact_id = selected_Row;
-            DB.OpenConnection();
-            string query2 = $"UPDATE Comps SET Stat='{new_state}' WHERE (ID='{redact_id}')";
-            MySqlCommand command = new MySqlCommand(query2, DB.GetConnection());
-            command.ExecuteNonQuery();
-            DB.CloseConnection();
-            UpdateT();
-            ChangeColorDGV();
-        }
         private void ChangeColorDGV()
         {
             //Отражаем количество записей в ДатаГриде
