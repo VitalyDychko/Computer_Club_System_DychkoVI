@@ -152,6 +152,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services.Designer.cs">
+      <DependentUpon>Services.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services_Add.Designer.cs">
+      <DependentUpon>Services_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services.resx">
+      <DependentUpon>Services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services_Add.resx">
+      <DependentUpon>Services_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff_Add.resx">
       <DependentUpon>Staff_Add.cs</DependentUpon>

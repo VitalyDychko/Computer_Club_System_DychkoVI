@@ -61,6 +61,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.TabRedact.SuspendLayout();
             this.tabEdit.SuspendLayout();
@@ -86,7 +87,7 @@ namespace Dyczko_ComputerClub_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(904, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(991, 493);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -95,10 +96,10 @@ namespace Dyczko_ComputerClub_System
             this.TabRedact.Controls.Add(this.tabEdit);
             this.TabRedact.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TabRedact.Font = new System.Drawing.Font("Century Gothic", 7F, System.Drawing.FontStyle.Bold);
-            this.TabRedact.Location = new System.Drawing.Point(0, 359);
+            this.TabRedact.Location = new System.Drawing.Point(0, 417);
             this.TabRedact.Name = "TabRedact";
             this.TabRedact.SelectedIndex = 0;
-            this.TabRedact.Size = new System.Drawing.Size(924, 111);
+            this.TabRedact.Size = new System.Drawing.Size(1011, 111);
             this.TabRedact.TabIndex = 58;
             // 
             // tabEdit
@@ -110,7 +111,7 @@ namespace Dyczko_ComputerClub_System
             this.tabEdit.Location = new System.Drawing.Point(4, 22);
             this.tabEdit.Name = "tabEdit";
             this.tabEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEdit.Size = new System.Drawing.Size(916, 85);
+            this.tabEdit.Size = new System.Drawing.Size(1003, 85);
             this.tabEdit.TabIndex = 0;
             this.tabEdit.Text = "Редактирование";
             // 
@@ -120,7 +121,7 @@ namespace Dyczko_ComputerClub_System
             this.panel4.Controls.Add(this.btnDel);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(672, 3);
+            this.panel4.Location = new System.Drawing.Point(759, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(241, 79);
             this.panel4.TabIndex = 53;
@@ -170,7 +171,7 @@ namespace Dyczko_ComputerClub_System
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Location = new System.Drawing.Point(4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 77);
+            this.panel3.Size = new System.Drawing.Size(748, 77);
             this.panel3.TabIndex = 52;
             // 
             // label2
@@ -193,7 +194,7 @@ namespace Dyczko_ComputerClub_System
             this.PassBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.PassBox.Location = new System.Drawing.Point(83, 49);
             this.PassBox.Name = "PassBox";
-            this.PassBox.Size = new System.Drawing.Size(575, 20);
+            this.PassBox.Size = new System.Drawing.Size(662, 20);
             this.PassBox.TabIndex = 11;
             // 
             // IDBox
@@ -203,7 +204,7 @@ namespace Dyczko_ComputerClub_System
             this.IDBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.IDBox.Location = new System.Drawing.Point(83, 5);
             this.IDBox.Name = "IDBox";
-            this.IDBox.Size = new System.Drawing.Size(575, 20);
+            this.IDBox.Size = new System.Drawing.Size(662, 20);
             this.IDBox.TabIndex = 7;
             // 
             // LoginBox
@@ -213,7 +214,7 @@ namespace Dyczko_ComputerClub_System
             this.LoginBox.Font = new System.Drawing.Font("Segoe UI Semibold", 7F, System.Drawing.FontStyle.Bold);
             this.LoginBox.Location = new System.Drawing.Point(83, 26);
             this.LoginBox.Name = "LoginBox";
-            this.LoginBox.Size = new System.Drawing.Size(575, 20);
+            this.LoginBox.Size = new System.Drawing.Size(662, 20);
             this.LoginBox.TabIndex = 8;
             // 
             // label4
@@ -250,7 +251,7 @@ namespace Dyczko_ComputerClub_System
             this.panel7.Location = new System.Drawing.Point(0, 25);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.panel7.Size = new System.Drawing.Size(924, 445);
+            this.panel7.Size = new System.Drawing.Size(1011, 503);
             this.panel7.TabIndex = 57;
             // 
             // toolStrip1
@@ -271,11 +272,12 @@ namespace Dyczko_ComputerClub_System
             this.toolStripButton2,
             this.toolStripSeparator4,
             this.toolStripLabel7,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripSeparator5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(924, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1011, 25);
             this.toolStrip1.TabIndex = 56;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -386,11 +388,16 @@ namespace Dyczko_ComputerClub_System
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
             // UserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 470);
+            this.ClientSize = new System.Drawing.Size(1011, 528);
             this.Controls.Add(this.TabRedact);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.toolStrip1);
@@ -445,5 +452,6 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }

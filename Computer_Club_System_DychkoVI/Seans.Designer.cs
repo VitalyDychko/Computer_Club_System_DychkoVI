@@ -46,13 +46,8 @@ namespace Dyczko_ComputerClub_System
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.BtnAdding = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
-            this.BtnRemove = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.miniToolStrip = new System.Windows.Forms.ToolStrip();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -65,7 +60,7 @@ namespace Dyczko_ComputerClub_System
             this.panel7.Location = new System.Drawing.Point(0, 25);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.panel7.Size = new System.Drawing.Size(924, 445);
+            this.panel7.Size = new System.Drawing.Size(1011, 503);
             this.panel7.TabIndex = 60;
             // 
             // dataGridView1
@@ -79,7 +74,7 @@ namespace Dyczko_ComputerClub_System
             this.dataGridView1.Location = new System.Drawing.Point(10, 10);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(904, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(991, 493);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -99,13 +94,11 @@ namespace Dyczko_ComputerClub_System
             this.toolStripSeparator1,
             this.toolStripLabel7,
             this.BtnAdding,
-            this.toolStripSeparator5,
-            this.toolStripLabel6,
-            this.BtnRemove});
+            this.toolStripSeparator5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(924, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1011, 25);
             this.toolStrip1.TabIndex = 59;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -181,8 +174,8 @@ namespace Dyczko_ComputerClub_System
             // 
             this.toolStripLabel7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(146, 22);
-            this.toolStripLabel7.Text = "Добавить сеанс:";
+            this.toolStripLabel7.Size = new System.Drawing.Size(165, 22);
+            this.toolStripLabel7.Text = "Оформить прокат:";
             // 
             // BtnAdding
             // 
@@ -200,69 +193,27 @@ namespace Dyczko_ComputerClub_System
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel6
-            // 
-            this.toolStripLabel6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(140, 22);
-            this.toolStripLabel6.Text = "Удалить строку:";
-            // 
-            // BtnRemove
-            // 
-            this.BtnRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnRemove.Image = global::Dyczko_ComputerClub_System.Properties.Resources.Trash_Can_Empty;
-            this.BtnRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnRemove.Name = "BtnRemove";
-            this.BtnRemove.Size = new System.Drawing.Size(23, 22);
-            this.BtnRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this.dataGridView1;
             // 
-            // miniToolStrip
-            // 
-            this.miniToolStrip.AccessibleName = "Выбор нового элемента";
-            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDown;
-            this.miniToolStrip.AutoSize = false;
-            this.miniToolStrip.CanOverflow = false;
-            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.miniToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.miniToolStrip.Location = new System.Drawing.Point(9, 3);
-            this.miniToolStrip.Name = "miniToolStrip";
-            this.miniToolStrip.Size = new System.Drawing.Size(782, 25);
-            this.miniToolStrip.TabIndex = 0;
-            // 
             // Seans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 470);
+            this.ClientSize = new System.Drawing.Size(1011, 528);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Seans";
-            this.Text = "Сеанс работы";
+            this.Text = "Бронь компьютеров";
             this.Load += new System.EventHandler(this.Seans_Load);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -288,13 +239,8 @@ namespace Dyczko_ComputerClub_System
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripButton BtnAdding;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStrip miniToolStrip;
-        private System.Windows.Forms.ToolStripButton BtnRemove;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel6;
     }
 }

@@ -201,17 +201,17 @@ namespace Dyczko_ComputerClub_System
                 //статус конкретного студента в Базе данных, на основании индекса строки
                 string id_selected_status = Convert.ToString(dataGridView1.Rows[i].Cells[4].Value);
                 //Логический блок для определения цветности
-                if (id_selected_status == "Off")
+                if (id_selected_status == "On repair")
                 {
                     //Красим в красный
                     dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Red;
                 }
-                if (id_selected_status == "On")
+                else if (id_selected_status == "Normal")
                 {
                     //Красим в зелёный
                     dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Green;
                 }
-                if (id_selected_status == "On repair")
+                else
                 {
                     //Красим в желтый
                     dataGridView1.Rows[i].Cells[4].Style.BackColor = Color.Yellow;

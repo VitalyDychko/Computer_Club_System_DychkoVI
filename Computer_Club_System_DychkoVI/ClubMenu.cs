@@ -78,6 +78,7 @@ namespace Dyczko_ComputerClub_System
         private void OpenChildForm(Form childForm, object btnSender)
         {
             pictureBox1.Visible = false;
+            panel3.Visible = false;
             if (activeForm != null)
                 activeForm.Close();
             ActivateButton(btnSender);
@@ -119,6 +120,7 @@ namespace Dyczko_ComputerClub_System
             panelTitleBar.BackColor = Color.Black;
             lblTitle.BackColor = Color.Black;
             pictureBox1.Visible = true;
+            panel3.Visible = true;
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
@@ -137,11 +139,6 @@ namespace Dyczko_ComputerClub_System
         {
             Information Info = new Information();
             Info.ShowDialog();
-        }
-
-        private void btnDczk_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://vk.com/vitdczk");
         }
 
         private void BtnClose(object sender, EventArgs e)
@@ -177,6 +174,45 @@ namespace Dyczko_ComputerClub_System
             Auth.auth_login = null;
             this.Close();
             new Thread(() => Application.Run(new Login())).Start();
+        }
+
+        private void Servicesbtn(object sender, EventArgs e)
+        {
+            OpenChildForm(new Services(), sender);
+        }
+
+        private void AddStaff_Click(object sender, EventArgs e)
+        {
+            Staff_Add STAD = new Staff_Add();
+            STAD.ShowDialog();
+        }
+
+        private void AddClient_Click(object sender, EventArgs e)
+        {
+            Client_Add CTAD = new Client_Add();
+            CTAD.ShowDialog();
+        }
+
+        private void BtnDeleter_Click(object sender, EventArgs e)
+        {
+            Deleter deleter = new Deleter();
+            deleter.ShowDialog();
+        }
+
+        private void AddComp_Click(object sender, EventArgs e)
+        {
+            Comps_Add CSAD = new Comps_Add();
+            CSAD.ShowDialog();
+        }
+
+        private void AddSeans_Click(object sender, EventArgs e)
+        {
+            Seans_Add SANS = new Seans_Add();
+            SANS.ShowDialog();
+        }
+        private void ClubMenu_Load(object sender, EventArgs e)
+        {
+            Loginlabel.Text = Auth.auth_login;
         }
     }
 }

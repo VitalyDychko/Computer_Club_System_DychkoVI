@@ -75,12 +75,6 @@ namespace Dyczko_ComputerClub_System
             }
         }
 
-        private void BtnClear_Click(object sender, EventArgs e)
-        {
-            NameBox.Clear();
-            SuppBox.Clear();
-        }
-
         private void Comps_Add_Load(object sender, EventArgs e)
         {
             GetTypeList();
