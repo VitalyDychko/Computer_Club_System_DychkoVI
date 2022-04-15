@@ -33,7 +33,7 @@ namespace Dyczko_ComputerClub_System
             dataGridView1.Columns.Add("ID", "Код");
             dataGridView1.Columns.Add("FIO", "ФИО");
             dataGridView1.Columns.Add("Age", "Возраст");
-            dataGridView1.Columns.Add("Sex", "Пол");
+            dataGridView1.Columns.Add("Gen", "Пол");
             dataGridView1.Columns.Add("Number", "Телефонный номер");
             dataGridView1.Columns.Add("Email", "Электронная почта");
             dataGridView1.Columns.Add("IsNew", string.Empty);
@@ -110,7 +110,7 @@ namespace Dyczko_ComputerClub_System
                     var num = dataGridView1.Rows[index].Cells[4].Value.ToString();
                     var mail = dataGridView1.Rows[index].Cells[5].Value.ToString();
 
-                    var changeQuery = $"update Clients set FIO = '{fio}', Age = '{age}', Sex = '{gen}', Number = '{num}', Email = '{mail}' where ID = '{id}'";
+                    var changeQuery = $"update Clients set FIO = '{fio}', Age = '{age}', Gen = '{gen}', Number = '{num}', Email = '{mail}' where ID = '{id}'";
 
                     var command = new MySqlCommand(changeQuery, DB.GetConnection());
                     command.ExecuteNonQuery();

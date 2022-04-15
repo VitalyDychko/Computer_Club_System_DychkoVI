@@ -38,7 +38,7 @@ namespace Dyczko_ComputerClub_System
                 OpenConnection();
                 if (int.TryParse(_age, out int age))
                 {
-                    string commandStr = $"INSERT INTO Clients (FIO, Age, Sex, Number, Email)" +
+                    string commandStr = $"INSERT INTO Clients (FIO, Age, Gen, Number, Email)" +
                         $"VALUES ('{fio}', '{age}','{gen}', '{num}', '{mail}')";
                     using (MySqlCommand cmnd = new MySqlCommand(commandStr, GetConnection()))
                         cmnd.ExecuteNonQuery();
@@ -113,7 +113,7 @@ namespace Dyczko_ComputerClub_System
         public void Edit_Client(object id, string fio, int age, string gen, string num, string mail)
         {
             //Формируем запрос на изменение
-            var changeQuery = $"update Clients set FIO = '{fio}', Age = '{age}', Sex = '{gen}', Number = '{num}', Email = '{mail}' where ID = '{id}'";
+            var changeQuery = $"update Clients set FIO = '{fio}', Age = '{age}', Gen = '{gen}', Number = '{num}', Email = '{mail}' where ID = '{id}'";
             // устанавливаем соединение с БД
             OpenConnection();
             // объект для выполнения SQL-запроса
