@@ -89,7 +89,7 @@ namespace Dyczko_ComputerClub_System
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(991, 493);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // TabRedact
             // 
@@ -140,7 +140,7 @@ namespace Dyczko_ComputerClub_System
             this.btnChange.TabIndex = 2;
             this.btnChange.Text = "Изменить";
             this.btnChange.UseVisualStyleBackColor = false;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            this.btnChange.Click += new System.EventHandler(this.BtnChange_Click);
             // 
             // btnDel
             // 
@@ -156,7 +156,7 @@ namespace Dyczko_ComputerClub_System
             this.btnDel.TabIndex = 1;
             this.btnDel.Text = "Удалить";
             this.btnDel.UseVisualStyleBackColor = false;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.btnDel.Click += new System.EventHandler(this.BtnDel_Click);
             // 
             // panel3
             // 
@@ -342,7 +342,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // toolStripSeparator1
             // 
@@ -364,7 +364,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // toolStripSeparator4
             // 
@@ -386,7 +386,7 @@ namespace Dyczko_ComputerClub_System
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3_Click);
             // 
             // toolStripSeparator5
             // 

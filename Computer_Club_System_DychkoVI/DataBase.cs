@@ -11,10 +11,6 @@ namespace Dyczko_ComputerClub_System
         public double Rub { get; set; } = 0.98;
         public static MySqlConnection Conn { get => conn; set => conn = value; }
         public static MySqlConnection conn = new MySqlConnection("server=chuc.caseum.ru;port=33333;user=st_3_19_5;database=is_3_19_st5_KURS;password=54175268;");
-        private static readonly MySqlDataAdapter MyDA = new MySqlDataAdapter();
-        private static readonly BindingSource bSource = new BindingSource();
-        private static readonly DataSet ds = new DataSet();
-        private static readonly DataTable table = new DataTable();
 
         public void OpenConnection()
         {

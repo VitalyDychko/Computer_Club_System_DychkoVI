@@ -14,7 +14,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Services_Add : Form
     {
-        Database DB = new Database();
+        readonly Database DB = new Database();
         public Services_Add()
         {
             InitializeComponent();

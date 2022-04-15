@@ -17,7 +17,8 @@ namespace Dyczko_ComputerClub_System
         {
             InitializeComponent();
         }
-        string X = "server=chuc.caseum.ru;port=33333;user=st_3_19_5;database=is_3_19_st5_KURS;password=54175268;";
+
+        readonly string X = "server=chuc.caseum.ru;port=33333;user=st_3_19_5;database=is_3_19_st5_KURS;password=54175268;";
 
         public void WorkersCount()
         {

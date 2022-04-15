@@ -125,7 +125,7 @@ namespace Dyczko_ComputerClub_System
             UpdateT();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
 

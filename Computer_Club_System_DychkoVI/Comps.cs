@@ -20,7 +20,8 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-        Database DB = new Database();
+
+        readonly Database DB = new Database();
         int selected_Row;
         public Comps()
         {
@@ -131,8 +132,6 @@ namespace Dyczko_ComputerClub_System
         private void Change()
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
-
-            int id;
             var nam = NameBox.Text;
             var supp = SuppBox.Text;
             var type = TypeBox.Text;
@@ -140,7 +139,8 @@ namespace Dyczko_ComputerClub_System
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(IDBox.Text, out id))
+
+                if (int.TryParse(IDBox.Text, out int id))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id, nam, supp, type, stat);
                     dataGridView1.Rows[selectedRowIndex].Cells[5].Value = RowState.Modified;
@@ -266,7 +266,7 @@ namespace Dyczko_ComputerClub_System
             ChangeColorDGV();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
 
@@ -283,19 +283,19 @@ namespace Dyczko_ComputerClub_System
             }
         }
 
-        private void btnChange_Click(object sender, EventArgs e)
+        private void BtnChange_Click(object sender, EventArgs e)
         {
             Change();
             UpdateT();
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+        private void BtnDel_Click(object sender, EventArgs e)
         {
             DeleteRow();
             UpdateT();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
             ChangeColorDGV();

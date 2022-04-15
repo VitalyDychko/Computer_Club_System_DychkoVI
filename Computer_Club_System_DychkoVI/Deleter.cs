@@ -23,7 +23,8 @@ namespace Dyczko_ComputerClub_System
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        Database DB = new Database();
+
+        readonly Database DB = new Database();
         public delegate void Universal_Remover_Delegate(string table, object id);
         public void GetUniversalList(object table)
         {

@@ -300,7 +300,7 @@ namespace Dyczko_ComputerClub_System
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ДОМАШНЯЯ СТРАНИЦА";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitleBar_MouseDown);
             // 
             // panelTitleBar
             // 
@@ -318,7 +318,7 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(1011, 36);
             this.panelTitleBar.TabIndex = 1;
-            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitleBar_MouseDown);
             // 
             // BtnForLeave
             // 

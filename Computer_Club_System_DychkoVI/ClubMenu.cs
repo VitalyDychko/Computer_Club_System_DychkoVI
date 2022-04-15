@@ -161,7 +161,7 @@ namespace Dyczko_ComputerClub_System
             FM.Show();
         }
 
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);

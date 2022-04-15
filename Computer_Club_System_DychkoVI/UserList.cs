@@ -21,12 +21,7 @@ namespace Dyczko_ComputerClub_System
             ModifiedNew,
             Deleted
         }
-
         readonly Database DB = new Database();
-        private MySqlDataAdapter MySQLData = new MySqlDataAdapter();
-        private BindingSource SourceBind = new BindingSource();
-        private DataTable datatable = new DataTable();
-        private DataSet ds = new DataSet();
         int selected_Row;
         public UserList()
         {
@@ -133,13 +128,12 @@ namespace Dyczko_ComputerClub_System
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
-            int id_iser;
             var loginUser = LoginBox.Text;
             var passUser = PassBox.Text;
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
             {
-                if (int.TryParse(IDBox.Text, out id_iser))
+                if (int.TryParse(IDBox.Text, out int id_iser))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(id_iser, loginUser, passUser);
                     dataGridView1.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
@@ -157,13 +151,13 @@ namespace Dyczko_ComputerClub_System
         }
         #endregion
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             Register REG = new Register();
             REG.ShowDialog();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selected_Row = e.RowIndex;
 
@@ -221,30 +215,30 @@ namespace Dyczko_ComputerClub_System
             #endregion
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+        private void BtnDel_Click(object sender, EventArgs e)
         {
             DeleteRow();
             UpdateT();
         }
 
-        private void btnChange_Click(object sender, EventArgs e)
+        private void BtnChange_Click(object sender, EventArgs e)
         {
             Change();
             UpdateT();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void ToolStripButton3_Click(object sender, EventArgs e)
         {
             User_Add UD = new User_Add();
             UD.Show();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void ToolStripButton2_Click(object sender, EventArgs e)
         {
             User_Edit UE = new User_Edit();
             UE.Show();

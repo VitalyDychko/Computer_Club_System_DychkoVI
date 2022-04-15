@@ -14,7 +14,7 @@ namespace Dyczko_ComputerClub_System
 {
     public partial class Comps_Add : Form
     {
-        Database DB = new Database();
+        readonly Database DB = new Database();
         public delegate void AddCompDelegate(string nam, string supp, object type);
         public Comps_Add()
         {
