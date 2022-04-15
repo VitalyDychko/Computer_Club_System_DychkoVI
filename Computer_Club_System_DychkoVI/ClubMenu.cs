@@ -145,6 +145,7 @@ namespace Dyczko_ComputerClub_System
         {
             Application.Exit();
         }
+
         private void BtnMax(object sender, EventArgs e)
         {
             this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;

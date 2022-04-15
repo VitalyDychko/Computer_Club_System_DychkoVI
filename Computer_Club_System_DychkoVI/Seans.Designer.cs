@@ -213,7 +213,7 @@ namespace Dyczko_ComputerClub_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Seans";
-            this.Text = "Бронь компьютеров";
+            this.Text = "Сеансы";
             this.Load += new System.EventHandler(this.Seans_Load);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

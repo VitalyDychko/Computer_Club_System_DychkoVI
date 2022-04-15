@@ -223,29 +223,9 @@ namespace Dyczko_ComputerClub_System.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Fire {
-            get {
-                object obj = ResourceManager.GetObject("Fire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap free_icon_database_4531114 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-database-4531114", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap free_icon_font_cross_3917050 {
-            get {
-                object obj = ResourceManager.GetObject("free-icon-font-cross-3917050", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,16 +276,6 @@ namespace Dyczko_ComputerClub_System.Properties {
         internal static System.Drawing.Bitmap free_icon_woman_4531110 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-woman-4531110", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap g_earth_0 {
-            get {
-                object obj = ResourceManager.GetObject("g_earth-0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

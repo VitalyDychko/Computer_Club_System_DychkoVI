@@ -42,6 +42,7 @@ namespace Dyczko_ComputerClub_System
             this.panelLogo = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.Loginlabel = new System.Windows.Forms.Label();
             this.BtnForLeave = new System.Windows.Forms.Button();
             this.btnforMin = new System.Windows.Forms.Button();
             this.btnforMax = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@ namespace Dyczko_ComputerClub_System
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Loginlabel = new System.Windows.Forms.Label();
             this.AddSeans = new System.Windows.Forms.Button();
             this.AddComp = new System.Windows.Forms.Button();
             this.BtnDeleter = new System.Windows.Forms.Button();
@@ -99,7 +99,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnServices.ForeColor = System.Drawing.Color.White;
             this.BtnServices.Image = global::Dyczko_ComputerClub_System.Properties.Resources._0noodles;
             this.BtnServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnServices.Location = new System.Drawing.Point(895, 0);
+            this.BtnServices.Location = new System.Drawing.Point(911, 0);
             this.BtnServices.Name = "BtnServices";
             this.BtnServices.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnServices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -123,7 +123,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnBonus.ForeColor = System.Drawing.Color.White;
             this.BtnBonus.Image = global::Dyczko_ComputerClub_System.Properties.Resources._0computer;
             this.BtnBonus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBonus.Location = new System.Drawing.Point(776, 0);
+            this.BtnBonus.Location = new System.Drawing.Point(792, 0);
             this.BtnBonus.Name = "BtnBonus";
             this.BtnBonus.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnBonus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -147,7 +147,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnAuth.ForeColor = System.Drawing.Color.White;
             this.BtnAuth.Image = global::Dyczko_ComputerClub_System.Properties.Resources._0profile;
             this.BtnAuth.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAuth.Location = new System.Drawing.Point(619, 0);
+            this.BtnAuth.Location = new System.Drawing.Point(635, 0);
             this.BtnAuth.Name = "BtnAuth";
             this.BtnAuth.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnAuth.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -171,7 +171,7 @@ namespace Dyczko_ComputerClub_System
             this.BtnInfo.ForeColor = System.Drawing.Color.White;
             this.BtnInfo.Image = global::Dyczko_ComputerClub_System.Properties.Resources._0file;
             this.BtnInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnInfo.Location = new System.Drawing.Point(518, 0);
+            this.BtnInfo.Location = new System.Drawing.Point(534, 0);
             this.BtnInfo.Name = "BtnInfo";
             this.BtnInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnInfo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -199,9 +199,9 @@ namespace Dyczko_ComputerClub_System
             this.BtnSetup.Name = "BtnSetup";
             this.BtnSetup.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.BtnSetup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnSetup.Size = new System.Drawing.Size(101, 41);
+            this.BtnSetup.Size = new System.Drawing.Size(117, 41);
             this.BtnSetup.TabIndex = 4;
-            this.BtnSetup.Text = "Бронь";
+            this.BtnSetup.Text = "Сеансы";
             this.BtnSetup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSetup.UseVisualStyleBackColor = false;
             this.BtnSetup.Click += new System.EventHandler(this.BtnSeans_Click);
@@ -305,6 +305,7 @@ namespace Dyczko_ComputerClub_System
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.Black;
+            this.panelTitleBar.Controls.Add(this.Loginlabel);
             this.panelTitleBar.Controls.Add(this.BtnForLeave);
             this.panelTitleBar.Controls.Add(this.btnforMin);
             this.panelTitleBar.Controls.Add(this.btnforMax);
@@ -319,6 +320,18 @@ namespace Dyczko_ComputerClub_System
             this.panelTitleBar.Size = new System.Drawing.Size(1011, 36);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitleBar_MouseDown);
+            // 
+            // Loginlabel
+            // 
+            this.Loginlabel.AutoSize = true;
+            this.Loginlabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Loginlabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.Loginlabel.ForeColor = System.Drawing.Color.White;
+            this.Loginlabel.Location = new System.Drawing.Point(701, 0);
+            this.Loginlabel.Name = "Loginlabel";
+            this.Loginlabel.Size = new System.Drawing.Size(122, 17);
+            this.Loginlabel.TabIndex = 11;
+            this.Loginlabel.Text = "Администратор";
             // 
             // BtnForLeave
             // 
@@ -419,7 +432,6 @@ namespace Dyczko_ComputerClub_System
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panel3.Controls.Add(this.Loginlabel);
             this.panel3.Controls.Add(this.AddSeans);
             this.panel3.Controls.Add(this.AddComp);
             this.panel3.Controls.Add(this.BtnDeleter);
@@ -431,18 +443,6 @@ namespace Dyczko_ComputerClub_System
             this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel3.Size = new System.Drawing.Size(1011, 41);
             this.panel3.TabIndex = 1;
-            // 
-            // Loginlabel
-            // 
-            this.Loginlabel.AutoSize = true;
-            this.Loginlabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Loginlabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.Loginlabel.ForeColor = System.Drawing.Color.White;
-            this.Loginlabel.Location = new System.Drawing.Point(863, 0);
-            this.Loginlabel.Name = "Loginlabel";
-            this.Loginlabel.Size = new System.Drawing.Size(122, 17);
-            this.Loginlabel.TabIndex = 11;
-            this.Loginlabel.Text = "Администратор";
             // 
             // AddSeans
             // 
@@ -604,6 +604,7 @@ namespace Dyczko_ComputerClub_System
             this.panelforbuttons.PerformLayout();
             this.panelLogo.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
+            this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
             this.panelDesktopPane.PerformLayout();
             this.panel2.ResumeLayout(false);
