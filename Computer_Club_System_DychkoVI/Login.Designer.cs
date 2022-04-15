@@ -382,11 +382,11 @@ namespace Dyczko_ComputerClub_System
             this.AuthBtn.OnIdleState.ForeColor = System.Drawing.Color.Black;
             this.AuthBtn.OnIdleState.IconLeftImage = null;
             this.AuthBtn.OnIdleState.IconRightImage = null;
-            this.AuthBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AuthBtn.OnPressedState.BorderColor = System.Drawing.Color.Yellow;
             this.AuthBtn.OnPressedState.BorderRadius = 1;
             this.AuthBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.AuthBtn.OnPressedState.BorderThickness = 1;
-            this.AuthBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.AuthBtn.OnPressedState.FillColor = System.Drawing.Color.Yellow;
             this.AuthBtn.OnPressedState.ForeColor = System.Drawing.Color.Black;
             this.AuthBtn.OnPressedState.IconLeftImage = null;
             this.AuthBtn.OnPressedState.IconRightImage = null;

@@ -506,7 +506,7 @@ namespace Dyczko_ComputerClub_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clients";
-            this.Text = "Клиент";
+            this.Text = "Клиенты";
             this.Load += new System.EventHandler(this.Clients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

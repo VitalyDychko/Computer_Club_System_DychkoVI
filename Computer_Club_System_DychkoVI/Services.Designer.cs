@@ -208,7 +208,7 @@ namespace Dyczko_ComputerClub_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Services";
-            this.Text = "История заказов";
+            this.Text = "Услуги";
             this.Load += new System.EventHandler(this.Services_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

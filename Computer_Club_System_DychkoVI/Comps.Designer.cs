@@ -498,7 +498,7 @@ namespace Dyczko_ComputerClub_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Comps";
-            this.Text = "Компьютеры и приставки";
+            this.Text = "Компьютеры";
             this.Load += new System.EventHandler(this.Comps_Load);
             this.TabRedact.ResumeLayout(false);
             this.tabEdit.ResumeLayout(false);
