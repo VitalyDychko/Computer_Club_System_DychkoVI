@@ -92,21 +92,6 @@ namespace Dyczko_ComputerClub_System
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }
-        private void BtnSotr_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Staff(), sender);
-        }
-
-        private void BtnClients_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Clients(), sender);
-        }
-
-        private void BtnComp_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Comps(), sender);
-        }
-
         private void BtnCloseChildForm_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -124,44 +109,83 @@ namespace Dyczko_ComputerClub_System
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
+        private void BtnSotr_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff(), sender);
+        }
 
+        private void BtnClients_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Clients(), sender);
+        }
+
+        private void BtnComp_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Comps(), sender);
+        }
         private void BtnAuth_Click(object sender, EventArgs e)
         {
             OpenChildForm(new UserList(), sender);
         }
-
         private void BtnSeans_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Seans(), sender);
         }
-
+        private void Servicesbtn(object sender, EventArgs e)
+        {
+            OpenChildForm(new Services(), sender);
+        }
         private void BtnLicenses_Click(object sender, EventArgs e)
         {
             Information Info = new Information();
             Info.ShowDialog();
         }
-
-        private void BtnClose(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void BtnMax(object sender, EventArgs e)
-        {
-            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-        }
-
-        private void BtnMin(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void BtnBonus_Click(object sender, EventArgs e)
         {
             FunctMenu FM = new FunctMenu();
             FM.Show();
         }
-
+        private void AddStaff_Click(object sender, EventArgs e)
+        {
+            Staff_Add STAD = new Staff_Add();
+            STAD.ShowDialog();
+        }
+        private void AddClient_Click(object sender, EventArgs e)
+        {
+            Client_Add CTAD = new Client_Add();
+            CTAD.ShowDialog();
+        }
+        private void BtnDeleter_Click(object sender, EventArgs e)
+        {
+            Deleter deleter = new Deleter();
+            deleter.ShowDialog();
+        }
+        private void AddComp_Click(object sender, EventArgs e)
+        {
+            Comps_Add CSAD = new Comps_Add();
+            CSAD.ShowDialog();
+        }
+        private void AddSeans_Click(object sender, EventArgs e)
+        {
+            Seans_Add SANS = new Seans_Add();
+            SANS.ShowDialog();
+        }
+        private void BtnClose(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void BtnMax(object sender, EventArgs e)
+        {
+            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+        }
+        private void BtnMin(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void ClubMenu_Load(object sender, EventArgs e)
+        {
+            Loginlabel.Text = Auth.auth_login;
+        }
         private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -175,45 +199,6 @@ namespace Dyczko_ComputerClub_System
             Auth.auth_login = null;
             this.Close();
             new Thread(() => Application.Run(new Login())).Start();
-        }
-
-        private void Servicesbtn(object sender, EventArgs e)
-        {
-            OpenChildForm(new Services(), sender);
-        }
-
-        private void AddStaff_Click(object sender, EventArgs e)
-        {
-            Staff_Add STAD = new Staff_Add();
-            STAD.ShowDialog();
-        }
-
-        private void AddClient_Click(object sender, EventArgs e)
-        {
-            Client_Add CTAD = new Client_Add();
-            CTAD.ShowDialog();
-        }
-
-        private void BtnDeleter_Click(object sender, EventArgs e)
-        {
-            Deleter deleter = new Deleter();
-            deleter.ShowDialog();
-        }
-
-        private void AddComp_Click(object sender, EventArgs e)
-        {
-            Comps_Add CSAD = new Comps_Add();
-            CSAD.ShowDialog();
-        }
-
-        private void AddSeans_Click(object sender, EventArgs e)
-        {
-            Seans_Add SANS = new Seans_Add();
-            SANS.ShowDialog();
-        }
-        private void ClubMenu_Load(object sender, EventArgs e)
-        {
-            Loginlabel.Text = Auth.auth_login;
         }
     }
 }

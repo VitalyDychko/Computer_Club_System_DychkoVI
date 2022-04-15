@@ -82,15 +82,17 @@ namespace Dyczko_ComputerClub_System
             using (MySqlConnection connection = new MySqlConnection(X))
             {
                 connection.Open();
-                string sql2 = $"SELECT ID_s, Service, Price FROM Services";
+                string sql2 = $"select * from Services,Prices where Services.ID_s=Prices.id";
                 MySqlCommand command2 = new MySqlCommand(sql2, connection);
                 MySqlDataReader reader = command2.ExecuteReader();
                 while (reader.Read())
                 {
                     lb2.Items.Add("Услуга:");
-                    lb2.Items.Add(reader[1].ToString());
+                    lb2.Items.Add(reader["Service"]);
+                    lb2.Items.Add("Описание:");
+                    lb2.Items.Add(reader["Description"]);
                     lb2.Items.Add("Цена:");
-                    lb2.Items.Add(reader[2].ToString());
+                    lb2.Items.Add(reader["Price"]);
                     lb2.Items.Add("##############################");
                 }
                 connection.Close();
